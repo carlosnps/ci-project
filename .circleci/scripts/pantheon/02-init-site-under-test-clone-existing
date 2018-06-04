@@ -20,7 +20,7 @@ else
   if [ $CIRCLE_BRANCH = 'master' ]; then
     terminus -n build:env:create "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content --notify="$NOTIFY"
   else
-    terminus -n build:env:create "$TERMINUS_SITE" "$CIRCLE_BRANCH" --yes --clone-content --notify="$NOTIFY"
+    terminus -n build:env:create "$TERMINUS_SITE." "$CIRCLE_BRANCH" --yes --clone-content --notify="$NOTIFY"
   fi
 fi
 
