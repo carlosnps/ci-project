@@ -7,8 +7,8 @@ DEFAULT_ENV=$CIRCLE_BRANCH
 if [ "$DEFAULT_ENV" != "master" ]; then
   (
     echo "export DEFAULT_ENV='$DEFAULT_ENV'"
-    echo 'export TERMINUS_ENV=${TERMINUS_ENV:-$DEFAULT_ENV}'
+    echo 'export TERMINUS_ENV=${TERMINUS_ENV:$DEFAULT_ENV}'
   ) >> $BASH_ENV
   source $BASH_ENV
 fi
-echo "leaving yale prepare and default_env is set to $DEFAULT_ENV"
+echo "leaving yale prepare and default_env is set to $DEFAULT_ENV and TERMINUS_ENV is $TERMINUS_ENV"
