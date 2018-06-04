@@ -1,7 +1,7 @@
 uuid: bbeb2c13-7376-4f26-a2e4-83a1e6795f5d
 name: ci-project
 mail: carlos.coto@yale.edu
-slogan: 'My CI Site'
+slogan: 'My CI Site -- changed Pantheon defaul env'
 page:
   403: ''
   404: ''
