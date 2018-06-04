@@ -11,7 +11,13 @@ set -eo pipefail
 
 # Create a new multidev site to test on
 terminus -n env:wake "$TERMINUS_SITE.dev"
-terminus -n build:env:create "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content --notify="$NOTIFY"
+# Carlos only build the if it does not exist
+STR=`terminus build-env:list $CIRCLE_PROJECT_REPONAME $CIRCLE_BRANCH --fields=ID --format=string`
+if [ "$STR" = "$TERMINUS_ENV"]; then
+  terminus -n build-env:push-code  "$TERMINUS_SITE.dev" "$CIRCLE_BRANCH" --yes 
+else
+  terminus -n build:env:create "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content --notify="$NOTIFY"
+fi
 
 # Run updatedb to ensure that the cloned database is updated for the new code.
 terminus -n drush "$TERMINUS_SITE.$TERMINUS_ENV" -- updatedb -y
