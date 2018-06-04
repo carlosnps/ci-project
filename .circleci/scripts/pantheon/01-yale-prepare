@@ -6,7 +6,7 @@ echo "in Yale version of setting default_env"
 if [ "$CIRCLE_BRANCH" != "master" ]; then
   (
     echo "export DEFAULT_ENV='$CIRCLE_BRANCH'"
-    echo 'export TERMINUS_ENV=${TERMINUS_ENV:$DEFAULT_ENV}'
+    echo 'export TERMINUS_ENV=${TERMINUS_ENV:$CIRCLE_BRANCH}'
   ) >> $BASH_ENV
   source $BASH_ENV
 fi
