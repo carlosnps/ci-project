@@ -14,8 +14,11 @@ set -eo pipefail
 #   Additionally, we need to check for the Lock flag (in Dev for development / business user testing)
 #   Once we have correct tests in place, we can ignore the Lock Flag
 
-./.circleci/scripts/pantheon/01-yale-prepare
-
+# ./.circleci/scripts/pantheon/01-yale-prepare
+if [ "$CIRCLE_BRANCH" != "master" ]; then
+  DEFAULT_ENV=$CIRCLE_BRANCH
+  TERMINUS_ENV={$TERMINUS_SITE:$CIRCLE_BRANCH}
+fi
 echo "Begin build for $DEFAULT_ENV. Pantheon test environment is $TERMINUS_SITE.$TERMINUS_ENV"
 
 # Log in via Terminus
