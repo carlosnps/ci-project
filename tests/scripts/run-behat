@@ -32,5 +32,5 @@ fi
 
 echo "terminusenv is $TERMINUS_ENV and TERMINUS_SITE is $TERMINUS_SITE"
 export BEHAT_PARAMS='{"extensions" : {"Behat\\MinkExtension" : {"base_url" : "https://'$TERMINUS_ENV'-'$TERMINUS_SITE'.pantheonsite.io/"}, "Drupal\\DrupalExtension" : {"drush" :   {  "alias":  "@pantheon.'$TERMINUS_SITE'.'$TERMINUS_ENV'" }}}}'
-echo "behat params are $"BEHAT_PARAMS"
+echo "behat params are $BEHAT_PARAMS"
 cd tests && ../vendor/bin/behat --config=behat-pantheon.yml "$@"
