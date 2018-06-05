@@ -27,7 +27,7 @@ terminus aliases --print -vvv
 echo "\$options['strict'] = 0;" >> ~/.drush/pantheon.aliases.drushrc.php
 
 if [ "$CIRCLE_BRANCH" != "master" ]; then
-  TERMINUS_ENV = $CIRCLE_BRANCH
+  TERMINUS_ENV=$CIRCLE_BRANCH
 fi
 
 echo "terminusenv is $TERMINUS_ENV and TERMINUS_SITE is $TERMINUS_SITE"
