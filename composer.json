@@ -157,9 +157,6 @@
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "autoloader-suffix": "Drupal8",
-        "sort-packages": true,
-        "platform": {
-            "php": "7.0.8"
-        }
+        "sort-packages": true
     }
 }
