@@ -11,7 +11,7 @@ set -eo pipefail
 
 # Create a new multidev site to test on
 terminus -n env:wake "$TERMINUS_SITE.dev"
-# Carlos only build the if it does not exist
+# Only build the if it does not exist
 STR=`terminus build-env:list $CIRCLE_PROJECT_REPONAME $CIRCLE_BRANCH --fields=ID --format=string`
 echo "str is set to $STR and terminusenv is $TERMINUS_ENV"
 if [ "$STR" = "$TERMINUS_ENV" ]; then
