@@ -15,11 +15,14 @@ terminus -n env:wake "$TERMINUS_SITE.dev"
 STR=`terminus build-env:list $CIRCLE_PROJECT_REPONAME $CIRCLE_BRANCH --fields=ID --format=string`
 echo "str is set to $STR and terminusenv is $TERMINUS_ENV"
 if [ "$STR" = "$TERMINUS_ENV" ]; then
+  echo "Pusing code to $TERMINUS_SITE $CIRCLE_BRANCH"
   terminus -n build-env:push-code  "$TERMINUS_SITE" "$CIRCLE_BRANCH" --yes
 else
   if [ $CIRCLE_BRANCH = 'master' ]; then
+    echo "Master Branch Building $TERMINUS_SITE.dev on $CIRCLE_BRANCH and copying data"
     terminus -n build:env:create "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content --notify="$NOTIFY"
   else
+    echo "Building $TERMINUS_SITE.dev on $CIRCLE_BRANCH and copying data"
     terminus -n build:env:create "$TERMINUS_SITE.dev" "$CIRCLE_BRANCH" --yes --clone-content --notify="$NOTIFY"
     TERMINUS_ENV=$CIRCLE_BRANCH
   fi
