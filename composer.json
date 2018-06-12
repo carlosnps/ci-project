@@ -155,7 +155,6 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "autoloader-suffix": "Drupal8",
         "sort-packages": true
     }
 }
