@@ -1,0 +1,95 @@
+langcode: en
+status: true
+dependencies: {  }
+id: gnam_node_teams
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: gnam
+label: 'Nodes (Teams)'
+source:
+  plugin: d7_node
+  node_type: teams
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_teams/0/status: comment
+  body:
+    plugin: get
+    source: body
+  field_team_name:
+    plugin: get
+    source: title
+  field_presentation:
+    plugin: iterator
+    source: field_presentation
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_report:
+    plugin: iterator
+    source: field_report
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_member_school:
+    plugin: get
+    source: field_school
+  field_team_members:
+    -
+      plugin: skip_on_empty
+      method: process
+      # This is an artificial field we'll be creating in a module hook
+      source: field_team_member_new
+    -
+      plugin: migration_lookup
+      # This must be the name of the accompanying field collection to paragraph migration
+      migration: gnam_team_member
+      no_stub: true
+    -
+      plugin: iterator
+      process:
+        target_id: '0'
+        target_revision_id: '1'
+  field_image:
+    plugin: iterator
+    source: field_team_photo
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_portfolio_index_rtd:
+    plugin: get
+    source: field_index_return_to_date
+  field_portfolio_pct_change_daily:
+    plugin: get
+    source: field_percent_change
+  field_portfolio_rtd:
+    plugin: get
+    source: field_return_to_date
+  field_portfolio_net_rtd:
+    plugin: get
+    source: field_return_to_date_comparison
+destination:
+  plugin: 'entity:node'
+  default_bundle: teams

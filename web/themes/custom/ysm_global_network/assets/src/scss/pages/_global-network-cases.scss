@@ -1,0 +1,16 @@
+.node--type-global-network-cases.node--view-mode-teaser {
+a img {
+	border: none;
+}
+ @include breakpoint($bp-tablet) { 
+ width: span(12);
+ margin-bottom: 40px;
+ }
+	 p {
+	 font-size: rem(16) !important;
+	 line-height: rem(24);
+	 font-family: $font-family-light;
+	 margin-right: rem(80);
+	}
+}
+

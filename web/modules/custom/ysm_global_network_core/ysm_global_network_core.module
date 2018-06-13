@@ -1,0 +1,163 @@
+<?php
+
+/**
+ * @file
+ * Contains ysm_global_network_core.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ysm_global_network_core_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ysm_global_network_core module.
+    case 'help.page.ysm_global_network_core':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Core functionality for the YSM Global Network site') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+	
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function ysm_global_network_core_page_attachments_alter(array &$attachments) {
+	foreach ($attachments['#attached']['html_head'] as $key => $attachment) {
+		if ($attachment[1] == 'system_meta_generator') {
+			unset($attachments['#attached']['html_head'][$key]);
+		}
+	}
+}
+
+/**
+ * Runs team calculations import
+ * Implements hook_cron().
+ */
+function ysm_global_network_core_cron() {
+
+
+  $config = \Drupal::config('ysm_global_network_core.settings');
+
+  // Somewhere later in the method
+  $interval_string = $config->get('team_import_interval', '1 day');
+  if( empty($interval_string) ) $interval_string = '1 day';
+
+  // Get interval
+  $interval = strtotime($interval_string, 0);
+
+  // Check interval
+  $last_run = $config->get('team_import_last');
+  if( $last_run + $interval < time() ) {
+
+    Drupal::configFactory()->getEditable('ysm_global_network_core.settings')->set('team_import_last', time() )->save();
+
+    \Drupal::logger('ysm_global_network_core')->notice("Team calculations import started.");
+
+    $migrationService = \Drupal::service('plugin.manager.migration');
+    /** @var \Drupal\migrate\Plugin\Migration */
+    $migration = $migrationService->createInstance('team_calculations');
+
+    if( $migration ) {
+      $map = $migration->getIdMap();
+      $update = $map->prepareUpdate();
+
+      /** @var \Drupal\migrate_tools\MigrateExecutable */
+      $executable = new \Drupal\migrate_tools\MigrateExecutable($migration, new \Drupal\migrate\MigrateMessage());
+
+      $result = $executable->import();
+      $failedCount = $executable->getFailedCount();
+
+      \Drupal::logger('ysm_global_network_core')->notice("Team calculations import finished. @failed failed.", ['@failed'=> $failedCount]);
+    }
+    else {
+      \Drupal::logger('ysm_global_network_core')->error("Team calculations import not found, do you need to import the configuration?");
+    }
+  }
+}
+
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function ysm_global_network_core_views_data_alter( array &$data ) {
+	
+	$data['node_field_data']['ysm_gn_date_upcoming'] = array(
+		'title' => t('YSM GN Events Upcoming'),
+		'filter' => array(
+			'title' => t('YSM GN Events Upcoming'),
+			'help' => t('Filter & sort events by upcoming / previous.'),
+			'field' => 'nid',
+			'allow empty' => false, // Custom option here to limit the available values
+			'id' => 'ysm_gn_event_upcoming',
+		),
+	);
+	$data['node_field_data']['ysm_gn_date_type'] = array(
+		'title' => t('YSM GN Event Type'),
+		'filter' => array(
+			'title' => t('YSM GN Event Type'),
+			'help' => t('Filter events by .'),
+			'field' => 'nid',
+			'allow empty' => false, // Custom option here to limit the available values
+			'id' => 'ysm_gn_event_type',
+		),
+	);
+}
+
+/**
+ * Implements hook_entity_view().
+ */
+function ysm_global_network_core_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $node, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+
+  // Delete the default book navigation added by the book module
+  if ($view_mode == 'full') {
+    if (!empty($node->book['bid']) && empty($node->in_preview)) {
+      if( !empty( $build['book_navigation'] ) ) {
+        unset( $build['book_navigation'] );
+      }
+    }
+  }
+}
+
+/**
+ *
+ * Once the address fieldset has been built we
+ * @param $element
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param array $complete_form
+ *
+ * @return mixed
+ */
+function yale_global_network_core_processAddressForm(&$element, FormStateInterface $form_state, array &$complete_form) {
+  if( isset($element['locality']) ) {
+    $element['locality']['#required'] = false;
+  }
+  return $element;
+}
+
+/**
+ * We alter the basic settings for the address field, adding in our custom
+ * process function after the address fieldset has been built
+ * Implements hook_element_info_alter().
+ */
+function ysm_global_network_core_element_info_alter(array &$info) {
+  $info['address']['#process'][] = 'yale_global_network_core_processAddressForm';
+}
+
+/**
+ * Alter the basic validations for the AddressFormat. We substitute the
+ * \Drupal\address\Plugin\Validation\Constraint\AddressFormatConstraintValidator
+ * plugin with our own extended version. NB This also requires a companion
+ * class YsmAddressFormat
+ * Implements hook_validation_constraint_alter().
+ */
+function ysm_global_network_core_validation_constraint_alter(array &$definitions) {
+  $definitions['AddressFormat']['class'] = 'Drupal\ysm_global_network_core\Plugin\Validation\Constraint\YsmAddressFormatConstraint';
+}
+
+

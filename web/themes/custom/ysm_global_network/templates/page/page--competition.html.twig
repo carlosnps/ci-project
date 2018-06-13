@@ -1,0 +1,51 @@
+{%
+	set main_attributes = create_attribute({
+		'class': ['page', 'competition'],
+		'id': 'main',
+		'role': 'main'
+	})
+%}
+{% if book.field_is_current.value %}
+  {% set main_attributes = main_attributes.addClass(['is-current']) %}
+{% endif %}
+
+<main {{ main_attributes }}>
+	<header class="page__header container" role="banner">
+		<div>
+			<nav class="page__header--competition-nav">
+        {{ ysm_menu('competition-menu', 0) }}
+			</nav>
+			<div class="page__header--intro">
+				<a href="/" title="Home" rel="home">Global Network for Advanced Management</a> presents
+			</div>
+
+			{% if header_link_node %}
+			{% if book.field_is_current.value %}
+				{% set title_value = 'Global Network Investment Competition' %}
+			{% else %}
+				{% set title_value = header_link_node.title.value %}
+			{% endif %}
+			<h1 class="page__header--title">
+				<a href="{{ path('entity.node.canonical', {'node': header_link_node.id}) }}" title="{{ header_link_node.title.value }}" rel="home">{{ title_value }}</a>
+			</h1>
+			{% endif %}
+      {% if node.bundle == 'competition' and node.field_is_current and node.field_subheading %}
+				<p class="page__header--sub-heading">{{ node.field_subheading.value }}</p>
+      {% endif %}
+
+		</div>
+	</header>
+	<div id="page" class="page__content">
+    {% if page.navigation %}
+			<div class="page__navigation">{{ page.navigation }}</div>
+    {% endif %}
+		<div class="page__article" id="main-content">{{ page.content }}</div>
+    {% if page.sidebar %}
+			<div class="page__sidebar">{{ page.sidebar }}</div>
+    {% endif %}
+	</div>
+	<footer class="page__footer container" role="contentinfo">
+		<div class="page__footer--logo"><a href="/"><img alt="Global Network for Advanced Management logo" src="/themes/custom/ysm_global_network/assets/dist/images/gnam_revised-logo-white-1.svg" /></a></div>{{ page.footer }}
+		<p class="copyright">© {{ "now"|date("Y") }} Global Network for Advanced Management. All rights reserved.</p>
+	</footer>
+</main>

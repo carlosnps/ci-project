@@ -1,0 +1,130 @@
+langcode: en
+status: true
+dependencies: {  }
+id: gnam_node_news
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: gnam
+label: 'Nodes (News)'
+source:
+  plugin: d7_node
+  node_type: news
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_news/0/status: comment
+  body:
+    plugin: get
+    source: body
+  field_short_title:
+    plugin: get
+    source: field_news_short_title
+  field_teaser:
+    plugin: get
+    source: field_news_teaser
+  field_inline_image:
+    plugin: iterator
+    source: field_news_inline_image
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_featured_image:
+    plugin: iterator
+    source: field__news_featured_image
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_categories:
+    plugin: iterator
+    source: field_news_category
+    process:
+      target_id: tid
+  field_topics:
+    plugin: iterator
+    source: field_news_topics
+    process:
+      target_id: tid
+  field_member_school_term:
+    plugin: get
+    source: field_news_member_school
+  field_member_school:
+    plugin: static_map
+    source: field_news_member_school
+    # There are only ~20 examples so we map from term id to node nid statically
+    map:
+      8:	35152	#Asian Institute of Management
+      9:	35234	#EGADE Business School, Tecnológico de Monterrey
+      10:	35153	#ESMT Berlin
+      11:	35154	#FGV Escola de Administração de Empresas de São Paulo
+      12:	35241	#Fudan University School of Management
+      38:	35235	#Haas School of Business, University of California Berkeley
+      15:	35246	#HEC Paris
+      13:	35242	#Hitotsubashi University, Graduate School of International Corporate Strategy
+      16:	35155	#Hong Kong University of Science and Technology Business School
+      17:	35247	#IE Business School
+      18:	35248	#IMD
+      19:	35238	#INCAE Business School
+      20:	35156	#Indian Institute of Management Bangalore
+      21:	35249	#INSEAD
+      22:	35157	#Koç University Graduate School of Business
+      36:	35250	#Lagos Business School, Pan-Atlantic University
+      23:	35251	#London School of Economics and Political Science, Department of Management
+      24:	35158	#National University of Singapore Business School
+      25:	35239	#Pontificia Universidad Católica de Chile School of Business
+      26:	35159	#Renmin University of China School of Business
+      no:	35252	#Saïd Business School, University of Oxford
+      35:	35161	#Sauder School of Business, University of British Columbia
+      27:	35160	#Seoul National University Business School
+      28:	35253	#Technion-Israel Institute of Technology
+      29:	35162	#UCD Michael Smurfit Graduate Business School
+      30:	35163	#University of Cape Town Graduate School of Business
+      31:	35254	#University of Ghana Business School
+      32:	35164	#University of Indonesia Faculty of Economics
+      33:	35165	#Yale School of Management
+      #34: Global Network term doesn't have a member school
+    default_value: null
+  field_author:
+    plugin: get
+    source: field_news_author
+  field_date:
+    plugin: iterator
+    source: field_published_date
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+destination:
+  plugin: 'entity:node'
+  default_bundle: news
+migration_dependencies:
+#  required:
+#    - gnam_user
+#    - gnam_node_type
+#  optional:
+#    - gnam_field_instance
+#    - gnam_comment_field_instance

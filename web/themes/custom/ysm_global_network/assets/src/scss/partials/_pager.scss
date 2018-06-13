@@ -1,0 +1,15 @@
+.js-pager__items {
+  list-style: none;
+  margin    : rem(50) 0;
+
+  li {
+    display     : inline-block;
+    margin-right: rem(30);
+    font-family : $font-family-condensed;
+    font-size   : rem(16);
+
+    a {
+      @extend %button !optional;
+    }
+  }
+}

@@ -1,0 +1,104 @@
+.team-performance table {
+  /* Custom field styles */
+  .team-list__school {
+    @include breakpoint($bp-tablet) {
+      width: span(3);
+    }
+
+    a {
+      @extend %hover-to-underline !optional;
+    }
+  }
+}
+
+.team-list {
+  @include breakpoint($bp-tablet) {
+    .content-group & {
+      margin-right: $gutter-double;
+    }
+  }
+
+  &__team {
+    display   : flex;
+    margin    : 0 $gutter-negative*2;
+    padding   : $gutter-double;
+    transition: background 0.2s ease-in 0.1s;
+
+    &:hover {
+      background: currentColor;
+      cursor    : pointer;
+
+      .team-list__main,
+      .team-list__net-rtd {
+        color: $color_white;
+
+        a {
+          @extend %link-reverse !optional;
+          @extend %hover-to-underline !optional;
+          color: $color_white;
+        }
+
+        .use-color,
+        div,
+        span::before {
+          color: $color_white;
+        }
+      }
+    }
+  }
+
+  &__main,
+  &__net-rtd {
+    color: $color_shark;
+  }
+
+  &__net-rtd {
+    font-size     : rem(32);
+    letter-spacing: -2px;
+    min-width     : rem(160);
+    padding-right : $gutter;
+    width         : span(2);
+
+    &::after {
+      content  : '%';
+      display  : inline-block;
+      font-size: rem(14);
+    }
+  }
+
+  &__main {
+    flex: 1 1 auto;
+  }
+
+  &__title {
+    margin: 0;
+
+    a {
+      @extend %hover-to-underline !optional;
+    }
+  }
+
+  &__school {
+    h5 {
+      font-size: rem(14);
+      margin   : 0;
+
+      a {
+        @extend %hover-to-underline !optional;
+      }
+
+      .use-color {
+        color: $color_shark;
+      }
+    }
+  }
+
+  &__portfolio-index {
+    color    : $color_gray;
+    font-size: rem(11);
+
+    a {
+      @extend %link-gray !optional;
+    }
+  }
+}

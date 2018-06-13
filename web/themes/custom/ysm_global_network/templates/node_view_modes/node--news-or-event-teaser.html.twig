@@ -1,0 +1,38 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    'node-teaser',
+    'node-teaser__expandable',
+    'color-' ~ member_info.nid,
+    'use-color-hover-children',
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode__' ~ view_mode|clean_class,
+    'js--expanding-teaser'
+  ]
+%}
+{{ attach_library('classy/node') }}
+<article{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if not page %}
+    <h2{{ title_attributes }}>
+      <a href= "{{ url }}" class="use-color-hover">{{ label }}</a>
+    </h2>
+  {% endif %}
+  <div class="node-teaser__content js--expanding-teaser--content">
+    <div class="node-teaser__text">
+    	<span class="datestamp">{{ content.field_date}}</span>
+    	{{ content.field_teaser|raw }}
+      {% if content.field_member_school[0] is not empty or content.field_tags|field_value is not empty %}
+    	 <footer class="tags use-color use-color-children">{{ content.field_member_school[0] }}{{ content.field_tags }}</footer>
+      {% endif %}
+    </div>
+    {% if content.field_featured_image|render %}
+    <div class="node-teaser__image use-color">
+    	{{ content.field_featured_image }}
+    </div>
+    {% endif %}
+  </div>
+</article>

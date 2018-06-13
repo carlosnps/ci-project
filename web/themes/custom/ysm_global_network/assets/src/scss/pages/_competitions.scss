@@ -1,0 +1,46 @@
+.competition {
+  &__main {
+    margin: 2rem 0;
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+
+  &__aside {
+    margin: 2rem 0;
+
+    .node-teaser__title {
+      margin-top: 0;
+      @extend h3 !optional;
+    }
+    @include breakpoint($bp-tablet) {
+      > * {
+        margin-bottom: 2rem;
+
+        &:nth-child(2) {
+          order: -1;
+        }
+      }
+
+    }
+  }
+
+  &__sponsors {
+    &--by {
+      font-family   : $font-family-condensed-bold;
+      font-size     : rem(12);
+      margin-bottom : 1rem;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size : rem(18);
+      margin-top: 0;
+    }
+
+    a {
+      @extend %hover-remove-underline !optional;
+    }
+  }
+}

@@ -1,0 +1,139 @@
+.page table {
+  /* Default styles */
+  font-family : $font-family-condensed;
+  table-layout: fixed;
+  @include breakpoint($bp-tablet-below) {
+    display: block;
+  }
+
+  tbody {
+    @include breakpoint($bp-tablet-below) {
+      display: block;
+    }
+  }
+
+  td {
+    border-bottom: $color_alto 1px solid;
+    padding      : $gutter;
+    @include breakpoint($bp-tablet-below) {
+      border-bottom: none;
+      display      : block;
+      padding      : 0;
+
+      &:first-child {
+        padding-top: $gutter;
+      }
+
+      &:last-child {
+        border-bottom : $color_alto 1px solid;
+        padding-bottom: $gutter;
+      }
+    }
+
+    * {
+      font-size: rem(16);
+    }
+  }
+
+  th {
+    text-align    : left;
+    border-bottom : $color_alto 4px solid;
+    padding       : rem(5) $gutter;
+    position      : relative;
+    vertical-align: bottom;
+  }
+
+  thead {
+    @extend h3;
+    font-size: rem(10);
+    @include breakpoint($bp-tablet-below) {
+      display: none;
+    }
+
+    a {
+      @include icon(chevrons-expand-vertical,linearicons,right);
+      @extend %hover-remove-underline !optional;
+      position: static;
+
+      &::after {
+        font-size: rem(16);
+        position : absolute;
+        right    : 0;
+        bottom   : rem(5);
+      }
+    }
+
+    .is-active {
+      a {
+        color: $color_shark;
+
+        &::after {
+          display: none;
+        }
+
+        .tablesort {
+          background-image: none;
+          height          : 0;
+          width           : 0;
+
+          &::after {
+            font-size: rem(13);
+            position : absolute;
+            right    : 0;
+            bottom   : rem(7);
+          }
+
+          &--asc {
+            @include icon(chevron-up,linearicons,right);
+          }
+
+          &--desc {
+            @include icon(chevron-down,linearicons,right);
+          }
+        }
+      }
+    }
+  }
+
+  tr {
+    @include breakpoint($bp-tablet-below) {
+      display: block;
+    }
+    /* Highlighting color rows */
+    &[class*=color-] {
+      a,
+      span,
+      td .use-color {
+        color: $color_shark;
+      }
+
+      &:hover {
+        .use-color {
+          @include breakpoint($bp-tablet) {
+            background-color: currentColor;
+
+            .use-color {
+              background-color: transparent;
+            }
+          }
+
+          a {
+            @extend %link-reverse !optional;
+            color: inherit;
+            @include breakpoint($bp-tablet) {
+              color: $color_white;
+            }
+          }
+        }
+        @include breakpoint($bp-tablet) {
+          *::after,
+          *::before,
+          span,
+          time {
+            color: $color_white;
+          }
+        }
+      }
+    }
+  }
+}

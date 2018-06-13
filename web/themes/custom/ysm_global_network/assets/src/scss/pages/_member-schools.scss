@@ -1,0 +1,190 @@
+.member-schools {
+  &__description {
+    margin    : 0 auto;
+    text-align: center;
+    @include breakpoint($bp-desktop) {
+      width: span(6 of 8);
+    }
+
+    img {
+      display   : block;
+      margin    : 0 auto 3rem;
+      max-height: rem(180);
+      width     : auto;
+      @include breakpoint($bp-tablet) {
+        max-width: rem(500);
+      }
+    }
+  }
+
+  &__gallery {
+    margin    : 2rem auto;
+    text-align: center;
+    @include breakpoint($bp-desktop) {
+      width: span(6 of 8);
+    }
+  }
+
+  &__metadata {
+    margin    : 0 auto;
+    text-align: center;
+    @include breakpoint($bp-desktop) {
+      width: span(6 of 8);
+    }
+
+    &-item {
+      display    : inline-block;
+      font-family: $font-family-bold;
+      margin     : 0 $gutter;
+    }
+  }
+
+  &__activity {
+    margin: 3rem 0;
+
+    &--network-week {
+      h5 {
+        @include icon(calendar-text);
+      }
+    }
+
+    &--certificate-excellence {
+      h5 {
+        @include icon(license2);
+      }
+    }
+
+    &--network-courses {
+      h5 {
+        @include icon(laptop-phone);
+      }
+    }
+
+    &--network-teams {
+      h5 {
+        @include icon(graph);
+      }
+    }
+
+    &--block {
+      margin-bottom: 3rem;
+    }
+
+    &--grid-item {
+      h5 {
+        color     : $color_shark;
+        font-size : rem(12);
+        text-align: center;
+
+        &::before {
+          display  : block;
+          font-size: rem(32);
+          margin   : 0 0 0.5rem;
+        }
+      }
+      @include breakpoint($bp-tablet) {
+        display: flex;
+
+        > h5 {
+          border-right: 4px $color_shark solid;
+          padding     : $gutter;
+          margin-right: $gutter-double;
+          max-width   : rem(120);
+          width       : span(1 of 5);
+        }
+
+        > div {
+          flex: 1 1;
+        }
+      }
+    }
+  }
+
+  &--list {
+    // Drupal doens't accept double underscores in classes
+    .semantic-list {
+      @include breakpoint($bp-tablet) {
+        column-count: 3;
+        column-gap  : $gutter-double;
+        flex        : 1 1;
+
+        li {
+          break-inside       : avoid;
+          display            : inline-block; // needed for FF
+          column-break-inside: avoid;
+          page-break-inside  : avoid;
+          width              : 100%;
+        }
+
+        h5 {
+          margin-top: 0;
+        }
+      }
+      text-align: left;
+
+    }
+  }
+
+  &__list {
+    text-align: center;
+
+    & &--button {
+      margin: 2rem auto 1rem;
+    }
+
+    #member-schools__list--input:checked {
+      ~ .member-schools__list--button {
+        @extend %button-active !optional;
+
+        &::after {
+          transform : rotate(180deg);
+          transition: transform 0.2s ease-in;
+        }
+      }
+
+      ~ .views-element-container {
+        opacity   : 1;
+        max-height: rem(2000);
+        @include breakpoint($bp-tablet) {
+          max-height: rem(1000);
+        }
+      }
+    }
+
+    .views-element-container {
+      max-height: 0;
+      opacity   : 0;
+      overflow  : hidden;
+      transition: max-height 0.3s ease-in, opacity 0.2s ease-in;
+    }
+  }
+
+  &__participating {
+    @include breakpoint($bp-tablet) {
+      column-count: 2;
+      column-gap  : $gutter-double;
+    }
+    margin-bottom: 2rem;
+
+    > * {
+      break-inside       : avoid;
+      column-break-inside: avoid;
+      page-break-inside  : avoid;
+    }
+  }
+
+  .country {
+    + .country {
+      &::before {
+        content    : ', ';
+        margin-left: -0.25rem;
+      }
+    }
+  }
+}
+
+.page-node-type-member-schools {
+  #block-ysm-global-network-page-title {
+    display: none;
+  }
+}

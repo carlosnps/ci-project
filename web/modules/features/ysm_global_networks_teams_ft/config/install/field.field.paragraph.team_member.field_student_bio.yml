@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_student_bio
+    - paragraphs.paragraphs_type.team_member
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    weight: '0'
+    geocode_field: parent_id
+    reverse_geocode_field: {  }
+    hidden: 0
+    disabled: 0
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: paragraph.team_member.field_student_bio
+field_name: field_student_bio
+entity_type: paragraph
+bundle: team_member
+label: 'Student Bio'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

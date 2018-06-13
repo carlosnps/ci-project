@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: perspective_home_page_items
+label: 'Perspective Home Page Items'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

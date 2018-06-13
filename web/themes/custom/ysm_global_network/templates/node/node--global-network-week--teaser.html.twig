@@ -1,0 +1,33 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode__' ~ view_mode|clean_class,
+    'node-teaser',
+    'node-teaser__expandable',
+    'js--expanding-teaser',
+  ]
+%}
+{{ attach_library('classy/node') }}
+<article{{ attributes.addClass(classes) }}>
+	<h2>
+		<a href="{{ url }}" rel="bookmark">{{ label }}</a>
+	</h2>
+	{% set start = content.field_start_date[0]['#markup'] | date('U') %}
+	{% set end = content.field_end_date[0]['#markup'] | date('U') %}
+	<div class="node-teaser__date">{% include directory ~ '/templates/parts/dateformatting.html.twig' %}</div>
+	<div class="node-teaser__content js--expanding-teaser--content">
+		<div class="node-teaser__text">
+			{{ content.field_teaser }}
+			{% if content.field_module_course.0 is not empty %}
+				<h5>Participating Member Schools</h5>
+				<div class="member-schools__participating">
+					{{ content.field_module_course }}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</article>

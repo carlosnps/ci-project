@@ -1,0 +1,24 @@
+name: 'Teams FT'
+description: 'Provides Teams content type and related configuration. '
+type: module
+core: 8.x
+dependencies:
+  - entity_reference_revisions
+  - fences
+  - field
+  - field_group
+  - file
+  - geocoder_field
+  - image
+  - inline_entity_form
+  - menu_ui
+  - node
+  - paragraphs
+  - path
+  - taxonomy
+  - text
+  - user
+  - views
+  - ysm_global_networks_competition_ft
+version: 8.x-1.1
+package: 'YSM Global Networks'

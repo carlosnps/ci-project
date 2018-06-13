@@ -1,0 +1,38 @@
+.page table {
+  /* Custom field styles */
+  .field--name-title {
+    font-family: $font-family-condensed-bold;
+  }
+
+  tr span.field__date {
+    color         : $color_gray;
+    font-size     : rem(10);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space   : nowrap;
+
+    time {
+      color         : $color_shark;
+      display       : block;
+      font-size     : 1rem;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+  }
+
+  .views-field-field-topics {
+    span:nth-child(n + 2) {
+      &::before {
+        content    : ', ';
+        margin-left: -0.25rem;
+      }
+    }
+  }
+
+  .views-field-field-fees {
+    span::before {
+      margin-right: 0;
+      white-space : nowrap;
+    }
+  }
+}

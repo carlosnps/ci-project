@@ -1,0 +1,12 @@
+name: 'Book FT'
+type: module
+core: 8.x
+dependencies:
+  - block
+  - block_content
+  - book
+  - paragraphs
+  - ysm_global_network_core
+version: 8.x-1.0
+package: 'YSM Global Networks'
+description: 'Site specific configuration for the book module'

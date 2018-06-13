@@ -1,0 +1,46 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.competition.body
+    - field.field.node.competition.field_background_image
+    - field.field.node.competition.field_is_current
+    - field.field.node.competition.field_sponsors
+    - field.field.node.competition.field_subheading
+    - field.field.node.competition.field_year
+    - node.type.competition
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.competition.default
+targetEntityType: node
+bundle: competition
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_sponsors:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_background_image: true
+  field_is_current: true
+  field_subheading: true
+  field_year: true

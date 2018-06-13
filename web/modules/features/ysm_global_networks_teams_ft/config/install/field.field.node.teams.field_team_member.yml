@@ -1,0 +1,81 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_team_member
+    - node.type.teams
+    - paragraphs.paragraphs_type.team_member
+  module:
+    - entity_reference_revisions
+id: node.teams.field_team_member
+field_name: field_team_member
+entity_type: node
+bundle: teams
+label: 'Team Members'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      team_member: team_member
+    target_bundles_drag_drop:
+      team_member:
+        enabled: true
+        weight: 2
+      ad_hoc_image_link_and_teaser:
+        weight: 19
+        enabled: false
+      additional_text_area_s_:
+        weight: 20
+        enabled: false
+      existing_content_within_site:
+        weight: 21
+        enabled: false
+      global_network_cases:
+        weight: 22
+        enabled: false
+      global_network_news_teasers_for_:
+        weight: 23
+        enabled: false
+      global_network_week_schools_loca:
+        weight: 24
+        enabled: false
+      global_network_weeks:
+        weight: 25
+        enabled: false
+      homepage_slides:
+        weight: 26
+        enabled: false
+      image_link:
+        weight: 27
+        enabled: false
+      large_content_teaser:
+        weight: 28
+        enabled: false
+      menu_paragraph:
+        weight: 29
+        enabled: false
+      page_link:
+        weight: 30
+        enabled: false
+      perspective_home_page_items:
+        weight: 31
+        enabled: false
+      program_for_current_business_stu:
+        weight: 32
+        enabled: false
+      rendered_entity:
+        weight: 33
+        enabled: false
+      url_link:
+        weight: 35
+        enabled: false
+      view:
+        weight: 36
+        enabled: false
+field_type: entity_reference_revisions

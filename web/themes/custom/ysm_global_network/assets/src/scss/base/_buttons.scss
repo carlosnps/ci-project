@@ -1,0 +1,133 @@
+%button {
+	// @extend %hover-remove-underline !optional;
+	background-color  : $color_shark;
+	background-image  : linear-gradient(transparent calc(100% - 1px), transparent 1px);
+	background-repeat : no-repeat;
+	background-size   : 0 100%;
+	border-radius     : 0;
+	color             : $color_white;
+	border            : none;
+	cursor            : pointer;
+	display           : inline-block;
+	font-family       : $font-family-condensed;
+	font-size         : rem(20);
+	margin            : 0;
+	outline           : none;
+	padding           : 0.5em 1em !important;
+	text-align        : center;
+	text-transform    : uppercase;
+	// transition        : all 0.2s ease-in;
+	transition        : background-size 0.2s ease-in 0.1s, opacity 0.2s ease-in, background-color 0.2s ease-in;
+	width             : auto;
+	white-space       : nowrap;
+	-webkit-appearance: none;
+	@include breakpoint($bp-tablet) {
+		text-align: left;
+
+		&:focus,
+		&:hover {
+			background-color   : transparent;
+			background-size    : 100% 100%;
+			background-image   : linear-gradient($color_shark calc(100% - 1px), $color_shark 1px);
+			border-bottom-width: 0;
+			opacity            : 1;
+		}
+
+		&.focus--mouse {
+			box-shadow: 0 0 rem(5) $color_ectasy;
+		}
+	}
+}
+
+%button-reverse {
+	background-color: $color_white;
+	color           : $color_shark;
+	@include breakpoint($bp-tablet) {
+		&:focus,
+		&:hover {
+			background-color: transparent;
+			background-image: linear-gradient($color_white calc(100% - 1px), $color_white 1px);
+		}
+	}
+}
+
+%button-active {
+	background-color: $color_gray;
+	color           : $color_white;
+}
+
+%button-arrow-down {
+	@include icon(chevron-down,linearicons,right);
+
+	&::after {
+		font-size: rem(12);
+	}
+}
+
+%button-arrow-right {
+	@include icon(chevron-right,linearicons,right);
+
+	&::after {
+		font-size: rem(12);
+	}
+}
+
+%button-outline {
+	background-color: $color_white;
+	border          : solid $color_gray;
+	border-width    : 2px !important;
+	color           : $color_shark;
+	text-transform  : none;
+
+	&:focus,
+	&:hover {
+		background-color: $color_shark;
+		border-color    : $color_shark;
+		color           : $color_white;
+	}
+}
+
+%button-large {
+	font-size: rem(30);
+}
+
+%button-small {
+	font-size: rem(16);
+	padding  : 0.25em 0.5em !important;
+}
+
+.button-link,
+.page button {
+	@extend %button !optional;
+
+	&.outline {
+		@extend %button-outline !optional;
+	}
+
+	&.large {
+		@extend %button-large !optional;
+	}
+
+	&.small {
+		@extend %button-small !optional;
+	}
+
+	&.reverse {
+		@extend %button-reverse !optional;
+	}
+
+	&.arrow-right {
+		@extend %button-arrow-right !optional;
+	}
+
+	&.arrow-down {
+		@extend %button-arrow-down !optional;
+	}
+}
+
+.views-element-container .more-link a {
+	@extend %button !optional;
+	@extend %button-outline !optional;
+	@extend %button-small !optional;
+	@extend %button-arrow-right !optional;
+}

@@ -1,0 +1,73 @@
+#block-views-block-member-schools-block-2 {
+  @include breakpoint($bp-tablet) {
+    .member-schools--list {
+      display  : flex;
+      flex-wrap: wrap;
+    }
+
+    header {
+      width: 100%;
+    }
+
+    .main-view-content {
+      //   column-count: 3;
+      //   column-gap  : $gutter-double;
+      flex: 1 1;
+    }
+
+    footer {
+      width       : span(2 of 8);
+      margin-left : $gutter-double;
+      padding-left: $gutter-double;
+      border-left : solid 4px $color_shark;
+    }
+  }
+}
+// Side images on main member page.
+.school-region {
+  &__group {
+    background-size    : 10%;
+    background-position: 0 0;
+    background-repeat  : no-repeat;
+    margin-bottom      : 3rem;
+    @include breakpoint($bp-tablet) {
+      padding-left: calc(#{span(1)} + #{$gutter-double});
+    }
+
+    h5 {
+      font-size: rem(24);
+    }
+  }
+
+  &__europe-middle-east-africa {
+    background-image: url("../images/map_emea.svg");
+  }
+
+  &__americas {
+    background-image: url("../images/map_americas.svg");
+  }
+
+  &__asia-pacific {
+    background-image: url("../images/map_asiaPac.svg");
+  }
+}
+// Highlighted numbers on members list
+.members-data {
+  font-family: $font-family-condensed;
+
+  &--number {
+    color      : $color_shark;
+    font-family: $font-family-condensed;
+    font-size  : rem(90);
+    line-height: 0.875;
+    margin     : 0;
+    width      : 100%;
+  }
+
+  &--description {
+    font-size  : rem(12);
+    line-height: 1;
+    margin     : 0 0 2rem;
+    width      : 100%;
+  }
+}

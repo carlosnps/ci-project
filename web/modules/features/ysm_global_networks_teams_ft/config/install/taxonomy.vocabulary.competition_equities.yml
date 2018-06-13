@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Competition Equities'
+vid: competition_equities
+description: ''
+hierarchy: 0
+weight: 0

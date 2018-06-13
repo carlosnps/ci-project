@@ -1,0 +1,19 @@
+.global-network-perspectives {
+  .semantic-list {
+    display  : flex;
+    flex-wrap: wrap;
+    @include breakpoint($bp-tablet) {
+      margin: 0 $gutter-negative;
+    }
+
+    > li {
+      @include breakpoint($bp-tablet) {
+        padding: 0 $gutter;
+        width  : span(1 of 2);
+      }
+      @include breakpoint($bp-desktop) {
+        width: span(1 of 4);
+      }
+    }
+  }
+}

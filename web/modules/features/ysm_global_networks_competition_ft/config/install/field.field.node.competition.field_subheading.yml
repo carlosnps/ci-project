@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subheading
+    - node.type.competition
+  module:
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: none
+    weight: '0'
+    geocode_field: body
+    reverse_geocode_field: {  }
+    hidden: 0
+    disabled: 0
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.competition.field_subheading
+field_name: field_subheading
+entity_type: node
+bundle: competition
+label: Subheading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

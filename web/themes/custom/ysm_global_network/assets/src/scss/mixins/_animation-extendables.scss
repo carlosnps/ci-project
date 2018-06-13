@@ -1,0 +1,162 @@
+%animation {
+  animation-fill-mode: both;
+  animation-duration : 0.5s;
+
+  &.hinge {
+    animation-duration: 0.5s;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+%fadeIn {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity  : 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity  : 1;
+    transform: translateY(0);
+  }
+}
+
+%fadeInUp {
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity  : 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity  : 1;
+    transform: translateY(0);
+  }
+}
+
+%fadeInDown {
+  animation-name: fadeInDown;
+}
+
+@keyframes fadeInDownBig {
+  0% {
+    opacity  : 0;
+    transform: translateY(-2000px);
+  }
+
+  100% {
+    opacity  : 1;
+    transform: translateY(0);
+  }
+}
+
+%fadeInDownBig {
+  animation-name: fadeInDownBig;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+%fadeOut {
+  animation-name: fadeOut;
+}
+
+@keyframes fadeOutUp {
+  0% {
+    opacity  : 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity  : 0;
+    transform: translateY(-20px);
+  }
+}
+
+%fadeOutUp {
+  animation-name: fadeOutUp;
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity  : 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity  : 0;
+    transform: translateY(20px);
+  }
+}
+
+%fadeOutDown {
+  animation-name: fadeOutDown;
+}
+
+@keyframes fadeOutUpBig {
+  0% {
+    opacity  : 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity  : 0;
+    transform: translateY(-2000px);
+  }
+}
+
+%fadeOutUpBig {
+  animation-name: fadeOutUpBig;
+}
+
+@keyframes fadeOutDownBig {
+  0% {
+    opacity  : 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity  : 0;
+    transform: translateY(2000px);
+  }
+}
+
+%fadeOutDownBig {
+  animation-name: fadeOutDownBig;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+%slideDown {
+  animation: slideDown 0.5s;
+}

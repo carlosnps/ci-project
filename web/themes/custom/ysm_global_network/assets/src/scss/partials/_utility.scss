@@ -1,0 +1,14 @@
+.calicon {
+	margin-left: 10px;
+}
+
+.datestamp {
+	color      : $color_gray;
+	font-family: $font-family-bold;
+	font-size  : rem(11);
+
+	> * {
+		display     : inline-block;
+		margin-right: 2rem;
+	}
+}

@@ -1,0 +1,8 @@
+allowed_types:
+  - competition
+  - page
+  - teams
+block:
+  navigation:
+    mode: 'all pages'
+child_type: page

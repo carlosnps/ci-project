@@ -1,0 +1,73 @@
+.tweet {
+  &__content {
+    font-family: $font-family-condensed;
+    font-size  : rem(18);
+    line-height: rem(24);
+
+    p {
+      font-family: $font-family-condensed;
+      font-size  : rem(18);
+      line-height: rem(24);
+      margin     : 0;
+    }
+  }
+
+  &__view-title {
+    font-family: $font-family-condensed-bold;
+    @include icon(twitter,social);
+
+    &::before {
+      display  : block;
+      font-size: rem(32);
+    }
+  }
+
+  &__title {
+    a {
+      @extend %hover-to-underline !optional;
+    }
+  }
+
+  &__image {
+    display   : block;
+    margin-top: 0.5rem;
+    max-width : rem(300);
+  }
+
+  &__actions {
+    margin: 1rem 0;
+
+    a {
+      @extend %hover-remove-underline !optional;
+    }
+
+    &--reply .tweet__actions--icon {
+      @include icon(reply);
+    }
+
+    &--favorite .tweet__actions--icon {
+      @include icon(heart);
+    }
+
+    &--retweet .tweet__actions--icon {
+      @include icon(repeat);
+    }
+  }
+
+  &__meta {
+    font-size: rem(12);
+
+    > span {
+      display     : inline-block;
+      margin-right: 0.5rem;
+    }
+  }
+
+  header h4 {
+    font-family   : $font-family-condensed-bold;
+    font-size     : rem(16);
+    text-transform: none;
+    margin-bottom : rem(50);
+  }
+
+}

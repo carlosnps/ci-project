@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - ysm_global_network
+id: mainnavigation
+theme: ysm_global_network
+region: hidden
+weight: -8
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Second Level Navigation'
+  provider: system
+  label_display: '0'
+  level: 2
+  depth: 0
+visibility: {  }

@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'main-view-content',
+    'tweet-grid'
+  ]
+%}
+<section {{ attributes.addClass(classes) }} aria-labelledby="tweet-grid__aria-title">
+  <h3 class="tweet-grid__title visually-hidden" id="tweet-grid__aria-title">Twitter</h3>
+  <ul class="semantic-list tweet-grid__list content-group content-group--grid-4up">
+    {% for row in rows %}
+      {%
+        set row_classes = [
+          default_row_class ? 'views-row',
+          'content-group__item'
+        ]
+      %}
+      <li{{ row.attributes.addClass(row_classes) }}>
+        {{ row.content }}
+      </li>
+    {% endfor %}
+  </ul>
+</section>

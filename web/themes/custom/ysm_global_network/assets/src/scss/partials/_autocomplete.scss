@@ -1,0 +1,55 @@
+.search-api-autocomplete-search.ui-autocomplete {
+  @extend %autocomplete !optional;
+  @include breakpoint($bp-tablet-below) {
+    display: none !important; //hide autocomplete for small screens, UI is wonky
+  }
+}
+
+.js-form-type-search-api-autocomplete {
+  input.ui-autocomplete-input {
+    background-image: none;
+
+    &.ui-autocomplete-loading {
+      background-image: url("../images/loader_puff.svg");
+      background-size : rem(30);
+    }
+  }
+}
+
+.ajax-progress-fullscreen {
+  background-color: transparent;
+  background-image: url("../images/loader_puff.svg");
+  background-size : 100%;
+  height          : rem(64);
+  left            : 50%;
+  transform       : translate(-50%,50%);
+  top             : 50%;
+  width           : rem(64);
+}
+
+%autocomplete {
+  background : $color_shark;
+  border     : none;
+  font-family: $font-family-light;
+  @include material-shadow(3);
+
+  .ui-menu-item {
+    background-color: transparent !important;
+    margin          : $gutter;
+  }
+
+  .ui-menu-item-wrapper {
+    @extend %link-reverse !optional;
+    @extend %hover-to-underline !optional;
+
+    &.ui-state-active {
+      background-color: transparent;
+    }
+  }
+
+  .search-api-autocomplete-suggestion {
+    display         : inline;
+    padding         : 0;
+    background-color: transparent !important;
+  }
+}

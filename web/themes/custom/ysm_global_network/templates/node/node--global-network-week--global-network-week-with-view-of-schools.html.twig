@@ -1,0 +1,42 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+{{ attach_library('classy/node') }}
+<article{{ attributes.addClass(classes) }}>
+<h2><a href="{{ url }}" rel="bookmark">{{ label }}</a></h2>
+<div class = "dates">
+
+    {% set startDate = content.field_start_date[0]['#markup'] | date('U') %}
+    {% set startDateMonth = startDate | date('F') %}
+    {% set startDateDay = startDate | date('j') %}
+    {% set startDateYear = startDate | date('Y') %}
+
+    {% set endDate = content.field_end_date[0]['#markup'] | date('U') %}
+    {% set endDateMonth = endDate | date('F') %}
+    {% set endDateDay = endDate | date('j') %}
+    {% set endDateYear = endDate | date('Y') %}
+
+{% if startDate == endDate %}
+<h5>{{ startDate | date('F j, Y') }}</h5>
+    {% else %} 
+      {% if startDateYear != endDateYear %}
+     <h5>{{ startDateMonth }} {{ startDateDay }}, {{ startDateYear }} &ndash; {{ endDateMonth }} {{ endDateDay }}, {{ endDateYear }}</h5>
+     {% else %}
+        {% if startDateMonth == endDateMonth %}
+        <h5>{{ startDateMonth }} {{ startDateDay }} &ndash; {{ endDateDay }}, {{ endDateYear }}</h5>
+        {% else %}
+        <h5>{{ startDateMonth }} {{ startDateDay }} &ndash; {{ endDateMonth }} {{ endDateDay }}, {{ endDateYear }}</h5>
+        {% endif %}
+    {% endif %}
+{% endif %}
+</div>
+
+{{ content.field_school_location_module }}
+</article>

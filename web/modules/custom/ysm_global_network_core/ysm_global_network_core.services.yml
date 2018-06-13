@@ -1,0 +1,7 @@
+services:
+  ysm_global_network_core.twig.ysm_twig_extension:
+    # NB These 4 arguments must be here, but this is not
+    arguments: ["@renderer", "@url_generator", "@theme.manager", "@date.formatter"]
+    class: Drupal\ysm_global_network_core\TwigExtension\YsmTwigExtension
+    tags:
+      - { name: twig.extension }

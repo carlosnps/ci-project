@@ -1,0 +1,39 @@
+.page {
+  overflow: hidden; // required for visible overflow on member slideshow
+
+  &__content,
+  &__header {
+    padding: $gutter-double;
+    @include breakpoint($bp-big-desktop) {
+      padding: $gutter-double $gutter-double*2;
+    }
+  }
+
+  &__footer {
+    padding: $gutter-double;
+    @include breakpoint($bp-big-desktop) {
+      padding: $gutter-double*2;
+    }
+  }
+
+  &__content {
+    @include breakpoint($bp-tablet-below) {
+      padding-top: 0;
+    }
+    @include breakpoint($bp-tablet) {
+      margin   : 0 auto;
+      max-width: $page_width;
+    }
+  }
+
+  &__article {
+    @include breakpoint($bp-desktop) {
+      margin: 0 auto;
+      width : span(8);
+    }
+
+    .path-frontpage & {
+      width: span(10);
+    }
+  }
+}

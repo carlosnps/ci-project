@@ -1,0 +1,6 @@
+$icon-taxonomy: 'arrow-down','arrow-up','calendar','calendar-text','license2','chevron-down','chevron-up','laptop-only','chevron-left','chevron-right','tag','laptop-phone','cash-dollar','pencil','magic-wand', 'magnet', 'shield-check', 'key','hammer-wrench','box', 'binoculars2', 'papers', 'graduation-hat', 'presentation','bookmark','library','profile','wallet','calculator2','radar','map-marker','road-sign','desktop','power','lamp','pulse','pie-chart','graph','chart-growth','accessibility','network','earth','bullhorn','lan2','stream','antenna','mic';
+@each $icon in $icon-taxonomy {
+  .icon--#{$icon} {
+    @include icon(#{$icon});
+  }
+}

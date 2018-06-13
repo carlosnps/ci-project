@@ -1,0 +1,136 @@
+langcode: en
+status: true
+dependencies: {  }
+id: gnam_node_perspectives_articles
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: gnam
+label: 'Nodes (Perspectives Articles)'
+source:
+  plugin: d7_node
+  node_type: article
+process:
+  nid: tnid + 2000
+  vid: vid + 2000
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_news/0/status: comment
+  body:
+    plugin: get
+    source: body
+  field_introduction:
+    plugin: get
+    source: field_introduction
+  field_caption:
+    plugin: get
+    source: field_caption
+  field_link:
+    plugin: field_link
+    source: field_video_embed
+  field_inline_image:
+    plugin: iterator
+    source: field_news_inline_image
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_featured_image:
+    plugin: iterator
+    source: field__news_featured_image
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_perspectives_topics:
+    plugin: iterator
+    source: field_topics
+    process:
+      target_id: 
+        plugin: migration_lookup
+        migration: gnam_gnp_taxonomy_term_article_topics
+        source: tid
+  field_perspectives_authors:
+    plugin: iterator
+    source: field_authors 
+    process:
+      target_id: 
+        plugin: migration_lookup
+        migration: gnam_gnp_taxonomy_term_author
+        source: target_id
+  field_member_school:
+    plugin: get
+    source: field_institution
+  field_member_school:
+    plugin: static_map
+    source: field_institution
+    # There are only ~20 examples so we map from term id to node nid statically
+    map:
+      531: 35152	#Asian Institute of Management xy
+      9:	 35234	#EGADE Business School, Tecnológico de Monterrey xy
+      26:	 35153	#ESMT Berlin xy
+      522: 35154	#FGV Escola de Administração de Empresas de São Paulo xy
+      17:	 35241	#Fudan University School of Management xy
+      521:	 35235	#Haas School of Business, University of California Berkeley xy
+      16:	 35246	#HEC Paris xy
+      18:	 35242	#Hitotsubashi University, Graduate School of International Corporate Strategy xy
+      46:	 35155	#Hong Kong University of Science and Technology Business School xy
+      144:	 35247	#IE Business School xy
+      369:	 35248	#IMD xy
+      375:	 35238	#INCAE Business School xy
+      435:	 35156	#Indian Institute of Management Bangalore xy
+      19:	 35249	#INSEAD xy
+      382:	 35157	#Koç University Graduate School of Business xy
+      563:	 35250	#Lagos Business School, Pan-Atlantic University xy
+      511:	 35251	#London School of Economics and Political Science, Department of Management xy
+      427:	 35158	#National University of Singapore Business School xy
+      572:	 35239	#Pontificia Universidad Católica de Chile School of Business xy
+      505:	 35159	#Renmin University of China School of Business xy
+      560:	 35252	#Saïd Business School, University of Oxford xy
+      49:	 35161	#Sauder School of Business, University of British Columbia xy
+      574:	 35160	#Seoul National University Business School xy
+      492:	 35253	#Technion-Israel Institute of Technology xy
+      20:	 35162	#UCD Michael Smurfit Graduate Business School xy
+      31:	 35163	#University of Cape Town Graduate School of Business xy
+      548:	 35163	#University of Ghana Business School xy
+      506:	 35164	#University of Indonesia Faculty of Economics xy
+      10:	 35165	#Yale School of Management xy
+      #34: Global Network term doesn't have a member school
+    default_value: null
+  field_date:
+    plugin: iterator
+    source: field_published_date
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+destination:
+  plugin: 'entity:node'
+  default_bundle: perspectives_articles
+migration_dependencies:
+#  required:
+#    - gnam_user
+#    - gnam_node_type
+#  optional:
+#    - gnam_field_instance
+#    - gnam_comment_field_instance

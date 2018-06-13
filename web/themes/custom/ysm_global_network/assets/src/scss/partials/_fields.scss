@@ -1,0 +1,12 @@
+.field--name-field {
+  &-additional-content-section {
+    .additional-text-paragraph {
+      width: 100%;
+
+      li,
+      p {
+        font-size: rem(16);
+      }
+    }
+  }
+}

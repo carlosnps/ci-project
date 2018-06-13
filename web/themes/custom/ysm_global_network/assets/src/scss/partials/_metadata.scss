@@ -1,0 +1,35 @@
+.metadata {
+  &--block {
+    border : $color_shark 3px solid;
+    padding: $gutter-double;
+
+    *:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &--item {
+    margin: 0 0 1rem;
+  }
+
+  &--label {
+    @extend h6 !optional;
+  }
+
+  &--value {
+    font-size: rem(14);
+
+    span {
+      &:nth-child(n + 2) {
+        &::before {
+          content    : ', ';
+          margin-left: -0.25rem;
+        }
+      }
+    }
+
+    .button-link {
+      white-space: normal;
+    }
+  }
+}

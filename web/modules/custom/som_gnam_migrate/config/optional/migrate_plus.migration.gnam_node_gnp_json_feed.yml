@@ -1,0 +1,60 @@
+langcode: en
+status: true
+dependencies: {  }
+id: gnam_node_gnp_json_feed
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: gnam
+label: 'Nodes (GNP JSON Feed)'
+source:
+  plugin: d7_node
+  node_type: gnp_json_feed
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_gnp_json_feed/0/status: comment
+  field_link:
+    plugin: field_link
+    source: field_link
+  field_published_date:
+    plugin: iterator
+    source: field_published_date
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+  field_gnp_authors:
+    plugin: get
+    source: field_gnp_authors
+  field_school:
+    plugin: get
+    source: field_school
+destination:
+  plugin: 'entity:node'
+  default_bundle: gnp_json_feed
+migration_dependencies:
+  required:
+    - gnam_user
+    - gnam_node_type
+  optional:
+    - gnam_field_instance
+    - gnam_comment_field_instance

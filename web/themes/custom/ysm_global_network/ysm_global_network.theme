@@ -1,0 +1,400 @@
+<?php
+
+function ysm_global_network_preprocess_field(&$vars, $hook) {
+  $element = $vars['element'];
+  if($element['#field_name'] == 'field_slideshow'){
+    // dsm($element['#items']);
+  }
+}
+function ysm_global_network_preprocess_html(&$vars) {
+  $vars['site_name'] = \Drupal::config('system.site')->get('name');
+  // Add array of member school colors as CSS
+  $query = db_select('node__field_color');
+  $query->addExpression('field_color_value','color');
+  $query->addExpression('entity_id','id');
+  $results = $query->execute()->fetchAll();
+  $color_array = '';
+  foreach ($results as $result) {
+    $color = $result->color;
+    $id = $result->id;
+    $color_array .= '.color-' . $id . ' .use-color, .color-' . $id . ' .use-color-hover:hover, .color-' . $id . ' .use-color-children a, .color-' . $id . '.use-color-hover-children:hover a { color: #' . $color . '; }';
+  }
+  // Add array of color taxonomny terms
+  $query = db_select('taxonomy_term__field_hex_color');
+  $query->addExpression('field_hex_color_value','color');
+  $query->addExpression('entity_id','id');
+  $results = $query->execute()->fetchAll();
+  foreach ($results as $result) {
+    $color = $result->color;
+    $id = $result->id;
+    $color_array .= '.color-tid-' . $id . ' .use-color, .color-tid-' . $id . ' .use-color-hover:hover, .color-tid-' . $id . ' .use-color-children a, .color-tid-' . $id . '.use-color-hover-children:hover a { color: #' . $color . '; }';
+  }
+  $vars['#attached']['html_head'][] = [
+    [
+      '#tag' => 'style',
+      '#value' => $color_array,
+    ],
+    'html_head.link:ysm_global_network_color'
+  ];
+  // Add classes for roles
+  $current_user = \Drupal::currentUser();
+  $roles = $current_user->getRoles();
+  foreach ($roles as $role) {
+    $vars['attributes']['class'][] = 'role-'.$role;
+  }
+  // Add host icon for admins
+  $host = gethostname();
+  if (substr($host, 0, 4) !== 'ngin' && $current_user->id()) {
+    $vars['attributes']->setAttribute('data-host',$host);
+  }
+}
+function ysm_global_network_preprocess_page(&$vars) {
+   if( $book = ysm_global_network_is_competition_page() ) {
+     if( is_numeric($book) ) {
+       $vars['book'] = \Drupal\node\Entity\Node::load( $book );
+       $vars['header_link_node'] = $vars['book'];
+     }
+     else {
+       $vars['book']['field_is_current']['value'] = TRUE;
+       $vars['header_link_node'] = ysm_global_network_get_current_competition();
+     }
+   }
+}
+function ysm_global_network_preprocess_node(&$vars, $hook) {
+  $node =& $vars['node'];
+  if (!empty($node->field_member_school)){
+    $field = $node->get('field_member_school')->getValue();
+    if( isset($field[0]) ) {
+      $member = $field[0]['target_id'];
+      $vars['member_info'] = _custom_get_member_information($member);
+      $vars['member_timezone'] = str_replace('_', ' ', $vars['member_info']['timezone']);
+    }
+  }
+  if ($node->getType() == 'event'){
+
+  }
+  if ($node->getType() ==  'news') {
+    if( $vars['view_mode'] == "full" ) {
+      $vars['recent_news'] = views_embed_view('news_perspectives', 'short_list', $node->id() );
+    }
+  }
+
+  if ($node->getType() == 'certificate_of_excellence_course') {
+    if( $vars['view_mode'] == 'teaser') {
+     // dump($vars);
+      $today = date('Y-m-d');
+      $dates = $node->field_course_dates->getValue('#list');
+      $num_dates = count($dates);
+      $dates_array = array();
+      $past_dates = array();
+     for($counter=0; $counter<$num_dates; $counter++) {
+       if($dates[$counter]['end_value'] < $today) {
+         array_push($past_dates, array('startdate' => $dates[$counter]['value'], 'enddate' =>
+           $dates[$counter]['end_value']));
+       } else {
+         array_push($dates_array, array('startdate' => $dates[$counter]['value'], 'enddate' =>
+           $dates[$counter]['end_value']));
+       }
+     }
+
+      uasort($past_dates, function($a, $b) {
+        return strcmp($b['enddate'], $a['enddate']);
+      });
+
+      uasort($dates_array, function($a, $b) {
+        return strcmp($a['enddate'], $b['enddate']);
+      });
+//     echo 'past dates array: ';
+//     dump($past_dates);
+//     echo '<hr>';
+//     echo 'future dates array: ';
+//     dump($dates_array);
+//     echo 'the number of dates is: '. $num_dates;
+
+     if (is_array($dates_array) && count($dates_array) > 0) {
+       $futureDates = array_values($dates_array);
+       $vars['startdate'] = $futureDates[0]['startdate'];
+       $vars['enddate'] = $futureDates[0]['enddate'];
+     } else {
+       $pastDates = array_values($past_dates);
+       $vars['startdate'] = $pastDates[0]['startdate'];
+       $vars['enddate'] = $pastDates[0]['enddate'];
+      }
+
+   $node->field_course_dates->setValue('');
+    }
+  }
+  if ($node->getType() ==  'competition') {
+    if( $vars['view_mode'] == "full" ) {
+      $vars['teams_leaderboard'] = views_embed_view('teams', 'leaderboard', $node->id() );
+    }
+  }
+  if ($node->getType() ==  'team_list') {
+    if( $vars['view_mode'] == "full" ) {
+      $competition = $node->book['bid'];
+      $vars['teams_view'] = views_embed_view('teams', 'alphabetical', $competition );
+      $vars['perf_view'] = views_embed_view('teams', 'performance', $competition );
+    }
+  }
+  if ($node->getType() ==  'teams') {
+    // Get the country from the member school address
+    if (!$node->field_member_school->isEmpty()) {
+      $school_entity = $node->field_member_school->entity;
+      $country = $school_entity->field_location;
+      $countryRepository = \Drupal::service('address.country_repository');
+      $countryList = $countryRepository->getList();
+      $country_code = $country->getValue();
+      $vars['country'] = $countryList[$country_code[0]['country_code']];
+    }
+    // Load the portfolio index
+    if (!$node->field_portfolio_index->isEmpty()) {
+      $p_index = $node->get('field_portfolio_index')->getValue();
+      $vars['portfolio'] = _custom_get_portfolio_index($p_index[0]['target_id']);
+    }
+    $bid = $node->book['bid'];
+    if (is_numeric($bid) && ysm_global_network_is_competition_page() == FALSE){
+      // load competition node if not currently in a book
+      $vars['competition'] = node_load($bid);
+    }
+  }
+  if($vars['view_mode'] == "homepage_slide") {
+  }
+
+  if( $book = ysm_global_network_is_competition_page() ) {
+    if( is_numeric($book) ) {
+      $vars['book'] = \Drupal\node\Entity\Node::load( $book );
+    }
+  }
+}
+//function ysm_global_network_preprocess_paragraph(&$vars) {
+//    $paragraph =& $vars['paragraph'];
+//}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ * @param array $suggestions
+ * @param array $vars
+ */
+ function ysm_global_network_theme_suggestions_page_alter(array &$suggestions, array $vars) {
+   if( ysm_global_network_is_competition_page() ) {
+     $suggestions[] = 'page__competition';
+   }
+   /**
+   * 404 template suggestion.
+   */
+  if (!is_null(Drupal::requestStack()->getCurrentRequest()->attributes->get('exception'))) {
+    $status_code = Drupal::requestStack()->getCurrentRequest()->attributes->get('exception')->getStatusCode();
+    switch ($status_code) {
+      case 404: {
+        $suggestions[] = 'page__' . (string) $status_code;
+        break;
+      }
+      default:
+        break;
+    }
+  }
+ }
+
+ function ysm_global_network_theme_suggestions_node_alter(array &$suggestions, array $vars) {
+   if ($node = \Drupal::routeMatch()->getParameter('node')) {
+     $content_type = $node->bundle();
+     // $suggestions[] = 'page__'.$content_type;
+   }
+ }
+
+/**
+ * Checks if the current route is a competition page. If this is a direct
+ * competition page, we return the book id. If we are in the competition menu,
+ * we return TRUE. Otherwise we return FALSE.
+ * @return bool
+ */
+ function ysm_global_network_is_competition_page() {
+
+   $menu_name = 'competition-menu';
+
+    // Get the current route name and parameters
+   $route_name = \Drupal::routeMatch()->getRouteName();
+   $route_params = \Drupal::routeMatch()->getRawParameters();
+
+   // Check the link manager to see if the current route is part of the
+   // competition menu
+
+   /** @var \Drupal\Core\Menu\MenuLinkManagerInterface $menu_link_manager */
+   $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+   $links = $menu_link_manager->loadLinksByRoute($route_name, $route_params->all(), $menu_name);
+
+   // If the list of links is not empty, the curent route is in the menu
+   if( !empty($links) ) {
+     return true;
+   }
+   // Otherwise, if we are in a book we return the book id.
+   elseif( $node = \Drupal::routeMatch()->getParameter('node') ) {
+     $current_bid = empty($node->book['bid']) ? 0 : $node->book['bid'];
+     if( $current_bid ) {
+       return $current_bid;
+     }
+   }
+
+   // We are not in competition, return false
+   return false;
+ }
+
+ function ysm_global_network_get_current_competition() {
+   $query = \Drupal::entityQuery('node');
+   $query->condition('status', 1);
+   $query->condition('type', 'competition');
+   $query->condition('field_is_current', TRUE);
+   $query->sort('field_year', 'DESC');
+   $query->range(0,1);
+   $ids = $query->execute();
+   if( !empty($ids) ) {
+     return \Drupal\node\Entity\Node::load(reset(array_values($ids)));
+   }
+   return FALSE;
+ }
+
+
+function ysm_global_network_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
+  if($form['#id'] == 'views-exposed-form-events-page-page-1') {
+    $form['field_member_school_target_id'] = array(
+      '#type' => 'select',
+      '#title' => '',
+      '#label' => '',
+      '#options' => get_related_member_schools('events_page', 'block_2'),
+    );
+    $form['field_event_type_target_id']['#options']['All'] = 'by Type';
+  }
+
+  if($form['#id'] ==  'views-exposed-form-network-courses-block-1') {
+    $form['member'] = array(
+      '#type' => 'select',
+      '#title' => '',
+      '#label' => '',
+      '#options' => get_related_member_schools('network_courses', 'block_2'),
+    );
+    $form['#action'] = array();
+  }
+
+  if($form['#id'] == 'views-exposed-form-course-schedule-page-1' ||
+    $form['#id'] == 'views-exposed-form-course-schedule-block-2') {
+    $form['topics']['#options']['All'] = 'by Topic';
+    $form['country']['#options']['All'] = 'by Location';
+    $codes = get_related_locations(); // limit to only school countries...
+    //  NEED TO limit to only upcoming events with better sql query...
+    $newoptions['All'] = 'by Location';
+    foreach($form['country']['#options'] as $key =>
+            $value) {
+      if(in_array($key, $codes)) {
+        $newoptions[$key] = $value;
+      }
+    }
+      $form['country']['#options'] = $newoptions;
+
+      $form['member_school_filter_item'] = array(
+        '#type' => 'select',
+        '#title' => '',
+        '#label' => '',
+        '#options' => get_related_member_schools('course_schedule', 'block_3'),
+      );
+      if($form['#id'] == 'views-exposed-form-course-schedule-block-2') {
+        $form['#action'] = array();
+      }
+  }
+  if($form['#id'] == 'views-exposed-form-search-api-page-search-block') {
+    $form['#action'] = '/search';
+  }
+}
+
+
+function get_related_member_schools($which_page, $which_block) {
+  $schools[''] =  'by School';
+  $used_schools = views_get_view_result($which_page, $which_block);
+  // var_dump($used_schools);
+  foreach($used_schools as $u) {
+    $id = $u->node__field_member_school_field_member_school_target_id;
+    if($id != $last_id) {
+     $entity = node_load($id);
+     $school = $entity->get('title')->value;
+      $schools[$id] = $school;
+     }
+    $last_id = $id;
+  }
+
+  uasort($schools, function($a, $b) {
+    return strcmp($a['title'], $b['title']);
+  });
+
+  // dump($schools);
+return $schools;
+}
+ /* }
+  $results = db_query("select node_field_data.nid, node_field_data.title from node_field_data, node__field_member_school  where node__field_member_school.field_member_school_target_id = node_field_data.nid
+and bundle = 'event' AND node_field_data.type = 'member_schools' order by  node_field_data.title");
+  if ($results) {
+    foreach ($results as $r) {
+      $school = $r->title;
+      $id = $r->nid;
+      if($school != $last_school) {
+        $schools[$id] = $school;
+      }
+      $last_school = $school;
+    }
+  }
+  return $schools;
+}
+*/
+
+function get_related_locations() {
+  $locations = array();
+  $used_schools = views_get_view_result('course_schedule','block_1');
+foreach($used_schools as $u) {
+  $code = $u->node_field_data_node__field_member_school__node__field_locat;
+     if($code != $last_code) {
+       array_push($locations, $code);
+     }
+     $last_code = $code;
+
+   }
+  return $locations;
+}
+
+function _custom_get_member_information($nid) {
+  if (is_numeric($nid)) {
+    $entity = node_load($nid);
+    if ($entity->getType() === 'member_schools'){
+      $info['color'] = $entity->get('field_color')->value;
+      $info['timezone'] = $entity->get('field_t')->value;
+    }
+    $info['nid'] = $entity->get('nid')->value;
+    return $info;
+  } else {
+    return false;
+  }
+}
+function _custom_get_color_term($tid) {
+  if (is_numeric($tid)) {
+    $term = taxonomy_term_load($tid);
+    $info['color'] = $term->get('field_hex_color')->value;
+    $info['name'] = $term->get('name')->value;
+    $info['tid'] = $tid;
+    return $info;
+  } else {
+    return false;
+  }
+}
+function _custom_get_portfolio_index($tid) {
+  if (is_numeric($tid)) {
+    $term = taxonomy_term_load($tid);
+    $info['country'] = $term->get('field_country_code')->value;
+    $info['symbol'] = $term->get('field_symbol')->value;
+    $info['name'] = $term->get('name')->value;
+    if (is_numeric($term->get('field_currency')->target_id)) {
+      $currency_term = taxonomy_term_load($term->get('field_currency')->target_id);
+      $info['currency'] = $currency_term->get('name')->value;
+    }
+    $info['tid'] = $tid;
+    return $info;
+  } else {
+    return false;
+  }
+}

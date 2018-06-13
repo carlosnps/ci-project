@@ -1,0 +1,66 @@
+langcode: en
+status: true
+dependencies: {  }
+id: gnam_node_m2m_landing_page
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: gnam
+label: 'Nodes (M2M Landing Page)'
+source:
+  plugin: d7_node
+  node_type: m2m_landing_page
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_m2m_landing_page/0/status: comment
+  field_bottom_logo:
+    plugin: iterator
+    source: field_bottom_logo
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_content_section: field_content_section
+  field_footer_logos_links: field_footer_logos_links
+  field_large_intro_text:
+    plugin: get
+    source: field_large_intro_text
+  field_stylesheet_info: field_stylesheet_info
+  field_top_logo:
+    plugin: iterator
+    source: field_top_logo
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+destination:
+  plugin: 'entity:node'
+  default_bundle: m2m_landing_page
+migration_dependencies:
+  required:
+    - gnam_user
+    - gnam_node_type
+  optional:
+    - gnam_field_instance
+    - gnam_comment_field_instance

@@ -1,0 +1,7 @@
+$page_width: 1600px; // 1280px + 20% inner margin
+// $page_front_width: 1430px;
+$susy-overrides: (
+  columns: 10,
+  gutters: 1/4,
+);
+$gutter: 15px;

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: homepage_slides
+label: 'Homepage Slides'
+icon_uuid: null
+description: 'Use this paragraph type for "slides" on the home page.'
+behavior_plugins: {  }

@@ -1,0 +1,18 @@
+name: Yale Global Network D8
+type: theme
+Description: "2017 Drupal 8 Theme refresh"
+screenshot: screenshot.jpg
+core: 8.x
+
+libraries:
+  - ysm_global_network/base
+
+regions:
+  header: Header
+  headline: Headline
+  content: Content
+  footer: Footer
+  hidden: Hidden block to store referenced blocks
+
+ckeditor_stylesheets:
+  - assets/dist/css/ysm-global-network.main.min.css

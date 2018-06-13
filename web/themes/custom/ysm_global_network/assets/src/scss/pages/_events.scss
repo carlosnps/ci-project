@@ -1,0 +1,64 @@
+.event-grid {
+	&__title {
+		@include icon(calendar-31,linearicons,right);
+
+		&::after {
+			font-size: rem(16);
+		}
+	}
+}
+
+.event {
+	&--dated-item {
+		display      : flex;
+		margin-bottom: 2rem;
+
+		&__callout {
+
+			line-height : rem(30);
+			width       : span(1);
+			margin-right: $gutter-double;
+
+			&--month {
+				font-family   : $font-family-condensed;
+				font-size     : rem(14);
+				text-transform: uppercase;
+
+			}
+
+			&--day {
+				font-size  : rem(36);
+				margin-left: -0.125em;
+			}
+		}
+
+		&__main {
+			flex: 1 1 auto;
+		}
+	}
+}
+
+.node--type-event {
+	.content-layout__aside--secondary {
+		@include breakpoint($bp-tablet-below) {
+			order        : 1;
+			margin-bottom: 2rem;
+		}
+	}
+}
+/* move to events for event page when ready */
+.path-events {
+	#views-exposed-form-events-page-page-1 {
+		.form-actions,
+		.form-item {
+			padding-bottom: rem(50);
+			padding-top   : rem(50);
+			margin-right  : rem(25);
+			display       : inline-block;
+		}
+
+		.form-actions {
+			margin-left: 30px;
+		}
+	}
+}

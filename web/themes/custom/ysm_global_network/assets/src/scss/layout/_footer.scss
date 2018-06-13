@@ -1,0 +1,84 @@
+.page__footer {
+  background-color: $color_shark;
+  display         : flex;
+  flex-direction  : column;
+  @include breakpoint($bp-tablet) {
+    display       : flex;
+    flex-wrap     : wrap;
+    flex-direction: row;
+  }
+
+  &--logo {
+    flex-shrink: 0;
+    width      : rem(104);
+  }
+
+  a {
+    @extend %link-reverse !optional;
+    @extend %hover-to-underline !optional;
+  }
+
+  div,
+  p {
+    color      : $color_white;
+    font-size  : rem(12);
+    line-height: rem(20);
+    font-family: $font-family-light;
+  }
+
+  h2 {
+    color      : $color_white;
+    font-size  : rem(20);
+    line-height: rem(28);
+    margin-top : 0;
+
+    &[id*=menu] {
+      display: none;
+    }
+  }
+
+  .region-footer {
+    align-content: flex-start;
+    display      : flex;
+    flex         : 1 1;
+    flex-wrap    : wrap;
+    @include breakpoint($bp-tablet-below) {
+      order: -1;
+    }
+
+    > * {
+      margin-bottom: $gutter-double;
+      @include breakpoint($bp-tablet) {
+        width      : span(2 of 9);
+        margin-left: $gutter-double;
+
+        &:nth-child(3n) {
+          margin-left: calc(#{span(1 of 9)} + #{$gutter-double});
+        }
+
+        &:nth-child(3n + 2) {
+          flex: 1 1 auto;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    margin-top: 1rem;
+    width     : 100%;
+    @include breakpoint($bp-tablet) {
+      padding-left: calc(#{rem(104)} + #{$gutter-double});
+    }
+  }
+}
+
+.socialicons__footer {
+  a {
+    font-size   : rem(28);
+    color       : $color_white;
+    margin-right: rem(20);
+    margin-left : 0;
+    padding     : 0;
+    line-height : rem(50);
+  }
+}

@@ -1,0 +1,22 @@
+name: 'Home Page'
+description: 'Provides Home Page content type and related configuration. Use this content type only for the home page.  Once created, do not create another.'
+type: module
+core: 8.x
+dependencies:
+  - allowed_formats
+  - entity_reference_revisions
+  - fences
+  - field
+  - field_group
+  - geocoder_field
+  - image
+  - link
+  - menu_ui
+  - migrate_plus
+  - node
+  - paragraphs
+  - path
+  - text
+  - user
+version: 8.x-1.0
+package: 'YSM Global Networks'

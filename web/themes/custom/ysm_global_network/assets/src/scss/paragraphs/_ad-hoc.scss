@@ -1,0 +1,18 @@
+.paragraph--type--ad-hoc-image-link-and-teaser {
+	display: block;
+	clear  : both;
+	@include breakpoint($bp-tablet) {
+		.img-left {
+			float  : left;
+			width  : span(3);
+			margin : 0;
+			padding: 0;
+		}
+
+		.content-right {
+			float  : right;
+			width  : span(7);
+			padding: 0 rem(15) 0 0;
+		}
+	}
+}

@@ -1,0 +1,25 @@
+@mixin material-shadow($level: 1) {
+  @if ($level == 0) {
+    box-shadow: 0 0 0 transparentize($color_shark, 1);
+  }
+
+  @if ($level == 1) {
+    box-shadow: 0 1px 3px transparentize($color_shark, 0.88), 0 1px 2px transparentize($color_shark, 0.76);
+
+  }
+  @elseif ($level == 2) {
+    box-shadow: 0 3px 6px transparentize($color_shark, 0.84), 0 3px 6px transparentize($color_shark, 0.77);
+
+  }
+  @elseif ($level == 3) {
+    box-shadow: 0 10px 20px transparentize($color_shark, 0.81), 0 6px 6px transparentize($color_shark, 0.77);
+
+  }
+  @elseif ($level == 4) {
+    box-shadow: 0 14px 28px transparentize($color_shark, 0.75), 0 10px 10px transparentize($color_shark, 0.78);
+
+  }
+  @elseif ($level == 5) {
+    box-shadow: 0 19px 38px transparentize($color_shark, 0.7), 0 15px 12px transparentize($color_shark, 0.78);
+  }
+}

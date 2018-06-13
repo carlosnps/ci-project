@@ -1,0 +1,283 @@
+.nav {
+  @at-root .region-header & {
+    &__main {
+      @extend %nav--primary !optional;
+      @extend %nav--primary-hover !optional;
+
+      &--subnav {
+        @extend %nav--primary-drop !optional;
+      }
+      @include breakpoint($bp-desktop) {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  @at-root .nav__secondary & {
+    margin-top: 1rem;
+
+    &__main {
+      @extend %nav--secondary !optional;
+
+      &--subnav {
+        @extend %nav--secondary-depth !optional;
+      }
+
+    }
+
+  }
+
+  &__secondary {
+    margin-bottom: 2rem;
+    //Mobile toggle
+    .level-0 {
+      > .nav__item {
+        position: relative;
+        @include icon('chevron-down',linearicons,right);
+
+        &::after {
+          cursor    : pointer;
+          font-size : rem(12);
+          margin    : 0;
+          padding   : 1rem;
+          position  : absolute;
+          right     : -1rem;
+          top       : 0.25rem;
+          transform : rotate(0deg);
+          transition: transform 0.2s ease-in 0.2s;
+          z-index   : 10;
+          @include breakpoint($bp-tablet-landscape) {
+            display: none;
+          }
+        }
+        @include breakpoint($bp-tablet-landscape-below) {
+          border-top   : $color_shark 1px solid;
+          border-bottom: $color_shark 1px solid;
+
+          > a {
+            padding-right: 1.5rem;
+            border       : none !important;
+          }
+
+          .menu {
+            margin: 0;
+          }
+
+          .nav__item--active-trail {
+            border: none;
+          }
+        }
+      }
+    }
+    @include breakpoint($bp-tablet-landscape-below) {
+      .level-1 {
+        opacity   : 0;
+        overflow  : hidden;
+        max-height: 0;
+        transition: max-height 0.2s ease-in, opacity 0.2s ease-in 0.1s;
+      }
+
+      &--open {
+        &::after {
+          transform: rotate(180deg) !important;
+        }
+
+        .level-1 {
+          opacity   : 1;
+          overflow  : visible;
+          max-height: rem(500);
+        }
+      }
+    }
+  }
+
+  &__competition-menu,
+  &__engagement {
+    align-self     : flex-start;
+    display        : flex;
+    justify-content: flex-start;
+    margin         : 0 rem(-10);
+    @include breakpoint($bp-desktop) {
+      justify-content: flex-end;
+      margin-bottom  : -2rem;
+    }
+
+    li {
+      display    : inline-block;
+      font-family: $font-family-light;
+      font-size  : rem(13);
+      margin     : 0 rem(10);
+
+      a {
+        @extend %link-gray !optional;
+        @extend %hover-to-underline !optional;
+      }
+    }
+  }
+
+  &__competition-menu {
+    @include breakpoint($bp-tablet-below) {
+      padding-top: 1rem;
+    }
+
+    .nav__item a {
+      @extend %link-reverse !optional;
+      @extend %hover-to-underline !optional;
+    }
+  }
+
+  &__convenience {
+
+    @include breakpoint($bp-tablet) {
+      column-count: 2;
+      column-gap  : $gutter-double;
+    }
+    @include breakpoint($bp-desktop) {
+      width: span(8);
+    }
+
+    a {
+      @extend %hover-underline-dark !optional;
+      @extend %hover-to-underline !optional;
+      color      : $color_deep_sea;
+      font-size  : rem(15);
+      font-family: $font-family-bold;
+    }
+
+    .nav__item {
+      break-inside       : avoid;
+      column-break-inside: avoid;
+      margin             : 0 0 0.5rem;
+      transform          : translateZ(0);
+      page-break-inside  : avoid;
+    }
+  }
+
+  &__toggle {
+    cursor        : pointer;
+    display       : block;
+    left          : calc(100% - 45px);
+    padding       : 0;
+    position      : fixed;
+    top           : $gutter-double * 2;
+    vertical-align: middle;
+    z-index       : 500;
+    @include breakpoint($bp-tablet) {
+      display: none;
+    }
+
+    .body-top.navbar-administration & {
+      top: ($gutter-double * 2) + 39;
+    }
+
+    .admin-roam .body-top.navbar-administration & {
+      top: $gutter-double * 2;
+    }
+
+    &-icon {
+      display : inline-block;
+      height  : rem(15);
+      position: relative;
+      width   : rem(24);
+      @include breakpoint ($bp-tablet) {
+        height: rem(10);
+        width : rem(16);
+      }
+
+      span {
+        background: $color_shark;
+        display   : block;
+        position  : absolute;
+        height    : 2px;
+        width     : 100%;
+        opacity   : 1;
+        left      : 0;
+        transform : rotate(0deg);
+        transition: all 0.1s ease-in-out;
+        // @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        // 	/* Retina-specific stuff here */
+        // 	box-shadow: 0 0.25px 0 color(blue,dark); //slightly thicker lines
+        // }
+
+        &:nth-child(1) {
+          top: 0;
+        }
+
+        &:nth-child(2) {
+          top: rem(5);
+        }
+
+        &:nth-child(3) {
+          top: rem(10);
+        }
+
+        &:nth-child(4) {
+          top: rem(15);
+
+        }
+
+        &:nth-child(2),
+        &:nth-child(4) {
+          width: 75%;
+        }
+      }
+
+      .nav-primary__open & {
+        span {
+          background: $color_flamingo;
+          width     : 100%;
+
+          &:nth-child(1) {
+            top  : 5px;
+            width: 0;
+            left : 50%;
+          }
+
+          &:nth-child(2) {
+            transform: rotate(45deg);
+            top      : 5px;
+          }
+
+          &:nth-child(3) {
+            top      : 5px;
+            transform: rotate(-45deg);
+          }
+
+          &:nth-child(4) {
+            top  : 5px;
+            width: 0;
+            left : 50%;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+a.lnr-magnifier {
+  color          : $color_shark;
+  font-size      : rem(42);
+  margin-top     : -40px;
+  margin-right   : rem(10);
+  display        : block;
+  float          : right;
+  text-decoration: none;
+  width          : 60px;
+}
+// Mobile menu
+@include breakpoint($bp-tablet-below) {
+  html.nav-primary__open {
+    height: 100%;
+
+    body {
+      height: 100%;
+    }
+  }
+}
+// Hide nicescroll rails at larger screen sizes
+.nicescroll-rails {
+  @include breakpoint($bp-tablet) {
+    display: none !important;
+  }
+}

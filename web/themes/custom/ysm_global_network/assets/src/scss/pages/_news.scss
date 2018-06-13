@@ -1,0 +1,9 @@
+.news {
+  &__other-news {
+    .node-teaser__image {
+      @include breakpoint($bp-tablet) {
+        display: none !important;
+      }
+    }
+  }
+}

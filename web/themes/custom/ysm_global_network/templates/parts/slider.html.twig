@@ -1,0 +1,10 @@
+{# provides formatting of dates and date ranges
+REQUIRES a start date variable of "start"
+and end date variable of "end"
+#}
+{% set gallery = images %}
+<ul class="slider__list semantic-list">
+	{% for key in gallery | keys if key matches '/^\\d+$/' %}
+		<li class="slider__item">{{ gallery[key] }}</li>
+	{% endfor %}
+</ul>
