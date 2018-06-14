@@ -30,6 +30,7 @@
         "drupal/drush": "^6.0@RC",
         "drupal/easy_install": "^8.0@alpha",
         "drupal/eck": "^1.0@alpha",
+        "drupal/entity_reference_revisions": "^1.5",
         "drupal/features": "^3.5",
         "drupal/fences": "^2.0@alpha",
         "drupal/field_collection": "^1.0@alpha",
