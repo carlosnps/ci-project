@@ -1,0 +1,82 @@
+uuid: 6a2d8890-d567-407a-a017-ff6cc9d694be
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.competition_data.portfolio
+    - field.field.competition_data.portfolio.field_index
+    - field.field.competition_data.portfolio.field_index_return_to_date
+    - field.field.competition_data.portfolio.field_net_return_to_date
+    - field.field.competition_data.portfolio.field_percent_change_daily
+    - field.field.competition_data.portfolio.field_return_to_date
+    - field.field.competition_data.portfolio.field_stocks
+  module:
+    - inline_entity_form
+id: competition_data.portfolio.default
+targetEntityType: competition_data
+bundle: portfolio
+mode: default
+content:
+  field_index:
+    weight: 3
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
+  field_index_return_to_date:
+    weight: 9
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_net_return_to_date:
+    weight: 8
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_percent_change_daily:
+    weight: 6
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_return_to_date:
+    weight: 7
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_stocks:
+    weight: 4
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

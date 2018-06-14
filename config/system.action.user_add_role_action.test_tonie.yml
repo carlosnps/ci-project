@@ -1,0 +1,14 @@
+uuid: 51c8b32b-9ce5-4298-b615-d9dbffa578b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.test_tonie
+  module:
+    - user
+id: user_add_role_action.test_tonie
+label: 'Add the test-Tonie role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: test_tonie

@@ -1,0 +1,25 @@
+uuid: ce8973f7-3259-4f47-9768-02e86fd1d5c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.existing_content_within_site.field_existing_content
+    - paragraphs.paragraphs_type.existing_content_within_site
+id: paragraph.existing_content_within_site.default
+targetEntityType: paragraph
+bundle: existing_content_within_site
+mode: default
+content:
+  field_existing_content:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

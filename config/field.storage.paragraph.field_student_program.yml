@@ -1,0 +1,21 @@
+uuid: 3fc3800e-7b85-40ae-b4b8-a54b16516021
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_student_program
+field_name: field_student_program
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 1b8b8596-44f3-40b8-b7c4-06b9b67679b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_not_a_member_school
+    - node.type.member_schools
+id: node.member_schools.field_not_a_member_school
+field_name: field_not_a_member_school
+entity_type: node
+bundle: member_schools
+label: 'Not a Member School'
+description: 'Check if the organization is not a member school'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

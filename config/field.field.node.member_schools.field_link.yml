@@ -1,0 +1,25 @@
+uuid: 4d820b99-a5ca-43a0-99a9-d0a1f4572b09
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link
+    - node.type.member_schools
+  module:
+    - link
+_core:
+  default_config_hash: MFGPOYBZXk0nuOm6t8QuYYb_yIpkhfGFyyBhnY_Kccg
+id: node.member_schools.field_link
+field_name: field_link
+entity_type: node
+bundle: member_schools
+label: Link
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

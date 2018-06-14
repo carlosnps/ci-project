@@ -1,0 +1,27 @@
+uuid: 0b7b9853-4327-41d6-a2e7-64fd46427060
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_details_pdf_
+    - node.type.certificate_of_excellence_course
+  module:
+    - file
+id: node.certificate_of_excellence_course.field_course_details_pdf_
+field_name: field_course_details_pdf_
+entity_type: node
+bundle: certificate_of_excellence_course
+label: 'Course Details (PDF)'
+description: 'Use as an alternate to the course description field'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf doc docx ppt pptx'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

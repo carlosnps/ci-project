@@ -1,36 +1,38 @@
-uuid: 9f6be2d1-b121-4e91-9999-7a855d1d8111
+uuid: 34a4eb90-97bc-4a6f-bce9-f4ecf6f5ca2e
 langcode: en
 status: true
-dependencies:
-  module:
-    - editor
+dependencies: {  }
 _core:
   default_config_hash: hewPmBgni9jlDK_IjLxUx1HsTbinK-hdl0lOwjbteIY
 name: 'Full HTML'
 format: full_html
-weight: 1
+weight: -10
 filters:
-  filter_align:
-    id: filter_align
-    provider: filter
-    status: true
-    weight: 8
-    settings: {  }
-  filter_caption:
-    id: filter_caption
-    provider: filter
-    status: true
-    weight: 9
-    settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
     status: true
     weight: 10
     settings: {  }
-  editor_file_reference:
-    id: editor_file_reference
-    provider: editor
+  filter_url:
+    id: filter_url
+    provider: filter
     status: true
-    weight: 11
+    weight: 0
+    settings:
+      filter_url_length: 72
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: true
+    weight: 0
     settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <s> <sup> <sub> <img src alt data-entity-type data-entity-uuid> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <hr> <p> <h1> <pre>'
+      filter_html_help: true
+      filter_html_nofollow: false

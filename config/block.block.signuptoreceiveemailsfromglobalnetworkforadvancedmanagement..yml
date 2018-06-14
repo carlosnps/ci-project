@@ -1,0 +1,25 @@
+uuid: 9cd12e02-5b2a-4e8b-a5b6-f8339f41e82f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:83e9c3c0-0307-43de-95d9-2a8955a67eb2'
+  module:
+    - block_content
+  theme:
+    - ysm_global_network
+id: signuptoreceiveemailsfromglobalnetworkforadvancedmanagement.
+theme: ysm_global_network
+region: footer
+weight: -9
+provider: null
+plugin: 'block_content:83e9c3c0-0307-43de-95d9-2a8955a67eb2'
+settings:
+  id: 'block_content:83e9c3c0-0307-43de-95d9-2a8955a67eb2'
+  label: 'Sign up to receive emails from the Global Network for Advanced Management.'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

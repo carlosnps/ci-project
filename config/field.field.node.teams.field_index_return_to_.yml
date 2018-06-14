@@ -1,0 +1,25 @@
+uuid: e1103885-0390-4b23-90d6-d0b49817b359
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_index_return_to_
+    - node.type.teams
+_core:
+  default_config_hash: NQoEtqfyph0FiJyupvy3mx5ksiD3qTI-3nFEWhtQCh0
+id: node.teams.field_index_return_to_
+field_name: field_index_return_to_
+entity_type: node
+bundle: teams
+label: 'Index Return to Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

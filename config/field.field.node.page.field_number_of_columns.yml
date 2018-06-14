@@ -1,0 +1,33 @@
+uuid: 5a47d621-e369-4dca-9172-edb22b8fda57
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_number_of_columns
+    - node.type.page
+    - taxonomy.vocabulary.layout_columns
+  content:
+    - 'taxonomy_term:layout_columns:36a78712-4b24-4310-be7f-1da07b2f9d63'
+id: node.page.field_number_of_columns
+field_name: field_number_of_columns
+entity_type: node
+bundle: page
+label: 'Number of Columns'
+description: 'Additional content below can be rendered in multiple columns of equal width at desktop browser widths.  Each additional content item will need to be added as a separate "paragraph" for the number of columns to work properly.'
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 36a78712-4b24-4310-be7f-1da07b2f9d63
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      layout_columns: layout_columns
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

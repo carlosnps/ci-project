@@ -1,0 +1,32 @@
+uuid: 900d2a28-d011-4d0f-a21e-0c6a8f90ec6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.icon_hex_code
+    - field.field.taxonomy_term.icons.field_css_class
+    - field.field.taxonomy_term.icons.field_hex_code
+    - taxonomy.vocabulary.icons
+id: taxonomy_term.icons.icon_hex_code
+targetEntityType: taxonomy_term
+bundle: icons
+mode: icon_hex_code
+content:
+  field_hex_code:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: string
+    region: content
+hidden:
+  description: true
+  field_css_class: true

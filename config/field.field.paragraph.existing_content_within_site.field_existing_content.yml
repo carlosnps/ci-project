@@ -1,0 +1,36 @@
+uuid: cf5ae7ab-164a-442b-a437-8c4b3e049937
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_existing_content
+    - node.type.book
+    - node.type.global_network_cases
+    - node.type.global_network_week
+    - node.type.page
+    - node.type.people
+    - paragraphs.paragraphs_type.existing_content_within_site
+id: paragraph.existing_content_within_site.field_existing_content
+field_name: field_existing_content
+entity_type: paragraph
+bundle: existing_content_within_site
+label: 'Existing Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      page: page
+      book: book
+      global_network_cases: global_network_cases
+      global_network_week: global_network_week
+      people: people
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: global_network_cases
+field_type: entity_reference

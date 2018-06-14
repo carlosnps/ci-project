@@ -1,0 +1,23 @@
+uuid: dbefb569-a7ce-46c0-9094-bf4876a80769
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_block
+    - paragraphs.paragraphs_type.rendered_entity
+id: paragraph.rendered_entity.field_block
+field_name: field_block
+entity_type: paragraph
+bundle: rendered_entity
+label: Block
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

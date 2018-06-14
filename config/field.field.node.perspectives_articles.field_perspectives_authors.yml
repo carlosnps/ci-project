@@ -1,0 +1,29 @@
+uuid: 6481675d-7eab-49c1-b5f6-ab5840e8ecc3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_perspectives_authors
+    - node.type.perspectives_articles
+    - taxonomy.vocabulary.perspectives_authors
+id: node.perspectives_articles.field_perspectives_authors
+field_name: field_perspectives_authors
+entity_type: node
+bundle: perspectives_articles
+label: Authors
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      perspectives_authors: perspectives_authors
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

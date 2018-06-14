@@ -1,0 +1,59 @@
+uuid: b86adbb1-1e6d-4890-bbb7-0d070d5695ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.competition_equities.field_country_code
+    - field.field.taxonomy_term.competition_equities.field_currency
+    - field.field.taxonomy_term.competition_equities.field_industry
+    - field.field.taxonomy_term.competition_equities.field_symbol
+    - taxonomy.vocabulary.competition_equities
+  module:
+    - text
+_core:
+  default_config_hash: aVK4haf3kvB_NULgF8OTkccyqgX3CkkpJYWhOJsIDhk
+id: taxonomy_term.competition_equities.default
+targetEntityType: taxonomy_term
+bundle: competition_equities
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_country_code:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_currency:
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_industry:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_symbol:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

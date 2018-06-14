@@ -1,0 +1,9 @@
+uuid: 7b6cf986-947e-48d4-a8aa-ebf3d6c9ebef
+langcode: en
+status: true
+dependencies: {  }
+id: existing_content_within_site
+label: 'Existing Content within Site (Teaser View)'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

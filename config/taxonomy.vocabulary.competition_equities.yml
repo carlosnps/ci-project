@@ -1,0 +1,11 @@
+uuid: 8f148798-d64e-42d8-9219-23cb2ed01a67
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: K_kq0Yj1-PlTda0M8iluJZxwbQg8TinIs1v_iCS70cY
+name: 'Competition Equities'
+vid: competition_equities
+description: ''
+hierarchy: 0
+weight: 0

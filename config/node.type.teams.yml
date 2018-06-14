@@ -1,0 +1,19 @@
+uuid: 7996392c-1e82-400b-b926-004fecf89dcb
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: N4_dKlNiMXUJxD6T7d13Hx-vnbuNKlFEO2vG0xB6xlw
+name: Teams
+type: teams
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

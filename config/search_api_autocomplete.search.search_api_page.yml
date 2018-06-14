@@ -1,0 +1,25 @@
+uuid: 36d8fabd-85ea-468a-a4b9-18c0dde3918b
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.searchapi_index
+    - views.view.search_api_page
+  module:
+    - views
+    - search_api_autocomplete
+id: search_api_page
+label: 'Search Api Page'
+index_id: searchapi_index
+suggester_settings:
+  live_results:
+    fields: {  }
+    view_modes: {  }
+suggester_weights: {  }
+suggester_limits: {  }
+search_settings:
+  'views:search_api_page':
+    displays:
+      default: true
+      selected: {  }
+options: {  }

@@ -1,0 +1,10 @@
+uuid: dc645a45-6ce7-4ec4-8079-17af0b4ac2e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.network_course_school_and_module_title
+label: 'Network Course - School and Module Title'
+targetEntityType: node
+cache: true

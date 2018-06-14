@@ -1,0 +1,46 @@
+uuid: 7cf5c084-7558-49ca-87b5-6b85de5322a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.global_network_week_schools_loca.field_content
+    - field.field.paragraph.global_network_week_schools_loca.field_module
+    - field.field.paragraph.global_network_week_schools_loca.field_module_details
+    - paragraphs.paragraphs_type.global_network_week_schools_loca
+  module:
+    - text
+id: paragraph.global_network_week_schools_loca.default
+targetEntityType: paragraph
+bundle: global_network_week_schools_loca
+mode: default
+content:
+  field_content:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_module:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_module_details:
+    weight: 2
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

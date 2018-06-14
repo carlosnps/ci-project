@@ -1,0 +1,23 @@
+uuid: 8b8087d0-e68f-48f3-9631-e2f2ba8e840f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_side
+    - paragraphs.paragraphs_type.global_network_cases
+  module:
+    - options
+id: paragraph.global_network_cases.field_side
+field_name: field_side
+entity_type: paragraph
+bundle: global_network_cases
+label: Side
+description: 'Choose which side the teaser will appear on.'
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

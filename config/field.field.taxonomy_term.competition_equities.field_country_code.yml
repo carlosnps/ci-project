@@ -1,0 +1,38 @@
+uuid: 35499bd8-d4cd-4139-b715-ecd177c3f141
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_country_code
+    - taxonomy.vocabulary.competition_equities
+  module:
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: none
+    weight: '0'
+    geocode_field: name
+    reverse_geocode_field: {  }
+    hidden: 0
+    disabled: 0
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+_core:
+  default_config_hash: AuUIcPiqur7OJdxbtKMfOHvKCDPDR7c4cAnR0uilxHA
+id: taxonomy_term.competition_equities.field_country_code
+field_name: field_country_code
+entity_type: taxonomy_term
+bundle: competition_equities
+label: 'Country Code'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

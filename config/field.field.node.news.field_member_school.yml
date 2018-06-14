@@ -1,0 +1,30 @@
+uuid: 84032431-3a47-4709-b1d4-699447fdb13c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_member_school
+    - node.type.member_schools
+    - node.type.news
+_core:
+  default_config_hash: GutOJ15Rm3hPguCbP09azY8NrlFy9jKnk_SmCrMH34E
+id: node.news.field_member_school
+field_name: field_member_school
+entity_type: node
+bundle: news
+label: 'Member School'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      member_schools: member_schools
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,22 @@
+uuid: 02d05c88-867c-45e2-8461-b8c3202b5820
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: global_network_weeks
+label: 'Global Network Weeks'
+type: 'canonical_entities:node'
+pattern: 'programs/network-weeks/[node:field_start_date:date:custom:Y]/[node:title]'
+selection_criteria:
+  92595e5d-23b9-4b01-8f30-816e259f2770:
+    id: node_type
+    bundles:
+      global_network_week: global_network_week
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 92595e5d-23b9-4b01-8f30-816e259f2770
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,9 @@
+uuid: e6abf9f8-0ef9-42e7-8ff5-3c486f0c8505
+langcode: en
+status: true
+dependencies: {  }
+id: global_network_week_schools_loca
+label: 'Global Network Week Schools/Location/Module'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,19 @@
+uuid: 2fbcf4b7-beb1-468e-8807-74faa85850e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_instructor_name
+    - paragraphs.paragraphs_type.course_instructor_link
+id: paragraph.course_instructor_link.field_instructor_name
+field_name: field_instructor_name
+entity_type: paragraph
+bundle: course_instructor_link
+label: 'Instructor Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

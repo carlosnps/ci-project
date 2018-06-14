@@ -1,0 +1,24 @@
+uuid: 15f5b6b2-bdbd-4153-bfc2-b1aa4aad4a68
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_country
+    - node.type.member_schools
+  module:
+    - address
+_core:
+  default_config_hash: ISDmsJ9SRncNmNXjRIAFmpFwK2t5zL5JJM7-mSoIt7s
+id: node.member_schools.field_country
+field_name: field_country
+entity_type: node
+bundle: member_schools
+label: Country
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_countries: {  }
+field_type: address_country

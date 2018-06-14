@@ -1,0 +1,44 @@
+uuid: 31d16c13-1688-4edb-9d84-55c7f8ee20cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.homepage_slide
+    - field.field.node.global_network_week.field_background_color_for_large
+    - field.field.node.global_network_week.field_end_date
+    - field.field.node.global_network_week.field_image
+    - field.field.node.global_network_week.field_link
+    - field.field.node.global_network_week.field_module_course
+    - field.field.node.global_network_week.field_photos
+    - field.field.node.global_network_week.field_related_news
+    - field.field.node.global_network_week.field_start_date
+    - field.field.node.global_network_week.field_teaser
+    - image.style.home_slide_image_772x484
+    - node.type.global_network_week
+  module:
+    - image
+    - user
+id: node.global_network_week.homepage_slide
+targetEntityType: node
+bundle: global_network_week
+mode: homepage_slide
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: home_slide_image_772x484
+      image_link: content
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  field_background_color_for_large: true
+  field_end_date: true
+  field_link: true
+  field_module_course: true
+  field_photos: true
+  field_related_news: true
+  field_start_date: true
+  field_teaser: true
+  links: true

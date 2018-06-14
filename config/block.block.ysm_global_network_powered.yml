@@ -1,0 +1,22 @@
+uuid: d968a9d7-b99b-4c12-b114-bab1bf89533f
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - ysm_global_network
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: ysm_global_network_powered
+theme: ysm_global_network
+region: hidden
+weight: -7
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

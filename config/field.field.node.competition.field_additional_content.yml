@@ -1,0 +1,90 @@
+uuid: 4e6e23e1-f206-4919-83ff-b8d6b4f2cd94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_additional_content
+    - node.type.competition
+    - paragraphs.paragraphs_type.additional_text_area_s_
+    - paragraphs.paragraphs_type.existing_content_within_site
+    - paragraphs.paragraphs_type.rendered_entity
+    - paragraphs.paragraphs_type.video_clip
+    - paragraphs.paragraphs_type.view
+  module:
+    - entity_reference_revisions
+id: node.competition.field_additional_content
+field_name: field_additional_content
+entity_type: node
+bundle: competition
+label: 'Additional Content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      additional_text_area_s_: additional_text_area_s_
+      existing_content_within_site: existing_content_within_site
+      rendered_entity: rendered_entity
+      video_clip: video_clip
+      view: view
+    target_bundles_drag_drop:
+      additional_text_area_s_:
+        enabled: true
+        weight: 19
+      ad_hoc_image_link_and_teaser:
+        weight: 20
+        enabled: false
+      course_instructor_link:
+        weight: 21
+        enabled: false
+      existing_content_within_site:
+        enabled: true
+        weight: 22
+      global_network_cases:
+        weight: 23
+        enabled: false
+      global_network_news_teasers_for_:
+        weight: 24
+        enabled: false
+      global_network_weeks:
+        weight: 25
+        enabled: false
+      global_network_week_schools_loca:
+        weight: 26
+        enabled: false
+      homepage_slides:
+        weight: 27
+        enabled: false
+      image_link:
+        weight: 28
+        enabled: false
+      large_content_teaser:
+        weight: 29
+        enabled: false
+      menu_paragraph:
+        weight: 30
+        enabled: false
+      perspective_home_page_items:
+        weight: 31
+        enabled: false
+      program_for_current_business_stu:
+        weight: 32
+        enabled: false
+      rendered_entity:
+        enabled: true
+        weight: 33
+      team_member:
+        weight: 34
+        enabled: false
+      video_clip:
+        enabled: true
+        weight: 35
+      view:
+        enabled: true
+        weight: 36
+field_type: entity_reference_revisions

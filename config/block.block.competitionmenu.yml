@@ -1,0 +1,26 @@
+uuid: 1758af8d-b02c-4f6d-a14d-275b2f2951d8
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.competition-menu
+  module:
+    - system
+  theme:
+    - ysm_global_network
+_core:
+  default_config_hash: RU-ZDXppo7HeBuiF3u5McP1f1PnHqLB7ojfx4xJKMzk
+id: competitionmenu
+theme: ysm_global_network
+region: header
+weight: -7
+provider: null
+plugin: 'system_menu_block:competition-menu'
+settings:
+  id: 'system_menu_block:competition-menu'
+  label: 'Competition Menu'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

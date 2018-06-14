@@ -1,0 +1,30 @@
+uuid: 38362417-4e75-4a95-87c4-bb616b83d16e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_member_school
+    - node.type.member_schools
+    - node.type.perspectives_articles
+_core:
+  default_config_hash: Hsq3UZqJEGPobJUrKWEi8ssWQesHtu3UxYTKtuP5jmI
+id: node.perspectives_articles.field_member_school
+field_name: field_member_school
+entity_type: node
+bundle: perspectives_articles
+label: 'Member Schools'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      member_schools: member_schools
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

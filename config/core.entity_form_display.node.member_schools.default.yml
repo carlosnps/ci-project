@@ -1,0 +1,257 @@
+uuid: c00f9352-43e3-4cf5-b4a7-9d98b28d84e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.member_schools.body
+    - field.field.node.member_schools.field_color
+    - field.field.node.member_schools.field_country
+    - field.field.node.member_schools.field_image
+    - field.field.node.member_schools.field_link
+    - field.field.node.member_schools.field_location
+    - field.field.node.member_schools.field_logo
+    - field.field.node.member_schools.field_member_region
+    - field.field.node.member_schools.field_not_a_member_school
+    - field.field.node.member_schools.field_parent_institution
+    - field.field.node.member_schools.field_t
+    - image.style.thumbnail
+    - node.type.member_schools
+  module:
+    - address
+    - field_group
+    - image
+    - link
+    - path
+    - text
+    - tzfield
+third_party_settings:
+  field_group:
+    group_container:
+      children:
+        - group_main
+        - group_location
+        - group_color_and_images
+        - group_links
+        - group_legacy_fields
+      parent_name: ''
+      weight: 2
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: Container
+    group_location:
+      children:
+        - field_member_region
+        - field_parent_institution
+        - field_location
+        - field_t
+      parent_name: group_container
+      weight: 6
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Location
+    group_color_and_images:
+      children:
+        - field_color
+        - field_logo
+        - field_image
+      parent_name: group_container
+      weight: 8
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Color and Images'
+    group_main:
+      children:
+        - body
+      parent_name: group_container
+      weight: 5
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Main
+    group_links:
+      children:
+        - field_link
+      parent_name: group_container
+      weight: 9
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Links
+    group_legacy_fields:
+      children:
+        - field_country
+      parent_name: group_container
+      weight: 10
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Legacy Fields'
+_core:
+  default_config_hash: xJG9cUw5JQCSwk2nPvoOevIeWyBrd_NM25Qu65pRsbA
+id: node.member_schools.default
+targetEntityType: node
+bundle: member_schools
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 1
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_color:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_country:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: address_country_default
+    region: content
+  field_image:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_link:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_location:
+    weight: 11
+    settings:
+      default_country: null
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_logo:
+    weight: 3
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_member_region:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_not_a_member_school:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_parent_institution:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_t:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: tzfield_default
+    region: content
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 8
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,10 @@
+uuid: 2518e53e-d12f-4606-80f7-35594aae091b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.only_school_name_and_color
+label: 'Only School Name and Color'
+targetEntityType: node
+cache: true

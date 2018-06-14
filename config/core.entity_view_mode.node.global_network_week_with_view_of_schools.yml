@@ -1,0 +1,10 @@
+uuid: 1ef80568-bad5-4f1a-b87c-5def8f1f37ed
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.global_network_week_with_view_of_schools
+label: 'Global Network Week with View of Schools'
+targetEntityType: node
+cache: true

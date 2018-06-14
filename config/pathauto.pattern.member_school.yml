@@ -1,0 +1,22 @@
+uuid: 287a6038-2662-4f29-80f2-9a67e29ae059
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: member_school
+label: 'Member school'
+type: 'canonical_entities:node'
+pattern: 'members/[node:title]'
+selection_criteria:
+  adcb4ccb-18c1-4891-b63d-7263452f4087:
+    id: node_type
+    bundles:
+      member_schools: member_schools
+    negate: false
+    context_mapping:
+      node: node
+    uuid: adcb4ccb-18c1-4891-b63d-7263452f4087
+selection_logic: and
+weight: -6
+relationships: {  }

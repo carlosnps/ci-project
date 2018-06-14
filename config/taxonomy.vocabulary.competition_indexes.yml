@@ -1,0 +1,11 @@
+uuid: 86698027-4aa6-4c79-b4ec-71183c959cd3
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: yl2juGlO7I1I-nOl5j8p31s04Mai5OlhZsVY5HY2ILo
+name: 'Competition Indexes'
+vid: competition_indexes
+description: ''
+hierarchy: 0
+weight: 0

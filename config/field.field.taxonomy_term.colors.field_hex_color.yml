@@ -1,0 +1,32 @@
+uuid: b148744d-e1ac-41d1-a6d3-18e59d1b83c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_hex_color
+    - taxonomy.vocabulary.colors
+  module:
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: name
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: taxonomy_term.colors.field_hex_color
+field_name: field_hex_color
+entity_type: taxonomy_term
+bundle: colors
+label: 'Hex Color'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

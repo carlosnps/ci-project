@@ -1,0 +1,22 @@
+uuid: d0a53652-33f3-4c5c-932e-9f5932a9c035
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: EzibKCJYoIVMBOKg7GOiXBvz55RvOYVM-WJa9aV8lik
+id: node.field_return_to_date
+field_name: field_return_to_date
+entity_type: node
+type: decimal
+settings:
+  precision: 15
+  scale: 4
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

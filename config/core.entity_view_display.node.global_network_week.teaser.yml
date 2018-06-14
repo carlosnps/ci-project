@@ -1,0 +1,94 @@
+uuid: b767a8f8-b485-4d8d-98fd-c85210edc590
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.global_network_week.field_background_color_for_large
+    - field.field.node.global_network_week.field_end_date
+    - field.field.node.global_network_week.field_image
+    - field.field.node.global_network_week.field_link
+    - field.field.node.global_network_week.field_module_course
+    - field.field.node.global_network_week.field_photos
+    - field.field.node.global_network_week.field_related_news
+    - field.field.node.global_network_week.field_start_date
+    - field.field.node.global_network_week.field_teaser
+    - node.type.global_network_week
+  module:
+    - datetime
+    - fences
+    - text
+    - user
+id: node.global_network_week.teaser
+targetEntityType: node
+bundle: global_network_week
+mode: teaser
+content:
+  field_end_date:
+    type: datetime_plain
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+  field_module_course:
+    type: entity_reference_entity_view
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      view_mode: network_course_school_only
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+  field_start_date:
+    type: datetime_plain
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+  field_teaser:
+    type: text_trimmed
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      trim_length: 300
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+hidden:
+  field_background_color_for_large: true
+  field_image: true
+  field_link: true
+  field_photos: true
+  field_related_news: true
+  links: true

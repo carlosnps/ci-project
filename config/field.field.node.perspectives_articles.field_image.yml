@@ -1,0 +1,40 @@
+uuid: 230517b0-2873-4cab-888d-f730322b705c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image
+    - node.type.perspectives_articles
+  module:
+    - image
+_core:
+  default_config_hash: jR_BsJaakg6cVWs7w6KpMevVbcjjOMrt1ZEhEJh2TuY
+id: node.perspectives_articles.field_image
+field_name: field_image
+entity_type: node
+bundle: perspectives_articles
+label: 'Cover Image'
+description: 'Upload a cover image to go with this article.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: article
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

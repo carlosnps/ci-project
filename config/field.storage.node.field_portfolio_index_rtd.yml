@@ -1,0 +1,22 @@
+uuid: 489a53a7-2678-4d4d-a213-aa071301f09c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: E6cgPq4uTHndfB0VBVQyUIAKzh91CmzLC3flA1Gkk_o
+id: node.field_portfolio_index_rtd
+field_name: field_portfolio_index_rtd
+entity_type: node
+type: decimal
+settings:
+  precision: 15
+  scale: 4
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

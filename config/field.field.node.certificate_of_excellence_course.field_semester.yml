@@ -1,0 +1,29 @@
+uuid: 17b61ee3-2ed8-4ed4-8d77-3c4b8b5a43ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_semester
+    - node.type.certificate_of_excellence_course
+    - taxonomy.vocabulary.semesters
+id: node.certificate_of_excellence_course.field_semester
+field_name: field_semester
+entity_type: node
+bundle: certificate_of_excellence_course
+label: Semester
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      semesters: semesters
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

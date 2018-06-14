@@ -1,0 +1,16 @@
+import: true
+queries:
+  0:
+    query: '@AdvancedMgmt'
+    endpoint: statuses/user_timeline
+    parameter: screen_name
+  2:
+    query: '#GNW2018'
+    endpoint: search/tweets
+    parameter: q
+count: 20
+expire: 7776000
+consumer_key: IFXskJk8ERwprC3NQkFHsO9WS
+consumer_secret: QNJw8Q0YNv2BYaxKTwZISmM9Nx8XWxekzZZt1FrVQm03HITHBg
+oauth_token: ''
+oauth_token_secret: ''

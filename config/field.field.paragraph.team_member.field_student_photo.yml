@@ -1,0 +1,40 @@
+uuid: 25c6b29d-7946-4851-b903-ab8a4fc2d805
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_student_photo
+    - paragraphs.paragraphs_type.team_member
+  module:
+    - image
+_core:
+  default_config_hash: jOs50nsnG_ykbEw2hye_MSPUKo-yQOszjuhrZqTx-PM
+id: paragraph.team_member.field_student_photo
+field_name: field_student_photo
+entity_type: paragraph
+bundle: team_member
+label: 'Student Photo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

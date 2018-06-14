@@ -1,0 +1,31 @@
+uuid: a94f9710-805b-41a7-85f6-acc2ef6bdb58
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.menu_paragraph.field_submenu_block
+    - field.field.paragraph.menu_paragraph.field_submenu_title
+    - paragraphs.paragraphs_type.menu_paragraph
+id: paragraph.menu_paragraph.default
+targetEntityType: paragraph
+bundle: menu_paragraph
+mode: default
+content:
+  field_submenu_block:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_submenu_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

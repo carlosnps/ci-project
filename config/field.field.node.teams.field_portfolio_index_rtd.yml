@@ -1,0 +1,25 @@
+uuid: 97a06c6e-040c-4350-ad13-9ec321f58834
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_portfolio_index_rtd
+    - node.type.teams
+_core:
+  default_config_hash: 9Y0NoIpO1M6ldeSAgY21h0Nerr73sclCtpWe4VLOoy8
+id: node.teams.field_portfolio_index_rtd
+field_name: field_portfolio_index_rtd
+entity_type: node
+bundle: teams
+label: 'Portfolio Index Return to Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

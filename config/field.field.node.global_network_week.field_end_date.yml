@@ -1,0 +1,21 @@
+uuid: 9482a6d6-9ab8-4d0b-a9d0-fa7d08932ad7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_end_date
+    - node.type.global_network_week
+  module:
+    - datetime
+id: node.global_network_week.field_end_date
+field_name: field_end_date
+entity_type: node
+bundle: global_network_week
+label: 'End Date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
