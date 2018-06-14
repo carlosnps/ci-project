@@ -1,0 +1,25 @@
+{%
+  set classes = [
+    'main-view-content',
+    'team-list'
+  ]
+%}
+<section {{ attributes.addClass(classes) }} aria-labelledby="team-list__aria-title">
+  <h3 class="team-list__title" id="team-list__aria-title">Leaderboard</h3>
+  <ul class="semantic-list">
+    {% for row in rows %}
+      {%
+        set row_classes = [
+          default_row_class ? 'views-row',
+          'use-color',
+          'js-team-list__team',
+        ]
+      %}
+      <li class="color-{{ row.content['#row']._entity.field_member_school.0.target_id }} team-list__row">
+        <article{{ row.attributes.addClass(row_classes) }} data-url="{{ path('entity.node.canonical', {'node': row.content['#row'].nid })}}">
+          {{ row.content }}
+        </article>
+      </li>
+    {% endfor %}
+    </ul>
+</section>

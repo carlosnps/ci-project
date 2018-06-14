@@ -1,0 +1,21 @@
+<main id="main" class="page" role="main">
+	{% if page.headline %}<section class="page__headline container"></section>{% endif %}
+	<header class="page__header container" role="banner"><div class="page__header--logo">
+        <a href="/" title="Home" rel="home"><img alt="Global Network for Advanced Management logo" src="/themes/custom/ysm_global_network/assets/dist/images/GNAM_revised-logo.svg" /></a>
+</div>{{ page.header }}<div class="nav__toggle" id="primary-nav__toggle"><span class="nav__toggle-icon"><span></span><span></span><span></span><span></span></span></div></header>
+	<div id="page" class="page__content">
+		{% if page.navigation %}
+			<div class="page__navigation">{{ page.navigation }}</div>
+		{% endif %}
+		<div class="page__article" id="main-content">
+			<h1>Content Tagged with {{ page['#title'] }}</h1>
+			{{ page.content }}</div>
+		{% if page.sidebar %}
+			<div class="page__sidebar">{{ page.sidebar }}</div>
+		{% endif %}
+	</div>
+	<footer class="page__footer container" role="contentinfo">
+		<div class="page__footer--logo"><a href="/"><img alt="Global Network for Advanced Management logo" src="/themes/custom/ysm_global_network/assets/dist/images/gnam_revised-logo-white-1.svg" /></a></div>{{ page.footer }}
+		<p class="copyright">© {{ "now"|date("Y") }} Global Network for Advanced Management. All rights reserved.</p>
+	</footer>
+</main>

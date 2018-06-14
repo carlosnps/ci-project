@@ -1,0 +1,36 @@
+.views-exposed-form > form,
+form.views-exposed-form {
+  align-items: baseline;
+  display    : flex;
+  flex-wrap  : wrap;
+
+  > .form-item {
+    margin-right: $gutter-double;
+
+    input,
+    select {
+      width: 100%;
+    }
+    // input {
+    //   width: 100%;
+    //   @include breakpoint($bp-tablet) {
+    //     max-width: 12vw;
+    //     min-width: rem(120);
+    //   }
+    // }
+    select {
+      @include breakpoint($bp-tablet) {
+        max-width: 14vw;
+        min-width: rem(120);
+      }
+    }
+  }
+
+  .form-actions {
+    margin-top: 0.5rem;
+  }
+}
+// exposed form not as separate block
+form.views-exposed-form {
+  margin-bottom: 2rem;
+}

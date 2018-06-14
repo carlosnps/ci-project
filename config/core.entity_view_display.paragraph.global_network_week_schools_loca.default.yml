@@ -1,0 +1,56 @@
+uuid: 7299cabc-e53f-4279-b048-9ada7df5eba2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.global_network_week_schools_loca.field_content
+    - field.field.paragraph.global_network_week_schools_loca.field_module
+    - field.field.paragraph.global_network_week_schools_loca.field_module_details
+    - paragraphs.paragraphs_type.global_network_week_schools_loca
+  module:
+    - fences
+    - text
+id: paragraph.global_network_week_schools_loca.default
+targetEntityType: paragraph
+bundle: global_network_week_schools_loca
+mode: default
+content:
+  field_content:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: member_school_color_name_and_country
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: entity_reference_entity_view
+    region: content
+  field_module:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      fences:
+        fences_field_tag: h2
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: string
+    region: content
+  field_module_details:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

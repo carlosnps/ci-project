@@ -1,0 +1,103 @@
+.search {
+  &__result {
+    &--snippet {
+      strong {}
+    }
+
+    &--title {
+      margin-bottom: 0;
+
+      a {
+        @extend %hover-to-underline !optional;
+      }
+    }
+
+    &--url {
+      font-size: rem(12);
+    }
+  }
+
+  &__toggle {
+    @include icon(magnifier, linearicons, right);
+    cursor    : pointer;
+    font-size : rem(32);
+    position  : absolute;
+    right     : 0;
+    transform : translatey(calc(-100% - #{$gutter}));
+    transition: all 0.2s ease-in;
+
+    .active & {
+      color: $color_gray;
+    }
+    @include breakpoint($bp-tablet-below) {
+      display: none;
+    }
+  }
+
+  .views-exposed-form {
+    .form-item {
+      input,
+      select {
+        max-width: none;
+      }
+    }
+
+  }
+}
+
+#block-exposedformsearch-api-pagesearch-block {
+  position: relative;
+  width   : 100%;
+
+  form {
+    @include breakpoint($bp-tablet) {
+      max-height: 0;
+      opacity   : 0;
+      overflow  : hidden;
+      transition: max-height 0.3s ease-in, opacity 0.1s ease-in;
+    }
+  }
+  @include breakpoint($bp-tablet) {
+    &.active {
+      form {
+        max-height: 10rem;
+        opacity   : 1;
+      }
+    }
+  }
+
+  .js-form-type-search-api-autocomplete {
+    flex: 1 0 auto;
+
+    input {
+      max-width: none;
+    }
+  }
+  // Hide type selector
+  .js-form-type-select {
+    display: none;
+  }
+  @include breakpoint($bp-tablet-below) {
+    .js-form-item {
+      margin-bottom: $gutter;
+    }
+
+    .ui-autocomplete-input {
+      color       : $color_white;
+      border-color: $color_gray;
+    }
+
+    .js-form-submit {
+      // repeat @extend %button-reverse !optional;
+      background-color: $color_white;
+      color           : $color_shark;
+      @include breakpoint($bp-tablet) {
+        &:focus,
+        &:hover {
+          background-color: transparent;
+          background-image: linear-gradient($color_white calc(100% - 1px), $color_white 1px);
+        }
+      }
+    }
+  }
+}

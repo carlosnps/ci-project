@@ -1,0 +1,9 @@
+name: 'YSM Global Network Core'
+type: module
+description: 'Core functionality for the YSM Global Network site'
+core: 8.x
+package: 'YSM'
+dependencies:
+  - drupal:migrate
+  - migrate_plus:migrate_plus
+  - migrate_tools:migrate_tools

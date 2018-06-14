@@ -1,0 +1,19 @@
+uuid: 2bb50c23-ee0c-4afd-9f4e-0a47ceaacb9f
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_large_text_override
+field_name: field_large_text_override
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

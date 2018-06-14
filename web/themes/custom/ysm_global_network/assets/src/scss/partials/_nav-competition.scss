@@ -1,0 +1,34 @@
+#block-ysmbookmenu {
+  .level-0 {
+    display  : flex;
+    flex-wrap: wrap;
+  }
+
+  .nav__item {
+    font-family : $font-family-condensed-bold;
+    font-size   : rem(24);
+    margin-top  : 2rem;
+    margin-right: rem(12);
+    position    : relative;
+    z-index     : 0;
+    @include breakpoint($bp-tablet) {
+      align-content: flex-end;
+      font-size    : scale-font(rem(18));
+      margin-top   : 0;
+    }
+    @include breakpoint($bp-desktop) {
+      font-size   : rem(24);
+      margin-right: rem(20);
+    }
+
+    a {
+      @extend %link-gray !optional;
+      @extend %hover-to-underline !optional;
+    }
+
+    &--active-trail a {
+      color: $color_shark;
+    }
+  }
+
+}

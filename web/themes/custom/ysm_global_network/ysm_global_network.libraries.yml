@@ -1,0 +1,36 @@
+base:
+  version: VERSION
+  css:
+    component:
+      assets/dist/css/ysm-global-network.main.min.css: { weight: -10 }
+  js:
+    assets/dist/js/ysm-global-network.main.min.js: {}
+    assets/dist/vendors/track-focus.min.js: { }
+  dependencies:
+    - core/jquery
+    - core/modernizr
+highcharts:
+  version: VERSION
+  css: {}
+  js:
+    assets/dist/vendors/highcharts/highstock.js: { weight: -10 }
+    assets/dist/vendors/highcharts/modules/data.js: { weight: -10  }
+  dependencies:
+    - core/jquery
+highcharts_stock:
+  version: VERSION
+  css: {}
+  js:
+    assets/dist/vendors/highcharts/jquery.chart.plotter.js: {}
+    assets/dist/vendors/highcharts/jquery.parse.min.js: {}
+    assets/dist/vendors/highcharts/jquery.highcharts-utils.js: {}
+    assets/dist/vendors/highcharts/jquery.stock.plotter.js: {}
+  dependencies:
+    - core/jquery
+team_holdings:
+  version: VERSION
+  css: {}
+  js:
+    assets/dist/vendors/jquery.competition.team-holdings.js: { }
+  dependencies:
+    - core/jquery

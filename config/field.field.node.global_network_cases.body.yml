@@ -1,0 +1,22 @@
+uuid: 1189e58f-0de5-4805-b719-5257222a3a40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.global_network_cases
+  module:
+    - text
+id: node.global_network_cases.body
+field_name: body
+entity_type: node
+bundle: global_network_cases
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: competition-menu
+label: 'Competition Menu'
+description: 'Static menu used for all competitions'
+locked: false

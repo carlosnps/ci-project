@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: large_content_teaser
+label: 'Large Content Teaser'
+icon_uuid: null
+description: 'Use this paragraph type for large, front page items'
+behavior_plugins: {  }

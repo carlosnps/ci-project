@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.homepage_slide
+label: 'Homepage Slide'
+targetEntityType: node
+cache: true

@@ -1,0 +1,27 @@
+uuid: ce0eb4e0-dfc8-46b2-9f30-283a7b80d420
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bio_pdf
+    - node.type.people
+  module:
+    - file
+id: node.people.field_bio_pdf
+field_name: field_bio_pdf
+entity_type: node
+bundle: people
+label: 'Bio PDF'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf doc docx'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

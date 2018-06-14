@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - node.type.perspectives_articles
+    - paragraphs.paragraphs_type.perspective_home_page_items
+id: paragraph.perspective_home_page_items.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: perspective_home_page_items
+label: 'Featured Item(s)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      perspectives_articles: perspectives_articles
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: event
+field_type: entity_reference

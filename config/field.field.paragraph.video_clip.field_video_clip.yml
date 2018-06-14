@@ -1,0 +1,25 @@
+uuid: abb1d8ab-e42b-4cc7-a628-708c7fc99294
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_video_clip
+    - paragraphs.paragraphs_type.video_clip
+  module:
+    - video_embed_field
+id: paragraph.video_clip.field_video_clip
+field_name: field_video_clip
+entity_type: paragraph
+bundle: video_clip
+label: 'Video Clip'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    vimeo: vimeo
+    youtube_playlist: youtube_playlist
+    youtube: youtube
+field_type: video_embed_field

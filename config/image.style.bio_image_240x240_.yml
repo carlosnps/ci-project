@@ -1,0 +1,14 @@
+uuid: e520e825-659c-4b9a-87dd-c86178d38ef0
+langcode: en
+status: true
+dependencies: {  }
+name: bio_image_240x240_
+label: 'Bio Image (240x240)'
+effects:
+  49a89996-bb52-43bd-865a-b7a55140260a:
+    uuid: 49a89996-bb52-43bd-865a-b7a55140260a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 240
+      height: 240

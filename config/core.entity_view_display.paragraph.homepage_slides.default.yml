@@ -1,0 +1,112 @@
+uuid: 26073896-0fc1-4ca6-a01e-0dc966900976
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.homepage_slides.field_color
+    - field.field.paragraph.homepage_slides.field_descriptive_text_override
+    - field.field.paragraph.homepage_slides.field_entity
+    - field.field.paragraph.homepage_slides.field_icon
+    - field.field.paragraph.homepage_slides.field_icon_te
+    - field.field.paragraph.homepage_slides.field_image_override
+    - field.field.paragraph.homepage_slides.field_large_text_override
+    - field.field.paragraph.homepage_slides.field_title_override
+    - image.style.home_slide_image_772x484
+    - paragraphs.paragraphs_type.homepage_slides
+  module:
+    - fences
+    - image
+    - text
+id: paragraph.homepage_slides.default
+targetEntityType: paragraph
+bundle: homepage_slides
+mode: default
+content:
+  field_color:
+    weight: 8
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_descriptive_text_override:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_entity:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: homepage_slide
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_icon:
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: icon_css_class
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: entity_reference_entity_view
+    region: content
+  field_icon_te:
+    weight: 7
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: icon-text
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: string
+    region: content
+  field_image_override:
+    weight: 4
+    label: hidden
+    settings:
+      image_style: home_slide_image_772x484
+      image_link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: image
+    region: content
+  field_large_text_override:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_title_override:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

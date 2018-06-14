@@ -1,14 +1,15 @@
-uuid: bbeb2c13-7376-4f26-a2e4-83a1e6795f5d
-name: ci-project
-mail: carlos.coto@yale.edu
-slogan: 'My CI Site -- changed Pantheon defaul env'
+uuid: c5a19786-11f3-4457-8185-c59f4949c349
+name: 'The Global Network for Advanced Management'
+mail: jayvolk@gmail.com
+slogan: 'Navigate the new global economy'
 page:
-  403: ''
+  403: /node/44265
   404: ''
-  front: /node
+  front: /node/44265
 admin_compact_mode: false
 weight_select_max: 100
 langcode: en
 default_langcode: en
 _core:
-  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
+  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo
+mail_notification: ''

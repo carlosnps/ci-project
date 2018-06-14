@@ -1,0 +1,108 @@
+.page__header {
+  position: relative;
+  z-index : 100;
+  @include breakpoint($bp-tablet) {
+    display: flex;
+  }
+
+  &--logo {
+    flex-shrink  : 0;
+    margin-right : $gutter-double;
+    padding-right: $gutter-double;
+    width        : rem(104 + $gutter-double);
+
+    a,
+    img {
+      display: block;
+    }
+    @include breakpoint($bp-tablet) {
+      border-right: solid 4px $color_shark;
+    }
+  }
+
+  h2 {
+    letter-spacing: 1px;
+    color         : $color_gray;
+    font-family   : $font-family-bold;
+    font-size     : rem(13);
+    line-height   : 1;
+    margin        : 0 0 2rem;
+    text-transform: uppercase;
+    @include breakpoint($bp-tablet) {
+      margin: 0.5rem 0 0;
+    }
+    @include breakpoint($bp-desktop) {
+      line-height: 2;
+      margin     : 0;
+    }
+
+    &.focus-forced:focus {
+      border: none;
+    }
+  }
+
+  .region-header {
+    align-content: flex-start;
+    display      : flex;
+    flex-wrap    : wrap;
+    @include breakpoint($bp-tablet-below) {
+      background: $color_shark;
+      height    : 100vh;
+      left      : -100vw;
+      opacity   : 0;
+      overflow  : hidden;
+      position  : fixed;
+      top       : 0;
+      transition: opacity 0.2s ease-in 0.2s;
+      visibility: hidden;
+      width     : 100vw;
+
+      > * {
+        padding: $gutter-double;
+      }
+
+      .nav-primary__open & {
+        left      : 0;
+        opacity   : 1;
+        visibility: visible;
+      }
+
+      .body-top[class*=toolbar-] & {
+        height: calc(100vh - 39px);
+        top   : 39px;
+
+        .admin-roam & {
+          height: 100vh;
+          top   : 0;
+        }
+      }
+
+    }
+    @include breakpoint($bp-tablet) {
+      flex    : 1 1 auto;
+      overflow: visible !important;
+    }
+  }
+}
+/*
+// Blocks
+*/
+
+#block-ysm-global-network-main-menu {
+  flex: 1 1 auto;
+  @include breakpoint($bp-tablet-below) {
+    order: 0;
+  }
+}
+
+#block-engagement {
+  width  : 100%;
+  z-index: 1;
+  @include breakpoint($bp-tablet-below) {
+    order: 2;
+  }
+
+  h2 {
+    display: none;
+  }
+}

@@ -1,0 +1,205 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ * @todo Remove the id attribute (or make it a class), because if that gets
+ *   rendered twice on a page this is invalid CSS for example: two lists
+ *   in different view modes.
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  'content-layout',
+  'teams'
+]
+%}
+{{ attach_library('classy/node') }}
+{{ attach_library('ysm_global_network/highcharts') }}
+{{ attach_library('ysm_global_network/highcharts_stock') }}
+{{ attach_library('ysm_global_network/team_holdings') }}
+<article{{ attributes.addClass(classes) }}>
+	<div class="teams__main content-layout__main">
+		<div class="teams__main--block">
+			<h2>Performance</h2>
+			<figure
+				id="stock-box-{{node.id}}"
+				class="js-stock-box"
+				data-title=""
+				data-subtitle=""
+				data-src="https://gncompetition.system-processor.work/team/{{node.id}}/performance"
+				data-src-type="text/json"
+				data-gray-background="false"
+				data-exportable="false"
+				data-chart-type="line"
+				data-show-range-selector="true"
+				data-range-selector-default="5"
+				data-show-navigator="true"
+				data-show-scrollbar="true"
+				data-show-tooltip="true"
+				data-show-data-labels="false"
+				data-highcharts-chart="0"></figure>
+			<figcaption>
+				Cumulative Value of Team Portfolio vs. Index
+			</figcaption>
+			<ul class="teams__chart-legend semantic-list">
+				<li class="teams__chart-legend--team">Team Portfolio</li>
+				<li class="teams__chart-legend--index">Index</li>
+			</ul>
+		</div>
+		<div class="teams__main--block">
+			<h2>Holdings</h2>
+			<div id="team-holdings-{{node.id}}" class="js-team-holdings" data-url="https://gncompetition.system-processor.work/team/{{node.id}}/holdings"></div>
+		</div>
+		<div class="teams__main--block">
+			<h2>Team</h2>
+			<div class="teams__team content-layout">
+				<div class="teams__team--image content-layout__aside content-layout__aside--primary content-layout__aside--wide">
+					{{ content.field_image | field_value }}
+				</div>
+				<div class="teams__team--members content-layout__main">
+					{{ content.body | field_value }}
+					{{ content.field_team_members | field_value }}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="teams__aside content-layout__aside content-layout__aside--secondary">
+		<h3>School</h3>
+		<div class="teams__aside--value">
+			{{ content.field_member_school | field_value}}
+		</div>
+
+		{% set fVal = content.field_portfolio_rtd | field_value %}
+		{%  if( '-' in fVal[0]['#markup'] ) %}
+			{% set sign = ' negative' %}
+		{%  else %}
+			{% set sign = ' positive' %}
+		{% endif %}
+		<h3>Net Return to Date</h3>
+		<div class="teams__aside--value{{ sign }}">
+			<span class="teams__rtd-value">
+				{{ fVal }}%
+			</span>
+
+			{% if node.field_portfolio_index.entity.name.value is not empty %}
+				<span class="teams__rtd-index">
+					vs
+					<a href="{{ 'https://www.bloomberg.com/quote/' ~ portfolio.symbol ~ ':IND' }}" target="_blank">{{ portfolio.name }}</a>
+				</span>
+			{% endif %}
+		</div>
+
+		{% set fVal = content.field_portfolio_pct_change_daily | field_value %}
+		{%  if '-' in fVal[0]['#markup']  %}
+			{%  set sign = ' value--negative' %}
+		{%  else %}
+			{%  set sign = ' value--positive' %}
+		{% endif %}
+		<h3>Portfolio Daily Change</h3>
+		<div class="teams__aside--value{{ sign }}">
+			{{ fVal }}%
+		</div>
+
+		<h3>Downloads</h3>
+		<ul class="teams__aside--value teams__documents semantic-list">
+			{% if content.field_presentation.0 is not empty %}
+				<li class="teams__documents--item">
+					<a href="{{ content.field_presentation| field_value }}">Presentation</a>
+				</li>
+			{% endif %}
+			{% if content.field_report.0 is not empty %}
+				<li class="teams__documents--item">
+					<a href="{{ content.field_report | field_value }}">Report</a>
+				</li>
+			{% endif %}
+		</ul>
+
+		<h3>Country & Currency</h3>
+		<div class="teams__aside--value teams__portfolio">
+			{% if country is not empty %}
+				<span class="teams__portfolio--country">{{ country }}</span>{% endif %}
+			{% if portfolio.currency is not empty %}
+				<span class="teams__portfolio--currency">{{ portfolio.currency }}</span>{% endif %}
+		</div>
+		{% if book.field_sponsors.0 is not empty %}
+			<aside class="competition__sponsors" aria-label="Competition sponsors">
+				<h2>{{ book.label }}</h2>
+				<div class="competition__sponsors--by">Sponsored by</div>
+				{% for item in book.field_sponsors %}
+					{{ drupal_entity('paragraph', item.target_id) }}
+				{% endfor %}
+			</aside>
+		{% endif %}
+	</div>
+</article>

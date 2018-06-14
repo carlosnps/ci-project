@@ -1,0 +1,236 @@
+$slidername_h: hero-slider;
+
+.#{$slidername_h} {
+	margin: 0 0 2rem;
+	@include breakpoint($bp-tablet-landscape-below) {
+		border-top: 4px $color_shark solid;
+		margin    : 0 $gutter-negative*2 2rem;
+	}
+
+	img {
+		display: block;
+		width  : 100%;
+	}
+
+	&__item {
+		> article {
+			@include breakpoint($bp-tablet-landscape) {
+				display: flex;
+			}
+		}
+
+		&__image {
+			a {
+				@extend %hover-no-underline !optional;
+			}
+			@include breakpoint($bp-tablet-landscape) {
+				flex      : 1 1;
+				transform : scale(0.8);
+				transition: transform 0.2s ease-in-out,box-shadow 0.2s ease-in-out;
+				z-index   : 1;
+				@include material-shadow(2);
+
+				.#{$slidername_h}__item--active & {
+					transform: scale(1);
+					@include material-shadow(0);
+				}
+			}
+		}
+
+		&__content {
+			@include breakpoint($bp-tablet-landscape) {
+				width     : calc(#{span(4)} + #{$gutter-double});
+				opacity   : 0;
+				transform : translateX(-100%);
+				transition: transform 0.2s ease-in-out 0.3s, opacity 0.2s ease-in-out 0.3s;
+				z-index   : 0;
+
+				.#{$slidername_h}__item--active & {
+					opacity  : 1;
+					transform: translateX(0);
+				}
+			}
+		}
+
+		&__sub-text {
+			margin: 1rem $gutter-double;
+			@include breakpoint($bp-tablet-below) {
+				display: none;
+			}
+			@include breakpoint($bp-tablet-landscape) {
+				margin    : 1rem calc(#{span(1)} + #{$gutter-double});
+				opacity   : 0;
+				transform : translateY(-100%);
+				transition: transform 0.2s ease-in-out 0.8s, opacity 0.2s ease-in-out 0.8s;
+				z-index   : 0;
+
+				.#{$slidername_h}__item--active & {
+					opacity  : 1;
+					transform: translateY(0);
+				}
+			}
+		}
+
+		&__text {
+			background-color: currentColor;
+			position        : relative;
+			margin          : 0;
+			padding         : $gutter-double;
+			z-index         : 1;
+
+			a {
+				@extend %hover-underline-dark !optional;
+				@extend %hover-to-underline !optional;
+			}
+
+			p,
+			span {
+				color: $color_white;
+			}
+
+			p {
+				font-size  : rem(28);
+				line-height: 1;
+				@include breakpoint($bp-desktop) {
+					font-size: rem(32);
+					@include font-smoothing();
+					display  : inline;
+				}
+				@include breakpoint($bp-big-desktop) {
+					font-size: rem(48);
+				}
+			}
+
+			.field--name-title {
+				@extend h3;
+				color: $color_white;
+			}
+
+		}
+
+		&__link {
+			@include icon(chevron-right, linearicons,right);
+
+			&::after {
+				color     : $color_white;
+				display   : block;
+				font-size : rem(32);
+				text-align: right;
+			}
+		}
+		@include breakpoint($bp-tablet-landscape) {
+			&__link-wrap {
+				display      : inline-block;
+				float        : left;
+				margin-bottom: $gutter-double;
+				width        : 100%;
+			}
+		}
+	}
+
+	&__controls {
+		display        : flex;
+		justify-content: center;
+		margin         : 2rem 0;
+
+		a {
+			@extend %hover-no-underline !optional;
+		}
+	}
+
+	&__item-title {
+		border-right: solid 1px $color_alto;
+		color       : $color_gray;
+		font-family : $font-family-condensed-bold;
+		font-size   : rem(14);
+		line-height : rem(16);
+		text-align  : center;
+		width       : calc(#{span(3)} + #{$gutter-double});
+		@include breakpoint($bp-tablet) {
+			width: calc(#{span(2)} + #{$gutter-double});
+		}
+		@include breakpoint($bp-desktop) {
+			width: calc(#{span(1)} + #{$gutter-double});
+		}
+
+		.slideshow_icons::before {
+			font-size: rem(32);
+			margin   : 0 0 0.5rem;
+		}
+
+		&.active {
+			color: $color_shark;
+
+			.slideshow_icons::before {
+				color: $color_shark;
+			}
+		}
+
+		&.focus--mouse {
+			border      : none;
+			border-right: solid 1px $color_alto;
+			box-shadow  : none;
+		}
+
+		&:last-of-type {
+			border-right: none;
+		}
+
+		span {
+			display: block;
+			margin : 0 $gutter-double;
+		}
+	}
+}
+
+$slidername_s: school-slider;
+
+.#{$slidername_s} {
+	@include breakpoint($bp-tablet-landscape-below) {
+		margin: 2rem $gutter-negative*2;
+	}
+
+	.bx-viewport {
+		overflow: visible !important;
+	}
+
+	img {
+		display: block;
+		width  : 100%;
+	}
+
+	.bx-viewport &__item {
+		opacity   : 0.5;
+		transition: opacity 0.4s ease-in-out;
+
+		&--active {
+			opacity: 1;
+		}
+	}
+}
+
+$slidername: slider;
+
+.#{$slidername} {
+	&__controls {
+		margin    : 2rem 0;
+		position  : relative;
+		text-align: center;
+
+		&--item {
+			@extend %hover-no-underline !optional;
+			border       : 1px $color_gray solid;
+			border-radius: 1rem;
+			display      : inline-block;
+			height       : rem(10);
+			margin       : 0 rem(5);
+			padding      : 0;
+			transition   : border-color 0.2s ease-in;
+			width        : rem(10);
+
+			&.active {
+				border-color: $color_shark;
+			}
+		}
+	}
+}

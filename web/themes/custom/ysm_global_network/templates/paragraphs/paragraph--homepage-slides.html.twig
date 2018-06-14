@@ -1,0 +1,75 @@
+{%
+  set paragraph_classes = [
+    'paragraph',
+    'hero-slider__item',
+    'color-tid-' ~ content.field_color|field_target_entity.tid.value,
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  ]
+%}
+
+{# Defaults from refernced entity #}
+{% if content.field_entity[0] %}
+	{% set node = content.field_entity[0]['#node'] %}
+	{% set label = node.label %}
+	{% set title = node.field_teaser.0. value %}
+	{% set image_uri = node.field_featured_image.entity.fileuri %}
+	{% set image_alt = node.field_featured_image.alt %}
+	{% set image_title = node.field_featured_image.title %}
+	{% set snippet = node.body.summary %}
+{% endif %}
+{# Override values #}
+{% if content.field_large_text_override | field_value %}
+	{% set title = content.field_large_text_override | field_value %}
+{% endif %}
+{% if content.field_title_override | field_value %}
+	{% set label = content.field_title_override | field_value %}
+{% endif %}
+{% if content.field_descriptive_text_override | field_value %}
+	{% set snippet = content.field_descriptive_text_override | field_value %}
+{% endif %}
+{% if content.field_image_override | field_value %}
+	{% set image_uri = content.field_image_override | field_target_entity.uri.value %}
+	{% set image_alt = content.field_image_override | field_raw('alt') %}
+	{% set image_title = content.field_image_override | field_raw('title') %}
+{% endif %}
+
+{%
+  set article_classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    'color-' ~ node.field_member_school.0.target_id,
+    'node-teaser__homepage-slide'
+  ]
+%}
+<div{{ attributes.addClass(paragraph_classes) }} aria-labelledby="{{paragraph.bundle|clean_class}}-{{paragraph.id()}}__title" role="tabpanel">
+	<article {{ attributes.addClass(article_classes).removeClass(paragraph_classes) }} data-url="{{ path('entity.node.canonical', {'node':  node.id  }) }}">
+		<h2 class="visually-hidden">{{ content.field_icon_te.0 }}</h2>
+		<div class="hero-slider__item__image">
+			{% if image_uri %}
+				<img src="{{ image_uri|image_style('home_slide_image_772x484') }}" alt="{{ image_alt }}" title="{{ image_title }}"/>
+			{% endif %}
+		</div>
+		<div class="hero-slider__item__content">
+			<div class="hero-slider__item__text use-color">
+				<a href="{{ path('entity.node.canonical', {'node': node.id}) }}" class="hero-slider__item__link" rel="bookmark">
+					<span{{ title_attributes }} class="hero-slider__item__link-wrap">
+						<span class="field--name-title">{{ label|raw }}</span>
+					</span>
+					{{ title|raw }}
+				</a>
+			</div>
+			<div class="hero-slider__item__sub-text">
+				{{ snippet|raw }}
+			</div>
+		</div>
+	</article>
+	{% if content.field_icon_te %}
+		<a href="href" id="{{paragraph.bundle|clean_class}}-{{paragraph.id()}}__title" class="hero-slider__item-title" role="tab">
+			{% if content.field_icon %}
+				{{ content.field_icon }}
+			{% endif %}
+			<span class="hero-slider__item-title__text">{{ content.field_icon_te.0 }}</span>
+		</a>
+	{% endif %}
+</div>

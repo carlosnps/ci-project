@@ -1,0 +1,37 @@
+uuid: 52567714-4391-48ac-b022-b12d082cf177
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_additional_text
+    - paragraphs.paragraphs_type.global_network_cases
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    weight: '0'
+    geocode_field: parent_id
+    reverse_geocode_field: {  }
+    hidden: 0
+    disabled: 0
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: paragraph.global_network_cases.field_additional_text
+field_name: field_additional_text
+entity_type: paragraph
+bundle: global_network_cases
+label: '(Optional) Short Text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

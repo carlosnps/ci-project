@@ -1,0 +1,65 @@
+.page {
+  &--404 {
+    background: $color_shark;
+    color     : $color_white;
+    min-height: 100vh;
+
+    h1,
+    p {
+      color: $color_white;
+    }
+
+    &__image {
+      @include breakpoint($bp-tablet) {
+        width: span(5);
+      }
+      @include breakpoint($bp-desktop) {
+        width: span(2.5);
+      }
+    }
+
+    &__logo {
+      width: rem(104);
+
+      a {
+        @extend %hover-no-underline !optional;
+      }
+    }
+  }
+
+  &__sitemap {
+    margin: 3rem 0;
+
+    a {
+      @extend %link-reverse !optional;
+    }
+
+    > .menu {
+      @include breakpoint($bp-tablet) {
+        column-count: 2;
+      }
+      @include breakpoint($bp-desktop) {
+        column-count: 4;
+      }
+    }
+
+    .level-0 {
+      > .nav__main__item {
+        margin-bottom      : 2rem;
+        column-break-inside: avoid;
+        page-break-inside  : avoid;
+
+        > a {
+          font-family: $font-family-condensed-bold;
+          font-size  : rem(24);
+        }
+      }
+    }
+
+    .level-1 {
+      ul {
+        margin-left: 1rem;
+      }
+    }
+  }
+}

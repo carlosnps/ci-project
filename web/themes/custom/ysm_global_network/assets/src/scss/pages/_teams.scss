@@ -1,0 +1,145 @@
+.teams {
+  &__title {
+    font-family: $font-family-condensed;
+
+    strong {
+      font-family: $font-family-condensed-bold;
+    }
+  }
+
+  &__image {
+    img {
+      max-height: rem(100);
+      width     : auto;
+    }
+  }
+
+  &__competition {
+    color: $color_gray;
+  }
+
+  &__main {
+    > *:first-child {
+      margin-top: 0;
+    }
+
+    &--block {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__aside {
+    h3 {
+      margin-bottom: rem(8);
+    }
+
+    &--value {
+      font-family  : $font-family-condensed;
+      font-size    : rem(16);
+      margin-bottom: rem(24);
+
+      .member-school h5 {
+        font-size: rem(16);
+      }
+    }
+  }
+
+  &__team {
+    &--image {}
+
+    &--members {
+      font-size: rem(16);
+
+      .paragraph {
+        margin-bottom: rem(16);
+      }
+
+    }
+  }
+
+  &__portfolio {
+    > span {
+      display: block;
+    }
+  }
+
+  &__chart-legend {
+    li {
+      display     : inline-block;
+      font-size   : rem(12);
+      margin-right: 1rem;
+
+      &::before {
+        content       : '';
+        border-bottom : 2px solid;
+        display       : inline-block;
+        vertical-align: middle;
+        width         : 1rem;
+      }
+    }
+
+    &--team {
+      color: $color_blue_chill;
+    }
+  }
+
+  .highcharts-color-1 {
+    .highcharts-graph {
+      stroke: $color_shark;
+    }
+  }
+
+  .highcharts-color-0 {
+    .highcharts-graph {
+      stroke: $color_blue_chill;
+    }
+  }
+
+  .competition__sponsors {
+    margin-top: 4rem;
+  }
+}
+
+.team-holdings {
+  width: 100%;
+  @include breakpoint($bp-tablet) {
+    margin: 0 $gutter-negative;
+  }
+
+  td,
+  th {
+    border-bottom: none;
+  }
+
+  .percent_change {
+    display    : block;
+    font-size  : rem(12);
+    white-space: nowrap;
+
+    span {
+      font-size: rem(12);
+    }
+  }
+
+  .increase {
+    color: $color_atlantis;
+    @include icon(arrow-up, linearicons,right);
+  }
+
+  .decrease {
+    color: $color_alizarin_crimson;
+    @include icon(arrow-down, linearicons,right);
+  }
+}
+
+.page-node-type-teams {
+  #block-ysm-global-network-page-title {
+    h1 {
+      font-size: rem(36);
+
+      &::before {
+        content: 'Team ';
+      }
+    }
+  }
+}

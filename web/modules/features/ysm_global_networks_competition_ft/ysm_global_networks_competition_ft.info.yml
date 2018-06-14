@@ -1,0 +1,22 @@
+name: 'Competition FT'
+type: module
+core: 8.x
+dependencies:
+  - block
+  - block_content
+  - entity_reference_revisions
+  - field
+  - file
+  - geocoder_field
+  - image
+  - menu_ui
+  - node
+  - paragraphs
+  - path
+  - system
+  - text
+  - user
+  - views
+version: 8.x-1.0
+package: 'YSM Global Networks'
+description: 'Competition CT, views & menu.'

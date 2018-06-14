@@ -1,0 +1,22 @@
+uuid: 4cb6101f-781a-4abe-80f2-329bdec7449e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.certificate_of_excellence_course
+id: node.certificate_of_excellence_course.promote
+field_name: promote
+entity_type: node
+bundle: certificate_of_excellence_course
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

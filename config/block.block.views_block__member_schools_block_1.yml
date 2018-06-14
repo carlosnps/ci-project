@@ -1,0 +1,30 @@
+uuid: fa800cce-1127-4c00-9162-3c3340495155
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.member_schools
+  module:
+    - system
+    - views
+  theme:
+    - ysm_global_network
+id: views_block__member_schools_block_1
+theme: ysm_global_network
+region: hidden
+weight: -4
+provider: null
+plugin: 'views_block:member_schools-block_1'
+settings:
+  id: 'views_block:member_schools-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /members/member-schools
+    negate: false
+    context_mapping: {  }

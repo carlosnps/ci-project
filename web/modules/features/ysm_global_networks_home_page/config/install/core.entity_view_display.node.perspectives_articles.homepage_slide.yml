@@ -1,0 +1,80 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.homepage_slide
+    - field.field.node.perspectives_articles.body
+    - field.field.node.perspectives_articles.field_caption
+    - field.field.node.perspectives_articles.field_featured_image
+    - field.field.node.perspectives_articles.field_image
+    - field.field.node.perspectives_articles.field_introduction
+    - field.field.node.perspectives_articles.field_link
+    - field.field.node.perspectives_articles.field_member_school
+    - field.field.node.perspectives_articles.field_perspectives_authors
+    - field.field.node.perspectives_articles.field_perspectives_topics
+    - image.style.home_slide_image_772x484
+    - node.type.perspectives_articles
+  module:
+    - fences
+    - image
+    - text
+    - user
+id: node.perspectives_articles.homepage_slide
+targetEntityType: node
+bundle: perspectives_articles
+mode: homepage_slide
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: home_slide_image_772x484
+      image_link: content
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: image
+    region: content
+  field_introduction:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: text_default
+    region: content
+  field_member_school:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: member_school_color
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  body: true
+  field_caption: true
+  field_featured_image: true
+  field_link: true
+  field_perspectives_authors: true
+  field_perspectives_topics: true
+  links: true

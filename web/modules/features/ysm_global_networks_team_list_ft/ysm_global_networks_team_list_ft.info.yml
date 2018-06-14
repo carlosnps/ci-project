@@ -1,0 +1,14 @@
+name: 'Team List FT'
+description: 'Provides Team List content type and related configuration. Add a team list to a competition to show the teams in alphabetical order.'
+type: module
+core: 8.x
+dependencies:
+  - field
+  - menu_ui
+  - node
+  - path
+  - text
+  - user
+  - ysm_global_networks_competition_ft
+version: 8.x-1.0
+package: 'YSM Global Networks'

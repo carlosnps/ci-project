@@ -1,0 +1,76 @@
+uuid: 7b98222c-1f04-454e-9a49-20a95eb0a172
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.narrow_teaser
+    - field.field.node.global_network_week.field_background_color_for_large
+    - field.field.node.global_network_week.field_end_date
+    - field.field.node.global_network_week.field_image
+    - field.field.node.global_network_week.field_link
+    - field.field.node.global_network_week.field_module_course
+    - field.field.node.global_network_week.field_photos
+    - field.field.node.global_network_week.field_related_news
+    - field.field.node.global_network_week.field_start_date
+    - field.field.node.global_network_week.field_teaser
+    - node.type.global_network_week
+  module:
+    - datetime
+    - image
+    - link
+    - user
+id: node.global_network_week.narrow_teaser
+targetEntityType: node
+bundle: global_network_week
+mode: narrow_teaser
+content:
+  field_end_date:
+    weight: 2
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_image:
+    weight: 4
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_link:
+    weight: 5
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_start_date:
+    weight: 1
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_background_color_for_large: true
+  field_module_course: true
+  field_photos: true
+  field_related_news: true
+  field_teaser: true

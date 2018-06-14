@@ -1,0 +1,68 @@
+uuid: 51d92077-37a1-4f6c-a875-0ef43d45c987
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.member_school_color_name_and_country
+    - field.field.node.member_schools.body
+    - field.field.node.member_schools.field_color
+    - field.field.node.member_schools.field_country
+    - field.field.node.member_schools.field_image
+    - field.field.node.member_schools.field_link
+    - field.field.node.member_schools.field_location
+    - field.field.node.member_schools.field_logo
+    - field.field.node.member_schools.field_member_region
+    - field.field.node.member_schools.field_not_a_member_school
+    - field.field.node.member_schools.field_parent_institution
+    - field.field.node.member_schools.field_t
+    - node.type.member_schools
+  module:
+    - address
+    - fences
+    - user
+_core:
+  default_config_hash: 6d4H1lg0uKnYaZAI-JkIQ8RU4n-VF3Q50lpFeFOk1hw
+id: node.member_schools.member_school_color_name_and_country
+targetEntityType: node
+bundle: member_schools
+mode: member_school_color_name_and_country
+content:
+  field_color:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_country:
+    type: address_country_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_location:
+    type: address_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+hidden:
+  body: true
+  field_image: true
+  field_link: true
+  field_logo: true
+  field_member_region: true
+  field_not_a_member_school: true
+  field_parent_institution: true
+  field_t: true
+  links: true

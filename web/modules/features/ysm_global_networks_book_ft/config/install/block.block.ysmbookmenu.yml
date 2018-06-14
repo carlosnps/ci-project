@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ysm_global_network_core
+  theme:
+    - ysm_global_network
+id: ysmbookmenu
+theme: ysm_global_network
+region: content
+weight: -12
+provider: null
+plugin: book_menu
+settings:
+  id: book_menu
+  label: 'YSM Book menu'
+  provider: ysm_global_network_core
+  label_display: '0'
+  block_mode: null
+visibility: {  }

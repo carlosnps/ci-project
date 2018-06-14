@@ -1,0 +1,28 @@
+uuid: 7476ea65-e373-4160-b701-f5dfd8881d10
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_module_course
+    - node.type.certificate_of_excellence_course
+    - node.type.global_network_week
+id: node.global_network_week.field_module_course
+field_name: field_module_course
+entity_type: node
+bundle: global_network_week
+label: Module/Course
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      certificate_of_excellence_course: certificate_of_excellence_course
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

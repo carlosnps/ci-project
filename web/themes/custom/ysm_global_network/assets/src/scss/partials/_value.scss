@@ -1,0 +1,22 @@
+.value {
+  &--positive {
+    white-space: nowrap;
+    @extend %icon-linearicon;
+    @extend %icon-linearicon--arrow-up;
+
+    &:before {
+      color: $color_pesto;
+    }
+  }
+
+  &--negative {
+    white-space: nowrap;
+    @extend %icon-linearicon;
+    @extend %icon-linearicon--arrow-down;
+
+    &:before {
+      color: $color_stiletto;
+    }
+  }
+
+}

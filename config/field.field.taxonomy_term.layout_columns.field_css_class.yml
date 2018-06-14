@@ -1,0 +1,19 @@
+uuid: 08ed9cdc-1147-43c5-b7c4-54209f39ce7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_css_class
+    - taxonomy.vocabulary.layout_columns
+id: taxonomy_term.layout_columns.field_css_class
+field_name: field_css_class
+entity_type: taxonomy_term
+bundle: layout_columns
+label: 'css class'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,14 @@
+uuid: 755e57d0-0d7b-4c1c-b7af-7574ea8ca7f0
+langcode: en
+status: true
+dependencies: {  }
+name: news_or_event_teaser_210x140
+label: 'News or Event Teaser 210x140'
+effects:
+  dd6aba8e-d3c9-47b1-80c1-0700e7789c6d:
+    uuid: dd6aba8e-d3c9-47b1-80c1-0700e7789c6d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 210
+      height: 140

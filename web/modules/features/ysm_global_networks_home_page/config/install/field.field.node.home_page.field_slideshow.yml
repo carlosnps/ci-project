@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slideshow
+    - node.type.home_page
+    - paragraphs.paragraphs_type.homepage_slides
+  module:
+    - entity_reference_revisions
+id: node.home_page.field_slideshow
+field_name: field_slideshow
+entity_type: node
+bundle: home_page
+label: Slideshow
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      homepage_slides: homepage_slides
+    target_bundles_drag_drop:
+      additional_text_area_s_:
+        weight: 11
+        enabled: false
+      global_network_news_teasers_for_:
+        weight: 12
+        enabled: false
+      homepage_slides:
+        enabled: true
+        weight: 13
+      large_content_teaser:
+        weight: 14
+        enabled: false
+      menu_paragraph:
+        weight: 15
+        enabled: false
+      perspective_home_page_items:
+        weight: 16
+        enabled: false
+      program_for_current_business_stu:
+        weight: 17
+        enabled: false
+      rendered_entity:
+        weight: 18
+        enabled: false
+      team_member:
+        weight: 19
+        enabled: false
+      view:
+        weight: 20
+        enabled: false
+field_type: entity_reference_revisions

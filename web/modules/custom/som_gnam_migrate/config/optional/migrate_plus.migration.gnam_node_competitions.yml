@@ -1,0 +1,108 @@
+langcode: en
+status: true
+dependencies: {  }
+id: gnam_node_competitions
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: gnam
+label: 'Nodes (Competitions)'
+source:
+  plugin: d7_node
+  node_type: competitions
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_competitions/0/status: comment
+  body:
+    plugin: get
+    source: body
+  field_background_image:
+    plugin: iterator
+    source: field_background_image
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_end_date:
+    plugin: iterator
+    source: field_ending_date
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+  field_image:
+    plugin: iterator
+    source: field_image
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+#  field_judges:
+#    plugin: get
+#    source: field_judges
+  field_next_date:
+    plugin: iterator
+    source: field_registration_deadline
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+#  field_rules:
+#    plugin: get
+#    source: field_rules
+  field_sponsor_info: field_sponsor_info
+  field_start_date:
+    plugin: iterator
+    source: field_starting_date
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+  field_subheading:
+    plugin: get
+    source: field_subheading
+  field_teams:
+    plugin: get
+    source: field_teams
+  field_competition_menu: field_competition_menu
+  field_competition_secondary_menu: field_competition_secondary_menu
+  field_next_date_link:
+    plugin: field_link
+    source: field_next_date_link
+destination:
+  plugin: 'entity:node'
+  default_bundle: competition
+migration_dependencies:
+  required:
+    - gnam_user
+    - gnam_node_type
+  optional:
+    - gnam_field_instance
+    - gnam_comment_field_instance

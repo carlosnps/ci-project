@@ -1,0 +1,19 @@
+uuid: 632b1f91-6dbf-42e4-9ee6-bde5f7038dc6
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: ORyqD7CuufMtIblelMOy2yMdLRn76bX7dJEhuRBoDm8
+name: 'Member Schools'
+type: member_schools
+description: 'Member Schools Content Type'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

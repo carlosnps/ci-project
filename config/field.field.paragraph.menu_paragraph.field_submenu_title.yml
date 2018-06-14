@@ -1,0 +1,36 @@
+uuid: f1a37b1d-8a8b-470a-a479-d7b90022960b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_submenu_title
+    - paragraphs.paragraphs_type.menu_paragraph
+  module:
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: none
+    weight: '0'
+    geocode_field: parent_id
+    reverse_geocode_field: {  }
+    hidden: 0
+    disabled: 0
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: paragraph.menu_paragraph.field_submenu_title
+field_name: field_submenu_title
+entity_type: paragraph
+bundle: menu_paragraph
+label: 'Submenu Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

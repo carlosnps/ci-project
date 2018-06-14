@@ -1,0 +1,86 @@
+{
+  "name": "ysm-global-network",
+  "client": "Yale School of Management",
+  "version": "1.0.0",
+  "description": "YSm Global Network Drupal 8 Theme 12/2017",
+  "license": "MIT",
+  "author": "Square360, Inc.",
+  "contributors": [
+    {
+      "name": "",
+      "email": ""
+    }
+  ],
+  "browserslist": [
+    "last 2 version"
+  ],
+  "scripts": {
+    "install": "napa",
+    "postinstall": "npm run sh:cleanup-node-modules",
+    "lint:package": "jsonlint -i package.json",
+    "sh:suppress-font-awesome": "sh ./.shell/suppress-font-awesome-output.sh",
+    "postsh:suppress-font-awesome": "npm run lint:package",
+    "sh:cleanup-node-modules": "sh ./.shell/cleanup-node-modules.sh",
+    "sh:remove-config-js-files": "sh ./.shell/remove-config-js-files.sh",
+    "presetup:browsersync": "node_modules/.bin/tsc ./config/.setup/browsersync.ts",
+    "setup:browsersync": "node ./config/.setup/browsersync.js",
+    "postsetup:browsersync": "npm run sh:remove-config-js-files",
+    "presetup:drupal": "node_modules/.bin/tsc ./.scripts/setup/drupal.ts",
+    "setup:drupal": "node ./.scripts/setup/drupal.js",
+    "postsetup:drupal": "npm run sh:remove-js-setup-files",
+    "webpack:build": "NODE_ENV=production webpack --progress --hide-modules",
+    "webpack:watch": "NODE_ENV=development webpack --progress --watch --hide-modules",
+    "webpack:recompile": "NODE_ENV=development webpack --progress --hide-modules"
+  },
+  "napa": {
+    "fitvids": "davatron5000/FitVids.js",
+    "jquery-outside-events": "matthewlein/jquery-outside-events"
+  },
+  "devDependencies": {
+    "@types/node": "^8.10.10",
+    "@types/webpack": "^3.8.12",
+    "autoprefixer": "^7.2.6",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "browser-sync": "^2.23.7",
+    "browser-sync-webpack-plugin": "^1.2.0",
+    "chalk": "^1.1.3",
+    "clean-webpack-plugin": "^0.1.19",
+    "commander": "^2.15.1",
+    "compass-mixins": "^0.12.10",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-loader": "^1.9.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "image-webpack-loader": "^3.6.0",
+    "imports-loader": "^0.7.1",
+    "jsonlint": "^1.6.3",
+    "modernizr-webpack-plugin": "^1.0.7",
+    "napa": "^3.0.0",
+    "node-sass": "^4.9.0",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "postcss-loader": "^2.1.4",
+    "postcss-scss": "^1.0.5",
+    "readline-sync": "^1.4.9",
+    "sass-loader": "^6.0.7",
+    "shelljs": "^0.7.7",
+    "style-loader": "^0.19.0",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.8.3",
+    "typescript-compiler": "^1.4.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.11.0"
+  },
+  "dependencies": {
+    "bxslider": "^4.2.13",
+    "font-awesome": "^4.7.0",
+    "global-network-theme": "git+ssh://git@bitbucket.org/sq360_sysadmin/global-network-theme.git",
+    "jquery.nicescroll": "github:inuyaksa/jquery.nicescroll",
+    "moment": "^2.22.1",
+    "s360-fundamental-toolkit": "git+ssh://git@bitbucket.org/sq360_sysadmin/s360-fundamental-toolkit.git",
+    "waypoints": "^4.0.1"
+  }
+}

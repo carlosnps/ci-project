@@ -1,0 +1,13 @@
+.tags {
+  font-family: $font-family-bold;
+  @include icon(tags);
+
+  &::before {
+    color    : inherit;
+    font-size: rem(18);
+  }
+
+  > * {
+    margin-right: rem(15);
+  }
+}

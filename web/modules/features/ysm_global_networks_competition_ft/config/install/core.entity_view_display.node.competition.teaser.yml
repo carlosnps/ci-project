@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.competition.body
+    - field.field.node.competition.field_background_image
+    - node.type.competition
+  module:
+    - text
+    - user
+id: node.competition.teaser
+targetEntityType: node
+bundle: competition
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_background_image: true

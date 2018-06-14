@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Competition Indexes'
+vid: competition_indexes
+description: ''
+hierarchy: 0
+weight: 0

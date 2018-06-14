@@ -1,0 +1,7 @@
+$yst-font-path        : "../fonts" !default;
+$tradegothic-font-path: "#{$yst-font-path}/tradegothic" !default;
+$icomoon-font-path    : "#{$yst-font-path}/linearicons" !default;
+$fontello-font-path   : "#{$yst-font-path}/fontello" !default;
+@import "tradegothic";
+@import "linearicons";
+@import "fontello";

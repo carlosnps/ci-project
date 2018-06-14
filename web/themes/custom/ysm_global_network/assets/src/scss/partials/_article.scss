@@ -1,0 +1,39 @@
+.article__extracontent {
+  @include breakpoint($bp-tablet) {
+    float: right;
+    width: span(9);
+  }
+}
+
+// .page__main article .main-text {
+//   p {
+//     color      : $color_white;
+//     font-family: $font-family-light;
+//     font-size  : rem(50);
+//     line-height: 54px;
+//     font-weight: 100;
+//   }
+//
+//   .sub-text {
+//     // 				background-color: $color_white;
+//     margin : 0;
+//     padding: 15px;
+//     @include breakpoint($bp-tablet) {
+//       margin-left: -20px;
+//       margin-top : 96px;
+//       //min-height: 224px;
+//       min-width  : 538px;
+//       padding    : 0;
+//     }
+//
+//     p {
+//       font-size  : rem(18);
+//       line-height: rem(36);
+//       color      : $color_shark;
+//       font-family: $font-family-light;
+//       @include breakpoint($bp-tablet) {
+//         margin: 50px 50px 50px 150px;
+//       }
+//     }
+//   }
+// }

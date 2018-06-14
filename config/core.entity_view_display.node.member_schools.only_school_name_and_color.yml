@@ -1,0 +1,48 @@
+uuid: 92c6bc9c-2d7a-4664-903f-8bbfeefc5879
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.only_school_name_and_color
+    - field.field.node.member_schools.body
+    - field.field.node.member_schools.field_color
+    - field.field.node.member_schools.field_country
+    - field.field.node.member_schools.field_image
+    - field.field.node.member_schools.field_link
+    - field.field.node.member_schools.field_location
+    - field.field.node.member_schools.field_logo
+    - field.field.node.member_schools.field_member_region
+    - node.type.member_schools
+  module:
+    - user
+_core:
+  default_config_hash: 6d4H1lg0uKnYaZAI-JkIQ8RU4n-VF3Q50lpFeFOk1hw
+id: node.member_schools.only_school_name_and_color
+targetEntityType: node
+bundle: member_schools
+mode: only_school_name_and_color
+content:
+  field_color:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+hidden:
+  body: true
+  field_country: true
+  field_image: true
+  field_link: true
+  field_location: true
+  field_logo: true
+  field_member_region: true
+  links: true

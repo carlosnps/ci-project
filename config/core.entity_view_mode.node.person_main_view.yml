@@ -1,0 +1,10 @@
+uuid: d9cb5a15-6664-4ffd-a61e-9449d27e096d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.person_main_view
+label: 'Person Main View'
+targetEntityType: node
+cache: true

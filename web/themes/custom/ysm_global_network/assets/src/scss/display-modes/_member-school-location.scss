@@ -1,0 +1,10 @@
+.member-school {
+  &__name {
+    font-family: $font-family-condensed;
+    @extend %hover-to-underline !optional;
+  }
+
+  &__location {
+    font-family: $font-family-condensed-bold;
+  }
+}

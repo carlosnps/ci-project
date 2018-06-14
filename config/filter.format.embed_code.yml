@@ -1,0 +1,8 @@
+uuid: 69d4c5e5-9ad2-4f20-a87c-ae4339d39eb5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Embed Code'
+format: embed_code
+weight: 0
+filters: {  }

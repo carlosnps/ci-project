@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: image_link
+label: 'Image Link'
+icon_uuid: null
+description: 'Contains an image and a URL'
+behavior_plugins: {  }

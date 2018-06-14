@@ -1,0 +1,11 @@
+.node--type-perspectives-articles {
+	&.node--view-mode-article-teaser {
+		img {
+			width: 100%;
+		}
+
+		a {
+			@extend %hover-to-underline !optional;
+		}
+	}
+}

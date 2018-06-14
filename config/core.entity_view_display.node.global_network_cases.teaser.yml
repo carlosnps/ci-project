@@ -1,0 +1,90 @@
+uuid: 36dcb7e5-f1e0-4203-8856-d88614c1c945
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.global_network_cases.body
+    - field.field.node.global_network_cases.field_image
+    - field.field.node.global_network_cases.field_link
+    - field.field.node.global_network_cases.field_member_school
+    - field.field.node.global_network_cases.field_teaser
+    - image.style.global_network_cases_360x120
+    - node.type.global_network_cases
+  module:
+    - fences
+    - image
+    - link
+    - text
+    - user
+id: node.global_network_cases.teaser
+targetEntityType: node
+bundle: global_network_cases
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: teaser-text
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    region: content
+  field_image:
+    type: image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: global_network_cases_360x120
+      image_link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+  field_link:
+    type: link
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      target: _blank
+      url_only: false
+      url_plain: false
+      rel: '0'
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: teaser-link
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+  field_teaser:
+    type: text_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+hidden:
+  field_member_school: true
+  links: true

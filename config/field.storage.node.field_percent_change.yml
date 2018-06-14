@@ -1,0 +1,22 @@
+uuid: fc79eb96-ef01-4516-8217-1c732126942f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: aIVSay_aS1G98Peb2jMmj5B52ajK2iTKp_Ps8LaP6kA
+id: node.field_percent_change
+field_name: field_percent_change
+entity_type: node
+type: decimal
+settings:
+  precision: 15
+  scale: 4
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

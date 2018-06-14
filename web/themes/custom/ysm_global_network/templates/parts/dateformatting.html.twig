@@ -1,0 +1,60 @@
+{# provides formatting of dates and date ranges
+REQUIRES a start date variable of "start"
+and end date variable of "end"
+#}
+{% set startDate = start | date('U') %}
+{% set startDateMonth = startDate | date('F') %}
+{% set startDateDay = startDate | date('j') %}
+{% set startDateYear = startDate | date('Y') %}
+{% set startDateTime = startDate | date('g:i a') %}
+{% if end | length %}
+	{% set endDate = end | date('U') %}
+	{% set endDateMonth = endDate | date('F') %}
+	{% set endDateDay = endDate | date('j') %}
+	{% set endDateYear = endDate | date('Y') %}
+	{% set endDateTime = endDate | date('g:i a') %}
+{% else %}
+	{% set endDate = startDate %}
+{% endif %}
+{% if startDate == endDate %}
+	{{ startDate | date('F j, Y') }}
+	{# Start and end match; only render start #}
+{% else %}
+	{% if startDateYear != endDateYear %}
+		<span class="datestamp--date">{{ startDateMonth }}
+			{{ startDateDay }},
+			{{ startDateYear }}
+			&ndash;
+			{{ endDateMonth }}
+			{{ endDateDay }},
+			{{ endDateYear }}</span>
+		{# Start and end years differ; render with year, no time #}
+	{% else %}
+		{% if startDateMonth == endDateMonth and startDateDay != endDateDay %}
+			<span class="datestamp--date">{{ startDateMonth }}
+				{{ startDateDay }}
+				&ndash;
+				{{ endDateDay }},
+				{{ endDateYear }}</span>
+			{# Start and end days differ; render without year, no time #}
+		{% elseif startDateMonth == endDateMonth and startDateDay == endDateDay and startDate != endDate %}
+			<span class="datestamp--date">{{ startDateMonth }}
+				{{ startDateDay }},
+				{{ endDateYear }}</span>
+			<span class="datestamp--time">{{startDateTime}}
+				&ndash;
+			{{endDateTime}}
+		</span>
+		<span class="datestamp--timezone">{{member_timezone}}</span>
+		{# Start and end times differ; render without year or month, with time #}
+	{% else %}
+		<span class="datestamp--date">{{ startDateMonth }}
+			{{ startDateDay }}
+			&ndash;
+			{{ endDateMonth }}
+			{{ endDateDay }},
+			{{ endDateYear }}</span>
+		{# Start and end months differ; render without year or month, no time #}
+	{% endif %}
+{% endif %}
+{% endif %}

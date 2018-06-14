@@ -1,0 +1,54 @@
+langcode: en
+status: true
+dependencies: {  }
+id: gnam_node_landing_page
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: gnam
+label: 'Nodes (Landing Page)'
+source:
+  plugin: d7_node
+  node_type: landing_page
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_landing_page/0/status: comment
+  field_content_section: field_content_section
+  field_download_the_report:
+    plugin: iterator
+    source: field_download_the_report
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_external_link:
+    plugin: field_link
+    source: field_external_link
+  field_menu_links_text: field_menu_links_text
+destination:
+  plugin: 'entity:node'
+  default_bundle: landing_page
+migration_dependencies:
+  required:
+    - gnam_user
+    - gnam_node_type
+  optional:
+    - gnam_field_instance
+    - gnam_comment_field_instance

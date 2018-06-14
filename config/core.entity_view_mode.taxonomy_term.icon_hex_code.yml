@@ -1,0 +1,10 @@
+uuid: e7393cf5-8613-4b18-891f-adaf2b1ba9c8
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.icon_hex_code
+label: icon_hex_code
+targetEntityType: taxonomy_term
+cache: true

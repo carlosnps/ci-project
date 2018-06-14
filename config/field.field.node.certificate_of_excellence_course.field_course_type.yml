@@ -1,0 +1,33 @@
+uuid: 24715f2b-1fd6-40ec-aa38-c913d2643847
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_type
+    - node.type.certificate_of_excellence_course
+    - taxonomy.vocabulary.course_types
+  content:
+    - 'taxonomy_term:course_types:1b0be24e-3c16-4710-b5e1-a2d47af8e19c'
+id: node.certificate_of_excellence_course.field_course_type
+field_name: field_course_type
+entity_type: node
+bundle: certificate_of_excellence_course
+label: 'Course Type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 1b0be24e-3c16-4710-b5e1-a2d47af8e19c
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      course_types: course_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

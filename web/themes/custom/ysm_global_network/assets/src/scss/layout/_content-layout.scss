@@ -1,0 +1,115 @@
+/**
+ * Usage definition
+ * --------------------------------------------------
+ * <div class="content-layout">
+ * 	<div class="content-layout__aside">
+ * 		Additional classes:
+ * 			content-layout__aside--primary
+ * 				- Required if including in markup
+ * 				- Default placement on left with gutter on right
+ * 			content-layout__aside--wide-gutter
+ * 				- Changes gutter to one column width
+ * 	</div>
+ * 	<div class="content-layout__main"></div>
+ * 	<div class="content-layout__aside">
+ * 		Additional classes:
+ * 			content-layout__aside--secondary
+ * 				- Required if including in markup
+ * 				- Default placement on right with gutter on left
+ * 			content-layout__aside--wide-gutter
+ * 				- Changes gutter to one column width
+ * 	</div>
+ * --------------------------------------------------
+ */
+.content-layout {
+  @extend %display-flex;
+  @include breakpoint($bp-desktop) {
+    flex-wrap: nowrap;
+  }
+
+  &__aside {
+    @include breakpoint($bp-tablet-landscape-below) {
+      //margin-bottom: 2rem;
+      width: span(12);
+    }
+    @include breakpoint($bp-tablet-landscape-only) {
+      flex : 0 0 auto;
+      width: span(3);
+    }
+    @include breakpoint($bp-desktop) {
+      width: calc(#{span(2)} + #{$gutter-double});
+    }
+
+    & + .content-layout__main ~ * {
+      // Shift subsequent aside to give illusion of a full column
+      @include breakpoint($bp-tablet-landscape-only) {
+        margin-left: calc(#{span(3)} + #{$gutter-double});
+        width      : span(8);
+      }
+    }
+
+    & + .content-layout__main,
+    & + .content-layout__main ~ * {
+      @include breakpoint($bp-tablet-landscape-only) {
+        flex: 1 1 calc(#{span(8)} - #{$gutter-double});
+      }
+    }
+
+    &--primary {
+      order: 1;
+      @include breakpoint($bp-tablet-landscape-only) {
+        flex: 1 1 calc(#{span(4)} - #{$gutter-double});
+      }
+      @include breakpoint($bp-tablet-landscape) {
+        padding-right: $gutter-double;
+      }
+      @include breakpoint($bp-tablet-landscape) {
+        flex: 0 0 auto;
+
+        &.content-layout__aside--wide-gutter {
+          margin-right: calc(#{$gutter-column} + #{$gutter-double});
+        }
+      }
+    }
+
+    &--secondary {
+      order: 3;
+      @include breakpoint($bp-tablet-landscape) {
+        flex        : 0 0 auto;
+        padding-left: $gutter-double;
+
+        &.content-layout__aside--wide-gutter {
+          margin-left: calc(#{$gutter-column} + #{$gutter-double});
+        }
+      }
+    }
+
+    &--wide {
+      @include breakpoint($bp-tablet-landscape) {
+        flex : 0 0 auto;
+        width: calc(#{span(3)} + #{$gutter-double});
+      }
+    }
+
+    &--wide-gutter {
+      @include breakpoint($bp-tablet-landscape) {
+        width: calc(#{span(2)} + #{$gutter-double});
+      }
+    }
+  }
+
+  &__main {
+    order: 2;
+    @include breakpoint($bp-tablet-landscape-below) {
+      margin-bottom: 2rem;
+      width        : span(12);
+    }
+    @include breakpoint($bp-tablet-landscape) {
+      flex: 1 1 span(6);
+    }
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) and (min-width:$bp-tablet-landscape) {
+      // IE10-11 only
+      flex-basis: span(6);
+    }
+  }
+}

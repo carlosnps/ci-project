@@ -1,0 +1,4 @@
+bundle: ysm_global_networks
+excluded:
+  - migrate_plus.migration.gnam_gnam_node_teams
+required: true

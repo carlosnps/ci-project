@@ -1,0 +1,16 @@
+uuid: f2033649-5a3a-4623-8437-c6c35c424e26
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.home_slide_image_772x484
+id: slider_image
+label: 'Slider image'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: home_slide_image_772x484
+breakpoint_group: responsive_image
+fallback_image_style: home_slide_image_772x484

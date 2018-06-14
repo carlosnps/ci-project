@@ -1,0 +1,55 @@
+
+views.filter.ysm_gn_event_upcoming:
+  type: views_filter
+  label: 'YsmGn Date UPcoming'
+  mapping:
+    operator:
+      type: string
+      label: 'Operator'
+    value:
+      type: sequence
+      label: 'Values'
+      sequence:
+        type: string
+        label: 'Value'
+    expose:
+      type: mapping
+      label: 'Expose'
+      mapping:
+        reduce:
+          type: boolean
+          label: 'Reduce'
+    group_info:
+      mapping:
+        group_items:
+          sequence:
+            type: views.filter.group_item.ysm_gn_event_upcoming
+            label: 'Group item'
+
+
+views.filter.ysm_gn_event_type:
+  type: views_filter
+  label: 'YsmGn Date UPcoming'
+  mapping:
+    operator:
+      type: string
+      label: 'Operator'
+    value:
+      type: sequence
+      label: 'Values'
+      sequence:
+        type: string
+        label: 'Value'
+    expose:
+      type: mapping
+      label: 'Expose'
+      mapping:
+        reduce:
+          type: boolean
+          label: 'Reduce'
+    group_info:
+      mapping:
+        group_items:
+          sequence:
+            type: views.filter.group_item.ysm_gn_event_upcoming
+            label: 'Group item'

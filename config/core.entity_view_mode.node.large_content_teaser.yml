@@ -1,0 +1,10 @@
+uuid: c316c10a-8d92-4a63-9781-6c723ce38b50
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.large_content_teaser
+label: 'Large Content Teaser'
+targetEntityType: node
+cache: true

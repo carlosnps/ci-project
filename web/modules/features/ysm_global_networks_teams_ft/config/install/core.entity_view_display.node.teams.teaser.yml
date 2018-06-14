@@ -1,0 +1,71 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.teams.body
+    - field.field.node.teams.field_competition
+    - field.field.node.teams.field_image
+    - field.field.node.teams.field_index_return_to_
+    - field.field.node.teams.field_member_school
+    - field.field.node.teams.field_net_return_to_date
+    - field.field.node.teams.field_percent_change
+    - field.field.node.teams.field_portfolio_index
+    - field.field.node.teams.field_portfolio_index_rtd
+    - field.field.node.teams.field_portfolio_net_rtd
+    - field.field.node.teams.field_portfolio_pct_change_daily
+    - field.field.node.teams.field_portfolio_rtd
+    - field.field.node.teams.field_portfolio_stocks
+    - field.field.node.teams.field_presentation
+    - field.field.node.teams.field_report
+    - field.field.node.teams.field_return_to_date
+    - field.field.node.teams.field_team_member
+    - field.field.node.teams.field_team_members
+    - field.field.node.teams.field_team_name
+    - image.style.medium
+    - node.type.teams
+  module:
+    - fences
+    - image
+    - user
+id: node.teams.teaser
+targetEntityType: node
+bundle: teams
+mode: teaser
+content:
+  field_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: content
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+hidden:
+  body: true
+  field_competition: true
+  field_index_return_to_: true
+  field_member_school: true
+  field_net_return_to_date: true
+  field_percent_change: true
+  field_portfolio_index: true
+  field_portfolio_index_rtd: true
+  field_portfolio_net_rtd: true
+  field_portfolio_pct_change_daily: true
+  field_portfolio_rtd: true
+  field_portfolio_stocks: true
+  field_presentation: true
+  field_report: true
+  field_return_to_date: true
+  field_team_member: true
+  field_team_members: true
+  field_team_name: true
+  links: true

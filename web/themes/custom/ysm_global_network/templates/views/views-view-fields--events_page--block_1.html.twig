@@ -1,0 +1,84 @@
+{#
+/**
+ * @file
+ * Theme override to display all the fields in a row.
+ *
+ * Available variables:
+ * - view: The view in use.
+ * - fields: A list of fields, each one contains:
+ *   - content: The output of the field.
+ *   - raw: The raw data for the field, if it exists. This is NOT output safe.
+ *   - class: The safe class ID to use.
+ *   - handler: The Views field handler controlling this field.
+ *   - inline: Whether or not the field should be inline.
+ *   - wrapper_element: An HTML element for a wrapper.
+ *   - wrapper_attributes: List of attributes for wrapper element.
+ *   - separator: An optional separator that may appear before a field.
+ *   - label: The field's label text.
+ *   - label_element: An HTML element for a label wrapper.
+ *   - label_attributes: List of attributes for label wrapper.
+ *   - label_suffix: Colon after the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ *   - has_label_colon: A boolean indicating whether to display a colon after
+ *     the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ * - row: The raw result from the query, with all data it fetched.
+ *
+ * @see template_preprocess_views_view_fields()
+ *
+ * NB This is a copy of node--event--events-view-for-events-page.html.twig
+ *
+ * This template requires the custom filter relies on YsmGnEventDate. This filter combines
+ * different date fields into a single query which also splits nodes with multiple dates into
+ * separate rows. The corresponding daterange is row.ysm_query_date & row.ysm_query_enddate
+ */
+#}
+
+{# Node is in the row #}
+{% set node = row._entity  %}
+{%
+  set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  'event--dated-item'
+]
+%}
+{{ attach_library('classy/node') }}
+<article{{ attributes.addClass(classes) }}>
+
+  {# How to get date values from node #}
+  {#{% if node.bundle == "event" %}#}
+    {#{% set start = node.field_event_dates.0.value | date('U') %}#}
+    {#{% set end = node.field_event_dates.0.end_value  | date('U') %}#}
+  {#{% elseif node.bundle == "certificate_of_excellence_course" %}#}
+    {#{% set start = node.field_course_dates.0.value | date('U') %}#}
+    {#{% set end = node.field_course_dates.0.end_value  | date('U') %}#}
+  {#{% else %}#}
+    {#{% set start = node.createdtime %}#}
+    {#{% set end = node.createdtime %}#}
+  {#{% endif %}#}
+
+  {# These values come from custom filter YsmGnEventDate See note above #}
+  {% set start = row.ysm_query_date | date('U')%}
+  {% set end = row.ysm_query_enddate | date('U')%}
+
+  <div class = "event--dated-item__main">
+    {#{{ title_prefix }}#}
+    {#{% if not page %}#}
+      <h2{{ title_attributes }}>
+        {{ fields.title.content }}
+      </h2>
+    {#{% endif %}#}
+    {#{{ title_suffix }}#}
+
+    <div class="node-teaser__date">
+      {% include directory ~ '/templates/parts/dateformatting.html.twig' %}
+    </div>
+  </div>
+</article>

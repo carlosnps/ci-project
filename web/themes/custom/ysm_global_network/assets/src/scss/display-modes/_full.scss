@@ -1,0 +1,30 @@
+.node-full {
+  &__teaser {
+    margin: 2rem 0;
+
+    p {
+      font-size: rem(20);
+    }
+  }
+
+  .content-layout {
+    margin-top: 2rem;
+
+    &__main {
+      > *:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__member-school {
+    h5 {
+      font-size: rem(24);
+    }
+  }
+
+  &__date {
+    color    : $color_gray;
+    font-size: rem(20);
+  }
+}

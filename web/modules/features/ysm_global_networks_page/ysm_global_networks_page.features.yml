@@ -1,0 +1,12 @@
+bundle: ysm_global_networks
+excluded:
+  - core.entity_view_display.node.event.events_view_for_events_page
+  - core.entity_view_display.node.event.events_view_for_front_page
+  - migrate_plus.migration.gnam_gnam_node_landing_page
+  - migrate_plus.migration.gnam_gnam_node_m2m_landing_page
+  - migrate_plus.migration.gnam_gnam_node_page
+  - migrate_plus.migration.gnam_search_page
+  - views.view.events_page
+  - core.entity_view_mode.node.events_view_for_events_page
+  - core.entity_view_mode.node.events_view_for_front_page
+required: true

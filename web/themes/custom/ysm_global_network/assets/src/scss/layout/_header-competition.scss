@@ -1,0 +1,116 @@
+.competition {
+  &.is-current {
+    .page__header {
+      background     : $color_deep_sea 100% calc(100% + 20px) url("../images/investment_competition_chart-stylized_v2-1.svg") no-repeat;
+      background-size: 100%;
+      @include breakpoint($bp-desktop) {
+        background-size: 50%;
+      }
+
+      .page-node-type-competition & {
+        background-size: 150%;
+        min-height     : rem(400);
+        @include breakpoint($bp-desktop) {
+          background-size: 75%;
+        }
+      }
+
+      &--title {
+        .page-node-type-competition & {
+          font-size: scale-font(rem(48));
+          margin   : 1rem 0;
+          @include breakpoint($bp-tablet) {
+            font-size : scale-font(rem(72));
+            margin-top: 2rem;
+          }
+        }
+      }
+    }
+  }
+
+  &:not(.is-current) {
+    .page__header--title {
+      &::after {
+        border        : 2px solid $color_white;
+        color         : $color_white;
+        content       : 'Archived';
+        display       : inline-block;
+        font-family   : $font-family-condensed;
+        font-size     : 1rem;
+        line-height   : 1;
+        margin-left   : 1rem;
+        padding       : rem(10);
+        vertical-align: bottom;
+      }
+    }
+  }
+
+  .page__header {
+    color     : $color_white;
+    background: $color_gray 100% calc(100% + 20px) url("../images/investment_competition_chart-stylized_v2-1.svg") no-repeat;
+
+    @include breakpoint($bp-tablet-below) {
+      padding-top: 0;
+    }
+    @include breakpoint($bp-tablet) {
+      > div {
+        margin        : 0 auto;
+        align-content : flex-start;
+        display       : flex;
+        flex-wrap     : wrap;
+        flex-direction: row-reverse;
+      }
+    }
+    @include breakpoint($bp-desktop) {
+      > div {
+        width: span(8);
+      }
+    }
+
+    &--intro {
+
+      flex-grow     : 1;
+      font-size     : rem(10);
+      font-family   : $font-family-light;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      @include breakpoint($bp-tablet) {
+        font-size: rem(13);
+      }
+
+      a {
+        @extend %link-reverse !optional;
+        color      : $color_white;
+        font-family: $font-family-bold;
+      }
+    }
+
+    &--title {
+      font-family: $font-family-condensed-bold;
+      font-size  : rem(36);
+      line-height: 1;
+      margin     : 0.5rem 0;
+      width      : 100%;
+
+      a {
+        @extend %link-reverse !optional;
+        @extend %hover-to-underline !optional;
+        color: $color_white;
+      }
+
+    }
+
+    &--sub-heading {
+      width        : 100%;
+      color        : $color_white;
+      font-size    : rem(16);
+      line-height  : 1.25;
+      margin-bottom: rem(20);
+      @include breakpoint($bp-tablet) {
+        font-size: rem(20);
+      }
+    }
+
+  }
+
+}

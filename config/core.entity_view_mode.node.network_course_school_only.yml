@@ -1,0 +1,10 @@
+uuid: 567e402c-9369-4d3a-b850-103119929244
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.network_course_school_only
+label: 'Network Course - School Only'
+targetEntityType: node
+cache: true

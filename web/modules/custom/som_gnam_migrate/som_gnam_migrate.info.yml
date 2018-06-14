@@ -1,0 +1,48 @@
+name: SOM GNAM Migrate
+type: module
+description: Migrating GNAM content from D7
+core: 8.x
+package: Yale SOM
+dependencies:
+  - migrate
+  - migrate_drupal
+  - migrate_plus
+  - migrate_tools
+# With config_devel module installed, this will let us import & export our module's configuration from drush
+config_devel:
+#  install:
+#    -  migrate_plus.migration.gnam_file
+  optional:
+    - migrate_plus.migration.gnam_cas_user
+    - migrate_plus.migration.gnam_user
+    - migrate_plus.migration.gnam_file
+    - migrate_plus.migration.gnam_node_article
+    - migrate_plus.migration.gnam_node_certificate_of_excellence_course
+    - migrate_plus.migration.gnam_node_competitions
+    - migrate_plus.migration.gnam_node_event
+    - migrate_plus.migration.gnam_node_faculty_directory
+    - migrate_plus.migration.gnam_node_fifth_anniversary
+    - migrate_plus.migration.gnam_node_gnp_json_feed
+    - migrate_plus.migration.gnam_node_perspectives_articles.yml
+    - migrate_plus.migration.gnam_node_gnp_rss_feed
+    - migrate_plus.migration.gnam_node_home_page_slide
+    - migrate_plus.migration.gnam_node_landing_page
+    - migrate_plus.migration.gnam_node_m2m_landing_page
+    - migrate_plus.migration.gnam_node_member_schools
+    - migrate_plus.migration.gnam_node_news
+    - migrate_plus.migration.gnam_node_page
+    - migrate_plus.migration.gnam_node_panel
+    - migrate_plus.migration.gnam_node_teams
+    - migrate_plus.migration.gnam_node_video
+    - migrate_plus.migration.gnam_taxonomy_term_currency_types
+    - migrate_plus.migration.gnam_taxonomy_term_event_type
+    - migrate_plus.migration.gnam_taxonomy_term_industries
+    - migrate_plus.migration.gnam_taxonomy_term_member_school
+    - migrate_plus.migration.gnam_taxonomy_term_member_type
+    - migrate_plus.migration.gnam_taxonomy_term_news_category
+    - migrate_plus.migration.gnam_taxonomy_term_tags
+    - migrate_plus.migration.gnam_taxonomy_term_topics
+    - migrate_plus.migration.gnam_taxonomy_vocabulary
+    - migrate_plus.migration.gnam_team_member
+    - migrate_plus.migration_group.gnam
+

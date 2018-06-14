@@ -1,0 +1,70 @@
+langcode: en
+status: true
+dependencies: {  }
+id: gnam_node_member_schools
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: gnam
+label: 'Nodes (Member Schools)'
+source:
+  plugin: d7_node
+  node_type: member_schools
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_member_schools/0/status: comment
+  body:
+    plugin: get
+    source: body
+  field_country:
+    plugin: extract
+    source: field_country
+    index:
+      - 0
+      - iso2
+  field_link:
+    plugin: field_link
+    source: field_link
+  field_logo:
+    plugin: iterator
+    source: field_school_logo
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_location:
+    plugin: addressfield
+    source: field_location
+  field_color:
+    plugin: get
+    source: field_school_color
+  field_school_geocode: field_school_geocode
+destination:
+  plugin: 'entity:node'
+  default_bundle: member_schools
+migration_dependencies:
+  required:
+    - gnam_user
+    - gnam_node_type
+  optional:
+    - gnam_field_instance
+    - gnam_comment_field_instance

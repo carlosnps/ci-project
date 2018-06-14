@@ -1,0 +1,22 @@
+uuid: d9c978d7-8aa4-4848-97cc-8182a3029b0b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ysm_global_network
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: gnam_system_main
+theme: ysm_global_network
+region: content
+weight: -8
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: ''
+  provider: system
+  label_display: '0'
+visibility: {  }

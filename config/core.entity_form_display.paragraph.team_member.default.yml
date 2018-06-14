@@ -1,0 +1,74 @@
+uuid: b04dcd48-1087-435e-a10a-e81e08021472
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.team_member.field_student_bio
+    - field.field.paragraph.team_member.field_student_class_year
+    - field.field.paragraph.team_member.field_student_major
+    - field.field.paragraph.team_member.field_student_name
+    - field.field.paragraph.team_member.field_student_photo
+    - field.field.paragraph.team_member.field_student_program
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.team_member
+  module:
+    - image
+    - text
+_core:
+  default_config_hash: 0KI0wT2iJ7plgXAa-RWUBAfGQ-cihK3qNzWhQoJoy-E
+id: paragraph.team_member.default
+targetEntityType: paragraph
+bundle: team_member
+mode: default
+content:
+  field_student_bio:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_student_class_year:
+    weight: 5
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_student_major:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_student_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_student_photo:
+    weight: 2
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_student_program:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

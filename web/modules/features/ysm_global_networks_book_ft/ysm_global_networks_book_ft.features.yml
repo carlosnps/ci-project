@@ -1,0 +1,5 @@
+bundle: ysm_global_networks
+excluded:
+  - block.block.signuptoreceiveemailsfromglobalnetworkforadvancedmanagement.
+  - paragraphs.paragraphs_type.additional_text_area_s_
+required: true

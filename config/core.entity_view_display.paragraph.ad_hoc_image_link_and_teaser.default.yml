@@ -1,0 +1,79 @@
+uuid: 88a41135-6794-4e02-84ae-45cd1a70ed8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ad_hoc_image_link_and_teaser.field_image
+    - field.field.paragraph.ad_hoc_image_link_and_teaser.field_link
+    - field.field.paragraph.ad_hoc_image_link_and_teaser.field_teaser
+    - field.field.paragraph.ad_hoc_image_link_and_teaser.field_title
+    - image.style.news_or_event_teaser_210x140
+    - paragraphs.paragraphs_type.ad_hoc_image_link_and_teaser
+  module:
+    - fences
+    - image
+    - link
+    - text
+id: paragraph.ad_hoc_image_link_and_teaser.default
+targetEntityType: paragraph
+bundle: ad_hoc_image_link_and_teaser
+mode: default
+content:
+  field_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: news_or_event_teaser_210x140
+      image_link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: image
+    region: content
+  field_link:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link_separate
+    region: content
+  field_teaser:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: text_default
+    region: content
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: string
+    region: content
+hidden: {  }

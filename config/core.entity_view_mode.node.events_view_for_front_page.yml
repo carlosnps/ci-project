@@ -1,0 +1,10 @@
+uuid: 61b463dc-d46f-4d44-aca4-c10145db9916
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.events_view_for_front_page
+label: 'Events View For Front Page'
+targetEntityType: node
+cache: true

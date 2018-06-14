@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: member_slides_for_member_page_776x440
+label: 'Member Slides for Member Page 776x440'
+effects:
+  63263e02-ea61-456a-b4e5-a0cfaf7beb43:
+    uuid: 63263e02-ea61-456a-b4e5-a0cfaf7beb43
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 776
+      height: 440

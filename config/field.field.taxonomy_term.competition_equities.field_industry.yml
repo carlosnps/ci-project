@@ -1,0 +1,31 @@
+uuid: ff902bc0-679e-4ea2-9ed1-1b64cd416928
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_industry
+    - taxonomy.vocabulary.competition_equities
+    - taxonomy.vocabulary.industries
+_core:
+  default_config_hash: JiRgqRsF5uThQ9ZormiaQr6mntoC6sVyp7NtwR-mOg0
+id: taxonomy_term.competition_equities.field_industry
+field_name: field_industry
+entity_type: taxonomy_term
+bundle: competition_equities
+label: Industry
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      industries: industries
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

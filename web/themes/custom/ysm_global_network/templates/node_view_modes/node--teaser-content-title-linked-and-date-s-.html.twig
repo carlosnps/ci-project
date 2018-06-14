@@ -1,0 +1,27 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    'node-teaser',
+    node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  <h2>
+    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+  </h2>
+    {% set start = content.field_start_date[0]['#markup'] | date('U') %}
+    {% if content.field_end_date|length %}
+        {% set end = content.field_end_date[0]['#markup'] | date('U') %}
+    {% else %}
+        {% set end = start %}
+    {% endif %}
+  <div class="node-teaser__date">
+  {% include directory ~ '/templates/parts/dateformatting.html.twig' %}
+  </div>
+ 
+</article>

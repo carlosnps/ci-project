@@ -1,0 +1,114 @@
+a {
+  color          : inherit;
+  cursor         : pointer;
+  text-decoration: none;
+
+  &.button {
+    @extend %button !optional;
+    @extend %hover-no-underline !optional;
+  }
+}
+
+article a {
+  @extend %link-default !optional;
+}
+
+%link-default {
+  @extend %hover-underline !optional;
+}
+
+%link-reverse {
+  color: $color_white;
+  @extend %hover-underline-dark !optional;
+  @include breakpoint($bp-tablet) {
+    color: $color_alto;
+
+    &:focus,
+    &:focus-within,
+    &:hover {
+      color: $color_white;
+    }
+  }
+}
+
+%link-gray {
+  color: $color_gray;
+  @extend %hover-underline !optional;
+
+  &:focus,
+  &:focus-within,
+  &:hover {
+    color: $color_shark;
+  }
+}
+
+%hover-no-underline {
+  background-image   : none;
+  border-bottom-color: transparent;
+
+  &:focus,
+  &:focus-within,
+  &:hover {
+    background-image: none;
+  }
+}
+
+%hover-remove-underline {
+  background-image   : none;
+  border-bottom-color: transparent;
+  border-bottom-width: 0;
+  margin             : 0;
+  padding            : 0;
+  transition         : all 0.2s ease-in;
+
+  &:focus,
+  &:focus-within,
+  &:hover {
+    background-image: none;
+    margin          : 0;
+    opacity         : 1;
+    padding         : 0;
+  }
+}
+
+%hover-underline {
+  border-bottom    : 1px $color_gray solid;
+  padding-bottom   : 1px;
+  margin-bottom    : 1px;
+  position         : relative;
+  text-decoration  : none;
+  width            : calc(100%);
+  background-image : linear-gradient(transparent calc(100% - 1px), transparent 1px);
+  background-repeat: no-repeat;
+  background-size  : 0 100%;
+  transition       : background-size 0.2s ease-in 0.1s, opacity 0.2s ease-in;
+
+  @include breakpoint($bp-tablet) {
+    &:focus,
+    &:focus-within,
+    &:hover {
+      border-bottom-color: transparent;
+      opacity            : 0.8;
+      margin-bottom      : 0;
+      padding-bottom     : 2px;
+      background-size    : 100% 100%;
+      background-image   : linear-gradient(transparent calc(100% - 1px), $color_shark 1px);
+    }
+  }
+}
+
+%hover-underline-dark {
+  @extend %hover-underline !optional;
+  border-bottom-color: $color_alto;
+  @include breakpoint($bp-tablet) {
+    &:hover {
+      opacity         : 1;
+      background-image: linear-gradient(transparent calc(100% - 1px), $color_white 1px);
+    }
+  }
+}
+
+%hover-to-underline {
+  @extend %hover-underline !optional;
+  border-bottom-color: transparent;
+}

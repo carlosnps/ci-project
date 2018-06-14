@@ -1,0 +1,255 @@
+.node-teaser {
+	margin-bottom: 2rem;
+	/* Generic elements */
+	&__image {
+		margin-bottom: 0.5rem;
+
+		&--empty {
+			background-color: currentColor;
+			padding         : 100% 0 0;
+		}
+	}
+
+	&__date {
+		color: $color_gray;
+	}
+	/* Content teasers */
+	&--large {
+		margin: 2rem $gutter-negative;
+		@include breakpoint($bp-tablet) {
+			margin: 2rem $gutter-negative*2;
+		}
+
+		&__container {
+			background-color: currentColor;
+			@include breakpoint($bp-tablet) {
+				display: flex;
+			}
+		}
+
+		&__text {
+
+			padding: $gutter-double;
+
+			.node-teaser__date,
+			h2 {
+				color: $color_white;
+			}
+
+			h2 {
+				font-size  : rem(42);
+				line-height: 1;
+				margin-top : 0;
+				@include breakpoint($bp-tablet) {
+					font-size: rem(60);
+				}
+			}
+
+			a {
+				@extend %button !optional;
+				@extend %button-reverse !optional;
+				@extend %button-arrow-right !optional;
+				color: inherit;
+			}
+			@include breakpoint($bp-tablet) {
+				flex: 1 1;
+			}
+		}
+
+		&__buttons {
+			margin: 1rem 0 0;
+
+			.field__item {
+				margin-bottom: 0.25rem;
+				@include breakpoint($bp-tablet) {
+					display     : inline-block;
+					margin-right: 0.5rem;
+				}
+				@include breakpoint($bp-tablet-below) {
+					display: block;
+
+					a {
+						display   : block;
+						text-align: center;
+					}
+				}
+			}
+		}
+
+		&__image {
+			@include breakpoint($bp-tablet) {
+				width: span(2 of 8);
+			}
+
+			img {
+				display: block;
+				width  : 100%;
+			}
+		}
+	}
+
+	&--medium {
+		img {
+			display: block;
+			width  : 100%;
+		}
+
+		p {
+			font-size  : rem(14);
+			line-height: rem(24);
+		}
+
+		&__title {
+			margin-top: 0;
+			position  : relative;
+			@include breakpoint($bp-tablet-below) {
+				margin: 0 $gutter-negative*2;
+			}
+
+			a {
+				display: block;
+				@extend %hover-remove-underline !optional;
+
+				&:hover {
+					@include material-shadow(3);
+				}
+			}
+		}
+
+		&__title-bar {
+			background: currentColor;
+			display   : block;
+			padding   : $gutter $gutter-double*2 $gutter $gutter-double;
+			position  : relative;
+			@include icon(chevron-right,linearicons,right);
+			@include breakpoint($bp-tablet) {
+				position : absolute;
+				left     : 0;
+				top      : 50%;
+				transform: translate3d(0,-50%,0);
+				max-width: span(8);
+			}
+
+			&::after {
+				color     : $color_white;
+				display   : block;
+				font-size : rem(16);
+				position  : absolute;
+				right     : $gutter;
+				text-align: right;
+				top       : 50%;
+				transform : translateY(-50%);
+			}
+		}
+
+		&__title-text {
+			color      : $color_white;
+			font-family: $font-family-condensed;
+			line-height: 1;
+			@extend %hover-underline-dark !optional;
+			@extend %hover-to-underline !optional;
+		}
+	}
+
+	&--default {
+		.node-teaser__title {
+			a {
+				@extend %hover-to-underline !optional;
+			}
+		}
+
+		p {
+			font-size  : rem(13);
+			line-height: 1.8;
+		}
+	}
+
+	&__expandable {
+		h2 {
+			a {
+				@extend %hover-to-underline !optional;
+			}
+		}
+
+		.tags,
+		p {
+			font-size  : rem(15);
+			line-height: 1.5;
+			margin-top : rem(5);
+		}
+
+		.node-teaser {
+			&__content {
+				display  : flex;
+				flex-wrap: wrap;
+				@include breakpoint($bp-tablet) {
+					align-items: center;
+					flex-wrap  : nowrap;
+					max-height : 0;
+					opacity    : 0;
+					overflow   : hidden;
+					transition : max-height 0.2s ease-in-out 0.75s, opacity 0.2s ease-in-out 0.75s;
+				}
+				@include breakpoint($bp-desktop) {}
+			}
+
+			&__text {
+				background    : $color_white;
+				order         : 1;
+				position      : relative;
+				z-index       : 1;
+				padding-bottom: 1rem;
+				@include breakpoint($bp-tablet) {
+					align-self: flex-start;
+					flex      : 1 1;
+				}
+			}
+
+			&__image {
+				order  : 0;
+				width  : 100%;
+				z-index: 0;
+				@include breakpoint($bp-tablet-below) {
+					img {
+						width: 100%;
+					}
+				}
+				@include breakpoint($bp-tablet) {
+					border-left      : 0 solid;
+					border-left-color: inherit;
+					order            : 2;
+					margin-left      : $gutter-double;
+					overflow         : hidden;
+					padding          : 1rem 0 1rem $gutter-double;
+					transition       : border-width 0.2s ease-in-out 1s;
+					width            : span(2 of 8);
+
+					img {
+						display   : block;
+						transform : translateX(-120%);
+						transition: transform 0.4s ease-in-out 0.6s;
+					}
+				}
+			}
+		}
+
+		&.open,
+		&:hover {
+			.node-teaser__content {
+				display: flex;
+				@include breakpoint($bp-tablet) {
+					max-height: 30rem;
+					opacity   : 1;
+				}
+			}
+
+			.node-teaser__image {
+				border-left-width: 4px;
+
+				img {
+					transform: translateX(0);
+				}
+			}
+		}
+	}
+}

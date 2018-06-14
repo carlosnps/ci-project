@@ -1,0 +1,24 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+
+    
+    {% block content %}
+    <div class = "img-left">
+     <a href = "{{ content.field_link[0]['#url']|render }}">{{ content.field_image }}</a>
+     </div>
+    <div class = "content-right">
+    <h2><a href = "{{ content.field_link[0]['#url']|render }}">{{ content.field_title }}</a></h2>
+   
+
+    {{ content.field_teaser }}
+</div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

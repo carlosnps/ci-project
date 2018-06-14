@@ -1,0 +1,103 @@
+@keyframes fadeOutUpTooltip {
+  0% {
+    opacity   : 1;
+    margin-top: -5px;
+  }
+
+  100% {
+    opacity   : 0;
+    margin-top: -30px;
+  }
+}
+
+%fadeOutUpTooltip {
+  animation-name: fadeOutUpTooltip;
+}
+
+// Tooltips
+.help--tooltip {
+  position : relative;
+  transform: translate3d(0,0,0);
+
+  &::before {
+    position      : absolute;
+    left          : 50%;
+    opacity       : 0;
+    background    : $color_shark;
+    content       : attr(data-tooltip);
+    color         : $color_white;
+    display       : block;
+    font-family   : $font-family-condensed;
+    font-size     : rem(14);
+    margin-top    : rem(-5);
+    max-width     : 10rem;
+    padding       : 0.5rem;
+    position      : absolute;
+    letter-spacing: 0;
+    line-height   : 1;
+    text-align    : left;
+    text-transform: none;
+    top           : 0;
+    transform     : translate3d(-50%, -100%, 0);
+    visibility    : hidden;
+    white-space   : normal;
+    z-index       : 0;
+    @include material-shadow(1);
+  }
+
+  &.no-process {
+    &::before {
+      @extend %animation !optional;
+      animation-delay: 4s;
+    }
+
+    &:hover {
+      &::after,
+      &::before {
+        @extend %fadeOutUpTooltip !optional;
+      }
+    }
+  }
+
+  &.processed {
+    border       : 1px solid $color_gray;
+    border-radius: 1rem;
+    color        : $color_gray;
+    cursor       : pointer;
+    display      : inline-block;
+    font-size    : rem(14);
+    height       : 1rem;
+    margin       : 0 0.25rem;
+    text-align   : center;
+    width        : 1rem;
+
+    &::before {
+      margin-top: -30px;
+      min-width : 5rem;
+      transition: opacity 0.3s ease-in,margin 0.1s ease-in;
+    }
+
+    &:hover {
+      &::before {
+        margin-top: -5px;
+        opacity   : 1;
+      }
+    }
+
+    .messages & {
+      border-color: $color_white;
+      color       : $color_white;
+    }
+  }
+
+  &:hover {
+    &::after,
+    &::before {
+      visibility: visible;
+    }
+  }
+}
+
+.help--whats-this {
+  color: $color_gray;
+}

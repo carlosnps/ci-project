@@ -1,0 +1,33 @@
+{%
+    set content_classes = [
+    'content-layout__main',
+    'js--expanding-teaser--container',
+]
+%}
+<div class="content-layout">
+	<div{{ content_attributes.addclass(content_classes) }}>
+		<ul class="semantic-list">
+			{% for row in rows %}
+				{%
+        set row_classes = [
+          default_row_class ? 'views-row',
+        ]
+      %}
+				<li{{ row.attributes.addClass(row_classes) }}>
+					{{ row.content }}
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="content-layout__aside content-layout__aside--primary">
+
+		<nav role="navigation" aria-labelledby="nav__secondary--title" id="article__nav__secondary" class="nav__secondary">
+			<h2 id="nav__secondary--title" class="visually-hidden">Secondary Navigation</h2>
+			{{ ysm_menu('main', 1) }}
+		</nav>
+
+		{% if content.field_left_sidebar_blocks.0 is not empty %}
+			{{ content.field_left_sidebar_blocks }}
+		{% endif %}
+	</div>
+</div>

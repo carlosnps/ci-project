@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_right_sidebar_blocks
+    - node.type.page
+id: node.page.field_right_sidebar_blocks
+field_name: field_right_sidebar_blocks
+entity_type: node
+bundle: page
+label: 'Right Sidebar Blocks'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

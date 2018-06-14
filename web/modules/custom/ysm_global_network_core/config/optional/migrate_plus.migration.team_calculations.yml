@@ -1,0 +1,99 @@
+id: team_calculations
+label: GN Team Calculations
+group: ysm_imports
+source:
+  plugin: url
+  # Specifies the http fetcher plugin.
+  data_fetcher_plugin: http
+  # Specifies the JSON parser plugin.
+  data_parser_plugin: json
+  #  authentication:
+  #    plugin: basic
+  #    username: 'hamster'
+  #    password: 'GummyBear2389'
+  headers:
+    Accept: 'application/json; charset=utf-8'
+    Content-Type: 'application/json'
+
+  # One or more URLs from which to fetch the source data.
+  urls: http://gncompetition.system-processor.work/team/update-drupal
+
+  # For JSON, item_selector is the xpath used to select
+  # our source items our data is within the base array so we do not need this
+  #item_selector: object
+
+  # For each source field, we specify a selector,
+  # the field name which will be used to access the field in the
+  # process configuration, and a label to document the meaning
+  # of the field in front-ends.
+  fields:
+    -
+      name: nid
+      label: nid
+      selector: /team_nid
+    -
+      name: index_return_to_date
+      label: index_return_to_date
+      selector: /index_return_to_date
+    -
+      name: net_return_to_date
+      label: net_return_to_date
+      selector: /net_return_to_date
+    -
+      name: portfolio_return_to_date
+      label: portfolio_return_to_date
+      selector: /portfolio_return_to_date
+    -
+      name: portfolio_percent_change_daily
+      label: portfolio_percent_change_daily
+      selector: /portfolio_percent_change_daily
+
+  # Under ids, we specify which of the source fields retrieved
+  # above (nid in this case) represent our unique
+  # identifier for the item, and the schema type for that field.
+  ids:
+    nid:
+      type: integer
+
+destination:
+#  plugin: entity:node
+  plugin: ysm:node_update
+  overwrite_properties:
+    - field_portfolio_index_rtd
+    - field_portfolio_net_rtd
+    - field_portfolio_pct_change_daily
+    - field_portfolio_rtd
+process:
+  type:
+    plugin: default_value
+    default_value: team
+  nid:
+    -
+      plugin: skip_on_empty
+      method: row
+      source: nid
+  field_portfolio_index_rtd:
+    -
+      plugin: skip_on_empty
+      method: row
+      source: index_return_to_date
+  field_portfolio_net_rtd:
+    -
+      plugin: skip_on_empty
+      method: row
+      source: net_return_to_date
+  field_portfolio_pct_change_daily:
+    -
+      plugin: skip_on_empty
+      method: row
+      source: portfolio_percent_change_daily
+  field_portfolio_rtd:
+    -
+      plugin: skip_on_empty
+      method: row
+      source: portfolio_return_to_date
+# use forced module dependency so uninstall/reinstall works properly
+dependencies:
+  enforced:
+    module:
+      - json_migrate

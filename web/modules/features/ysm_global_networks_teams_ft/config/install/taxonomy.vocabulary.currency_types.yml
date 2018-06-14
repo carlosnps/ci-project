@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Currency Types'
+vid: currency_types
+description: 'Currency Types'
+hierarchy: 0
+weight: 0

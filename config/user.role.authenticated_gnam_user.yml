@@ -1,0 +1,16 @@
+uuid: 7a582a8e-98a3-47bd-a929-168721bacb03
+langcode: en
+status: true
+dependencies: {  }
+id: authenticated_gnam_user
+label: 'authenticated gnam user'
+weight: 4
+is_admin: null
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'post comments'
+  - 'search content'
+  - 'skip comment approval'
+  - 'view files'
+  - 'view own unpublished content'

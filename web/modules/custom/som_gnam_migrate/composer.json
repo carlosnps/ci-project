@@ -1,0 +1,14 @@
+{
+  "name": "drupal/som_gnam_migrate",
+  "type": "drupal-module",
+  "description": "Migrating GNAM content from D7",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/som_gnam_migrate",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/som_gnam_migrate",
+    "source": "http://cgit.drupalcode.org/som_gnam_migrate"
+  },
+  "require": { }
+}

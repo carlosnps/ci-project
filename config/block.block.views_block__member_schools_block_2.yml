@@ -1,0 +1,24 @@
+uuid: e7416dc8-7be1-476e-8a22-e0305c17afcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.member_schools
+  module:
+    - views
+  theme:
+    - ysm_global_network
+id: views_block__member_schools_block_2
+theme: ysm_global_network
+region: hidden
+weight: -11
+provider: null
+plugin: 'views_block:member_schools-block_2'
+settings:
+  id: 'views_block:member_schools-block_2'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

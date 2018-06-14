@@ -1,0 +1,23 @@
+uuid: c18dfb4f-15b5-42a8-8a0f-04c427c30d86
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.competition_data.portfolio
+    - field.storage.competition_data.field_index_return_to_date
+id: competition_data.portfolio.field_index_return_to_date
+field_name: field_index_return_to_date
+entity_type: competition_data
+bundle: portfolio
+label: 'Index Return to Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

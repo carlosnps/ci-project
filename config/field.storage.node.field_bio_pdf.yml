@@ -1,0 +1,23 @@
+uuid: a298c728-1c69-4730-8a59-e6e66119b244
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_bio_pdf
+field_name: field_bio_pdf
+entity_type: node
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

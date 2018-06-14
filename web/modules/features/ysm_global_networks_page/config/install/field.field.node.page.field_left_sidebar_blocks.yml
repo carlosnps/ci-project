@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block.block.mainnavigation
+    - field.storage.node.field_left_sidebar_blocks
+    - node.type.page
+id: node.page.field_left_sidebar_blocks
+field_name: field_left_sidebar_blocks
+entity_type: node
+bundle: page
+label: 'Left Sidebar Blocks'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 713190b3-4bf3-4b47-b451-3251cfa9ca37
+default_value_callback: ''
+settings:
+  handler: 'default:block'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference
