@@ -1,9 +1,0 @@
-uuid: b46f6739-ef9f-4258-8dcc-c61c3d8df110
-langcode: en
-status: true
-dependencies: {  }
-name: 'Layout Columns'
-vid: layout_columns
-description: 'Use to set the number of columns for additional content'
-hierarchy: 0
-weight: 0

@@ -1,9 +1,0 @@
-uuid: 587ac6e3-e8ec-4cb5-b3d4-8887a1e5303f
-langcode: en
-status: true
-dependencies: {  }
-id: additional_text_area_s_
-label: 'Additional Text Area(s)'
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

@@ -1,9 +1,0 @@
-uuid: 3c9d6567-2565-464d-b235-2e893658b469
-langcode: en
-status: true
-dependencies: {  }
-id: rendered_entity
-label: Block
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

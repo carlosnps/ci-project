@@ -1,9 +1,0 @@
-uuid: e5ae7963-6539-4a75-9047-88d30e9f488a
-langcode: en
-status: true
-dependencies: {  }
-name: 'Member Regions'
-vid: member_regions
-description: ''
-hierarchy: 0
-weight: 0

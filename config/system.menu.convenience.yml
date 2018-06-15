@@ -1,8 +1,0 @@
-uuid: 54ea3836-6c07-4875-8111-354beac72e7a
-langcode: en
-status: true
-dependencies: {  }
-id: convenience
-label: Convenience
-description: 'Supplementary links for users'
-locked: false

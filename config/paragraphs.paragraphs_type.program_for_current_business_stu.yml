@@ -1,9 +1,0 @@
-uuid: 540bc4c6-41ea-4710-b7bd-64587eb58680
-langcode: en
-status: true
-dependencies: {  }
-id: program_for_current_business_stu
-label: 'Custom Teaser with Link, Color overlay and Image'
-icon_uuid: null
-description: 'Use this paragraph type to add a program that will be linked to'
-behavior_plugins: {  }

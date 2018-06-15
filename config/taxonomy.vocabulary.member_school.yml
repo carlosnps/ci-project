@@ -1,9 +1,0 @@
-uuid: cf920da2-9c3a-4132-ba61-a34729285868
-langcode: en
-status: true
-dependencies: {  }
-name: 'Member School'
-vid: member_school
-description: ''
-hierarchy: 0
-weight: 0

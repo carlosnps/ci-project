@@ -1,8 +1,0 @@
-uuid: 6c611854-46d2-4c2a-8489-a8d024a8e0e5
-langcode: en
-status: true
-dependencies: {  }
-id: monthname_day_year
-label: 'Monthname day, year'
-locked: false
-pattern: 'F j, Y'

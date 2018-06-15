@@ -1,9 +1,0 @@
-uuid: be86fd1c-b995-4405-8137-7ad96e7a6b1f
-langcode: en
-status: true
-dependencies: {  }
-name: 'Perspectives Authors'
-vid: perspectives_authors
-description: 'Authors of Perspective Articles'
-hierarchy: 0
-weight: 0

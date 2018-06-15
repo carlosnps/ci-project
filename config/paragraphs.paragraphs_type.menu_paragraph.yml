@@ -1,9 +1,0 @@
-uuid: 758660be-c573-413f-8541-33866f52c210
-langcode: en
-status: true
-dependencies: {  }
-id: menu_paragraph
-label: 'Page Submenu'
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

@@ -1,9 +1,0 @@
-uuid: 15a5cbb2-ab19-4c1e-b55e-6e9582c3c33c
-langcode: en
-status: true
-dependencies: {  }
-id: homepage_slides
-label: 'Homepage Slides'
-icon_uuid: null
-description: 'Use this paragraph type for "slides" on the home page.'
-behavior_plugins: {  }

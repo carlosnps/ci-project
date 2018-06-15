@@ -1,9 +1,0 @@
-uuid: 5f4267d8-d822-4c19-b42f-e28714b8aea2
-langcode: en
-status: true
-dependencies: {  }
-name: 'Perspectives Topics'
-vid: perspectives_topics
-description: 'Topics for Perspectives Content Type'
-hierarchy: 0
-weight: 0

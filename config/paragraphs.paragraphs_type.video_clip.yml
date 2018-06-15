@@ -1,9 +1,0 @@
-uuid: b2f8f9d8-212c-4b1c-bb7e-e60e475a9b95
-langcode: en
-status: true
-dependencies: {  }
-id: video_clip
-label: 'Video Clip'
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

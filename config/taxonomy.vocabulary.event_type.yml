@@ -1,9 +1,0 @@
-uuid: f6610d05-a38a-4a1f-80b7-dfb239af70a6
-langcode: en
-status: true
-dependencies: {  }
-name: 'Event type'
-vid: event_type
-description: ''
-hierarchy: 0
-weight: 0

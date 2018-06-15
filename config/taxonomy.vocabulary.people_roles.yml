@@ -1,9 +1,0 @@
-uuid: 21a1bc89-fb1d-4d11-b236-3c6264dc1455
-langcode: en
-status: true
-dependencies: {  }
-name: 'People Roles'
-vid: people_roles
-description: 'Use to select the person''s role'
-hierarchy: 0
-weight: 0

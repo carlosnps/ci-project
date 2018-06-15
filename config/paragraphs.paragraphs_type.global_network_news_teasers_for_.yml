@@ -1,9 +1,0 @@
-uuid: 7692a411-69cf-4e6c-876b-66d0e32477e0
-langcode: en
-status: true
-dependencies: {  }
-id: global_network_news_teasers_for_
-label: 'Global Network News Teasers for Home Page'
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

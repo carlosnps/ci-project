@@ -1,9 +1,0 @@
-uuid: 31b68f7f-5592-429f-b4bc-66cb33630397
-langcode: en
-status: true
-dependencies: {  }
-id: view
-label: View
-icon_uuid: null
-description: 'Allows you to embed a view'
-behavior_plugins: {  }

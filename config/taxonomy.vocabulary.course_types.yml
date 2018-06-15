@@ -1,9 +1,0 @@
-uuid: 2fca037e-2754-4bba-a2d5-dbfb60ad7497
-langcode: en
-status: true
-dependencies: {  }
-name: 'Course Types'
-vid: course_types
-description: ''
-hierarchy: 0
-weight: 0

@@ -1,9 +1,0 @@
-uuid: d8d74803-ce5e-4f21-9f22-faf823ed3dc8
-langcode: en
-status: true
-dependencies: {  }
-id: global_network_weeks
-label: 'Global Network Weeks'
-icon_uuid: null
-description: 'use this to add a listing of the items in the global network week.'
-behavior_plugins: {  }

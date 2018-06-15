@@ -1,9 +1,0 @@
-uuid: 7a31d805-ee63-4954-9bbc-0c5a6d3ce0de
-langcode: en
-status: true
-dependencies: {  }
-id: ad_hoc_image_link_and_teaser
-label: 'Ad-hoc Teaser with image on Left'
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

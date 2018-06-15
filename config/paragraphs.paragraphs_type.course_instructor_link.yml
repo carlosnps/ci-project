@@ -1,9 +1,0 @@
-uuid: 45c730cf-fb25-497f-b1f0-8a4c2fcfc68c
-langcode: en
-status: true
-dependencies: {  }
-id: course_instructor_link
-label: 'Course Instructor/Link'
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

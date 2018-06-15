@@ -1,9 +1,0 @@
-uuid: fe6fc303-1170-4b1f-9e39-9f1a3833a1d9
-langcode: en
-status: true
-dependencies: {  }
-name: Colors
-vid: colors
-description: 'Use this taxonomy where a school related color is not needed'
-hierarchy: 0
-weight: 0

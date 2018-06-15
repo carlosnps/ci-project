@@ -1,9 +1,0 @@
-uuid: 2bf2dfc5-dd3d-48fa-99bb-2fb24f83b4be
-langcode: en
-status: true
-dependencies: {  }
-id: large_content_teaser
-label: 'Large Content Teaser'
-icon_uuid: null
-description: 'Use this paragraph type for large, front page items'
-behavior_plugins: {  }

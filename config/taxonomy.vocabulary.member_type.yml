@@ -1,9 +1,0 @@
-uuid: a7bdd37d-ac86-4f2f-8624-7d3aacf5e0bf
-langcode: en
-status: true
-dependencies: {  }
-name: 'Member Type'
-vid: member_type
-description: 'Member Type'
-hierarchy: 0
-weight: 0
