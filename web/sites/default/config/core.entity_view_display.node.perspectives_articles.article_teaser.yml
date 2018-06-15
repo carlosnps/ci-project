@@ -1,0 +1,72 @@
+uuid: 676468eb-1fc8-4a20-ad4b-841360d52ce3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.article_teaser
+    - field.field.node.perspectives_articles.body
+    - field.field.node.perspectives_articles.field_caption
+    - field.field.node.perspectives_articles.field_featured_image
+    - field.field.node.perspectives_articles.field_image
+    - field.field.node.perspectives_articles.field_introduction
+    - field.field.node.perspectives_articles.field_link
+    - field.field.node.perspectives_articles.field_member_school
+    - field.field.node.perspectives_articles.field_perspectives_authors
+    - field.field.node.perspectives_articles.field_perspectives_topics
+    - field.field.node.perspectives_articles.field_related_news
+    - image.style.article_teaser
+    - node.type.perspectives_articles
+  module:
+    - fences
+    - image
+    - user
+_core:
+  default_config_hash: f4GQUr_pVVMq8vpNkdUcCGOyPamrOlqSzZtK57Qm4Ls
+id: node.perspectives_articles.article_teaser
+targetEntityType: node
+bundle: perspectives_articles
+mode: article_teaser
+content:
+  field_featured_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: article_teaser
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_image:
+    type: image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: article_teaser
+      image_link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+  field_member_school:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: member_school_color_name_and_country
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  body: true
+  field_caption: true
+  field_introduction: true
+  field_link: true
+  field_perspectives_authors: true
+  field_perspectives_topics: true
+  field_related_news: true
+  links: true

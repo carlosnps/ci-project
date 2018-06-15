@@ -1,0 +1,13 @@
+uuid: d1034bdd-9938-48c8-805a-e05663d30121
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rpwvgyEURXLz_JjgMCrkS1rUv-0k3L79BpO-ReN7fDI
+id: node
+label: Content
+tags:
+  description: '[node:summary]'
+  image_src: 'http://advancedmanagement.net/sites/default/files/styles/home_slide_image_772x484/public/slide/2018-03/networkedlearning.png'
+  canonical_url: '[node:url]'
+  title: '[node:title] | [site:name]'

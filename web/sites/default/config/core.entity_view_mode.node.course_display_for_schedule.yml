@@ -1,0 +1,10 @@
+uuid: 087c1338-34a7-4ffd-9469-49cf5339e500
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.course_display_for_schedule
+label: 'Course display for schedule'
+targetEntityType: node
+cache: true

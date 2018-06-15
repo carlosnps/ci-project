@@ -1,0 +1,22 @@
+uuid: 03dcaf17-2df0-4a15-ada9-8b4e47f3137d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: WzP4btvPJ84HfxdH9KQudRXXwpu8ofirkv7QjKqZJDQ
+id: node.field_portfolio_stocks
+field_name: field_portfolio_stocks
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 5
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

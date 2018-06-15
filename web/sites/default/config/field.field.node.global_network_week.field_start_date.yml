@@ -1,0 +1,21 @@
+uuid: 9558c2fb-6b3f-423b-9a6c-cccbec608b4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_start_date
+    - node.type.global_network_week
+  module:
+    - datetime
+id: node.global_network_week.field_start_date
+field_name: field_start_date
+entity_type: node
+bundle: global_network_week
+label: 'Start Date'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

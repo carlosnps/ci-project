@@ -1,0 +1,10 @@
+uuid: b4e2e906-f99b-4ba8-a279-b7f6d528045c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.teaser_content_title_linked_and_date_s_
+label: 'Teaser - Content Title (linked) and Date(s)'
+targetEntityType: node
+cache: true

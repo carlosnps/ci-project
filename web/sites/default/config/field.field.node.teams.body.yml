@@ -1,0 +1,40 @@
+uuid: 3aed32b5-4a90-43e1-9b6d-6b734db1efec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.teams
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    weight: '0'
+    geocode_field: field_team_name
+    reverse_geocode_field: {  }
+    hidden: 0
+    disabled: 0
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+_core:
+  default_config_hash: lR63a6endjmdECfYl1KV0KRu2jSsmb0o7suAbhMVE14
+id: node.teams.body
+field_name: body
+entity_type: node
+bundle: teams
+label: 'Team Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

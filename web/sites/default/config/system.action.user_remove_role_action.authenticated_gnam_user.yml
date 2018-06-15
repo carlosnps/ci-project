@@ -1,0 +1,14 @@
+uuid: d37247ab-3b86-4d85-8330-ca1347885877
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.authenticated_gnam_user
+  module:
+    - user
+id: user_remove_role_action.authenticated_gnam_user
+label: 'Remove the authenticated gnam user role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: authenticated_gnam_user

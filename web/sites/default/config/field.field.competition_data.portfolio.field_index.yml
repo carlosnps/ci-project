@@ -1,0 +1,29 @@
+uuid: 3f8afb63-7303-479b-8804-4711537f4f6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.competition_data.portfolio
+    - field.storage.competition_data.field_index
+    - taxonomy.vocabulary.competition_indexes
+id: competition_data.portfolio.field_index
+field_name: field_index
+entity_type: competition_data
+bundle: portfolio
+label: Index
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      competition_indexes: competition_indexes
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,19 @@
+uuid: 1bb46a76-8559-46d4-baa2-94a38e8fe2c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: X_pdmfMLbvLr0dYR0Gb-d0O9aVb8aCC8wWSVyDjOHvg
+name: 'Team List'
+type: team_list
+description: 'Add a team list to a competition to show the teams in alphabetical order.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

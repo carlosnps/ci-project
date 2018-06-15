@@ -1,0 +1,21 @@
+uuid: d31a3be8-d80b-436e-9902-c9d145282a6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_t
+    - node.type.member_schools
+  module:
+    - tzfield
+id: node.member_schools.field_t
+field_name: field_t
+entity_type: node
+bundle: member_schools
+label: 'Time Zone'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: tzfield

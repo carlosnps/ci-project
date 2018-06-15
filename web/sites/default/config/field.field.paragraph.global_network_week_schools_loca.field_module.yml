@@ -1,0 +1,19 @@
+uuid: 2f1e6d35-38ec-4a53-ae11-88efeeed4061
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_module
+    - paragraphs.paragraphs_type.global_network_week_schools_loca
+id: paragraph.global_network_week_schools_loca.field_module
+field_name: field_module
+entity_type: paragraph
+bundle: global_network_week_schools_loca
+label: 'Module Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

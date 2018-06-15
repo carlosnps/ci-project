@@ -1,0 +1,18 @@
+uuid: 1218f10e-19df-4193-a977-5aa845837cc5
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Event
+type: event
+description: 'A content type for all events and conferences for the site.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,46 @@
+uuid: 5d01d05d-ac88-49ec-b6e9-8df731c8f11c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_entity
+    - node.type.certificate_of_excellence_course
+    - node.type.event
+    - node.type.global_network_cases
+    - node.type.global_network_week
+    - node.type.member_schools
+    - node.type.news
+    - node.type.page
+    - node.type.people
+    - node.type.perspectives_articles
+    - node.type.teams
+    - paragraphs.paragraphs_type.homepage_slides
+id: paragraph.homepage_slides.field_entity
+field_name: field_entity
+entity_type: paragraph
+bundle: homepage_slides
+label: Entity
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      page: page
+      certificate_of_excellence_course: certificate_of_excellence_course
+      event: event
+      global_network_cases: global_network_cases
+      global_network_week: global_network_week
+      member_schools: member_schools
+      news: news
+      people: people
+      perspectives_articles: perspectives_articles
+      teams: teams
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: event
+field_type: entity_reference

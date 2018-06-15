@@ -1,0 +1,21 @@
+uuid: 9c16fd13-abf5-43cd-9db5-f4a3d59e0978
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+_core:
+  default_config_hash: 0BClwqMT9NJbO6kOUhBIhUHow7Djeq_GgdM_qI5cNvA
+id: taxonomy_term.field_currency
+field_name: field_currency
+entity_type: taxonomy_term
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

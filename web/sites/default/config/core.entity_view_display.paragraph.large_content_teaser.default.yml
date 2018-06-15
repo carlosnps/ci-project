@@ -1,0 +1,39 @@
+uuid: 6c16868b-386b-4c1b-a7cf-7977c190c06a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.large_content_teaser.field_color
+    - field.field.paragraph.large_content_teaser.field_large_teaser
+    - paragraphs.paragraphs_type.large_content_teaser
+id: paragraph.large_content_teaser.default
+targetEntityType: paragraph
+bundle: large_content_teaser
+mode: default
+content:
+  field_color:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: entity_reference_entity_view
+    region: content
+  field_large_teaser:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: large_content_teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

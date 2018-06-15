@@ -1,0 +1,17 @@
+uuid: a2aa151c-e418-4e32-a260-9c2290969b90
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: searchapi_server
+name: searchapi_server
+description: ''
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 3
+  partial_matches: true
+  autocomplete:
+    suggest_suffix: true
+    suggest_words: true

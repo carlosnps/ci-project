@@ -1,0 +1,20 @@
+uuid: b686f845-e83e-45ba-ae25-652e551bd3a3
+langcode: en
+status: true
+dependencies:
+  module:
+    - block
+    - node
+id: node.field_left_sidebar_blocks
+field_name: field_left_sidebar_blocks
+entity_type: node
+type: entity_reference
+settings:
+  target_type: block
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

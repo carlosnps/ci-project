@@ -1,0 +1,28 @@
+uuid: 717313a6-fc29-4f09-a274-c9cc224dd933
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_faculty_instructor
+    - node.type.certificate_of_excellence_course
+    - node.type.people
+id: node.certificate_of_excellence_course.field_faculty_instructor
+field_name: field_faculty_instructor
+entity_type: node
+bundle: certificate_of_excellence_course
+label: Faculty/Instructor
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      people: people
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

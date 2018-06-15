@@ -1,0 +1,40 @@
+uuid: ba038e0b-2afb-4b80-b08c-fac5ac117893
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured_image
+    - node.type.perspectives_articles
+  module:
+    - image
+_core:
+  default_config_hash: PcnEocQz3v09jx5HHWtTSh82f1br5XGIM-kvLxRebU4
+id: node.perspectives_articles.field_featured_image
+field_name: field_featured_image
+entity_type: node
+bundle: perspectives_articles
+label: 'Grid Image'
+description: 'This image is for the homepage grid. If this image is blank the Cover Image will be used.  For the global network site, the grid image is used for content teasers.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: article/grid_image
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

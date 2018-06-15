@@ -1,0 +1,27 @@
+uuid: c18404ee-6335-4c07-840a-d5d5d85c867b
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - system
+id: member_school
+label: 'Member school'
+menu_name: main
+parent: 'menu_link_content:81f156ca-89bf-447f-9721-dd62b72dfd51'
+menu_link: 'menu_position_link:member_school'
+enabled: true
+weight: -1
+conditions:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      member_schools: member_schools
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  current_theme:
+    id: current_theme
+    theme: ''
+    negate: 0
+    context_mapping: {  }

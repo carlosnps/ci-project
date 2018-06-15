@@ -1,0 +1,9 @@
+uuid: b7a79cc0-1f60-4480-afab-d20050b5922c
+langcode: en
+status: true
+dependencies: {  }
+id: global_network_cases
+label: 'Global Network Cases'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

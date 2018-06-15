@@ -1,0 +1,24 @@
+uuid: f0d888dd-64a8-45f3-8e60-97b15c7de2d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.perspectives_articles
+  module:
+    - text
+_core:
+  default_config_hash: UftB0ulyXtTyE0razx5OouDGp9UrF4HndvqB-kwDs88
+id: node.perspectives_articles.body
+field_name: body
+entity_type: node
+bundle: perspectives_articles
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

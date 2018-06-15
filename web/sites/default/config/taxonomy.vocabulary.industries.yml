@@ -1,0 +1,11 @@
+uuid: 4c9aa2bf-e43c-4195-87f9-81efe9eaf8f4
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: cJBhvlvAivtFNFESsunnbgPIQBQSlf0VIL3bYpzvFUg
+name: Industries
+vid: industries
+description: ''
+hierarchy: 0
+weight: 0

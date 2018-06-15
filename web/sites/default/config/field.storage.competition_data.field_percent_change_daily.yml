@@ -1,0 +1,20 @@
+uuid: 26e0a4df-d410-41b5-b644-0d178375d3b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: competition_data.field_percent_change_daily
+field_name: field_percent_change_daily
+entity_type: competition_data
+type: decimal
+settings:
+  precision: 15
+  scale: 4
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

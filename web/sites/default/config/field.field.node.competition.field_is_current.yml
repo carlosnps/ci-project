@@ -1,0 +1,25 @@
+uuid: 1b33081f-70f1-4dd2-8904-3c408cf0a4f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_is_current
+    - node.type.competition
+_core:
+  default_config_hash: YI4Ntcn2lBNhGGqkMvEhBqv1EJYgyory9iR3q7wasjw
+id: node.competition.field_is_current
+field_name: field_is_current
+entity_type: node
+bundle: competition
+label: 'Is Current'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

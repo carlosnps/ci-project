@@ -1,0 +1,14 @@
+uuid: 64919323-d8ca-4dfc-bca8-a809d39a7436
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.registration_in_process_user
+  module:
+    - user
+id: user_remove_role_action.registration_in_process_user
+label: 'Remove the registration in process user role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: registration_in_process_user

@@ -1,0 +1,14 @@
+uuid: d2ad5532-a4b0-4065-af68-5100a5c94ebe
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.registration_in_process_user
+  module:
+    - user
+id: user_add_role_action.registration_in_process_user
+label: 'Add the registration in process user role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: registration_in_process_user

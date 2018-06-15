@@ -1,0 +1,11 @@
+uuid: b50dd2d2-d861-4618-88f4-5be3720ea692
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: y6HFCaSYVY8xNLQIMNCIBm6B3VBbxWcGajpnuekBEZs
+id: image_link
+label: 'Image Link'
+icon_uuid: null
+description: 'Contains an image and a URL'
+behavior_plugins: {  }

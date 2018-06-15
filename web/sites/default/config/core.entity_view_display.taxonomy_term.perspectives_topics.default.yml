@@ -1,0 +1,30 @@
+uuid: dc07c888-c921-4f5f-a80e-3f6831829406
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.perspectives_topics.field_related_terms
+    - taxonomy.vocabulary.perspectives_topics
+  module:
+    - text
+id: taxonomy_term.perspectives_topics.default
+targetEntityType: taxonomy_term
+bundle: perspectives_topics
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_related_terms:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

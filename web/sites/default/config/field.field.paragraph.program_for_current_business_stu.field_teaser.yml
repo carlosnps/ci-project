@@ -1,0 +1,33 @@
+uuid: 7ce18949-6894-45b8-8a71-c0906540de9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_teaser
+    - paragraphs.paragraphs_type.program_for_current_business_stu
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: parent_id
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: paragraph.program_for_current_business_stu.field_teaser
+field_name: field_teaser
+entity_type: paragraph
+bundle: program_for_current_business_stu
+label: teaser
+description: 'Enter one paragraph at teaser text'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

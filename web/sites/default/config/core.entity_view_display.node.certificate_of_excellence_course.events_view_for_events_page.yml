@@ -1,0 +1,105 @@
+uuid: 51ba8c78-8154-4498-b31b-fc5f906dcb4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.events_view_for_events_page
+    - field.field.node.certificate_of_excellence_course.body
+    - field.field.node.certificate_of_excellence_course.field_additional_content
+    - field.field.node.certificate_of_excellence_course.field_course_date_time_info
+    - field.field.node.certificate_of_excellence_course.field_course_dates
+    - field.field.node.certificate_of_excellence_course.field_course_details_pdf_
+    - field.field.node.certificate_of_excellence_course.field_course_type
+    - field.field.node.certificate_of_excellence_course.field_end_date
+    - field.field.node.certificate_of_excellence_course.field_faculty_instructor
+    - field.field.node.certificate_of_excellence_course.field_fees
+    - field.field.node.certificate_of_excellence_course.field_link
+    - field.field.node.certificate_of_excellence_course.field_member_school
+    - field.field.node.certificate_of_excellence_course.field_semester
+    - field.field.node.certificate_of_excellence_course.field_start_date
+    - field.field.node.certificate_of_excellence_course.field_teaser
+    - field.field.node.certificate_of_excellence_course.field_topics
+    - node.type.certificate_of_excellence_course
+  module:
+    - datetime_range
+    - fences
+    - user
+id: node.certificate_of_excellence_course.events_view_for_events_page
+targetEntityType: node
+bundle: certificate_of_excellence_course
+mode: events_view_for_events_page
+content:
+  field_course_dates:
+    weight: 0
+    label: hidden
+    settings:
+      timezone_override: ''
+      separator: '-'
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: daterange_plain
+    region: content
+  field_course_type:
+    weight: 1
+    label: hidden
+    settings:
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: entity_reference_label
+    region: content
+  field_fees:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: string
+    region: content
+  field_member_school:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: entity_reference_label
+    region: content
+hidden:
+  body: true
+  field_additional_content: true
+  field_course_date_time_info: true
+  field_course_details_pdf_: true
+  field_end_date: true
+  field_faculty_instructor: true
+  field_link: true
+  field_semester: true
+  field_start_date: true
+  field_teaser: true
+  field_topics: true
+  links: true

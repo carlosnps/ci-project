@@ -1,0 +1,38 @@
+uuid: 459e869a-ec34-4592-856f-7b408189f6ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_student_name
+    - paragraphs.paragraphs_type.team_member
+  module:
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: none
+    weight: '0'
+    geocode_field: parent_id
+    reverse_geocode_field: {  }
+    hidden: 0
+    disabled: 0
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+_core:
+  default_config_hash: z1WZ53N4XU86rWhZPxWIhrGRRgtV-oCsn70tQVZVfus
+id: paragraph.team_member.field_student_name
+field_name: field_student_name
+entity_type: paragraph
+bundle: team_member
+label: 'Student Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

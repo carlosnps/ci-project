@@ -1,0 +1,53 @@
+uuid: 920d5358-3e8b-4031-895b-318cf19f9ecc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location
+    - node.type.member_schools
+  module:
+    - address
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: none
+    weight: '0'
+    geocode_field: body
+    reverse_geocode_field: {  }
+    hidden: 0
+    disabled: 0
+    plugins: {  }
+    dumper: geojson
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+_core:
+  default_config_hash: arxa4ZSpj5gRMR1lpW0nh-UvPsnQtGK_rVh36Jz_7Hs
+id: node.member_schools.field_location
+field_name: field_location
+entity_type: node
+bundle: member_schools
+label: Location
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_countries: {  }
+  fields:
+    administrativeArea: administrativeArea
+    locality: locality
+    dependentLocality: dependentLocality
+    postalCode: postalCode
+    sortingCode: sortingCode
+    addressLine1: addressLine1
+    addressLine2: addressLine2
+    organization: '0'
+    givenName: '0'
+    additionalName: '0'
+    familyName: '0'
+  langcode_override: ''
+field_type: address

@@ -1,0 +1,38 @@
+uuid: 35d22c2c-a097-4a1d-9e8d-d25308e9d358
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_region_image
+    - taxonomy.vocabulary.member_regions
+  module:
+    - image
+id: taxonomy_term.member_regions.field_region_image
+field_name: field_region_image
+entity_type: taxonomy_term
+bundle: member_regions
+label: 'Region Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: region-images
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

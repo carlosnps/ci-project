@@ -1,0 +1,22 @@
+uuid: 175ee979-c9b8-4672-8a89-d2cb3ec4c9e0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: global_network_perspectives
+label: 'Global Network Perspectives'
+type: 'canonical_entities:node'
+pattern: 'article/[node:created:custom:Y]/[node:created:custom:m]/[node:title]'
+selection_criteria:
+  16c7b8f0-639f-4b4a-8a45-3dfef1ce3a9b:
+    id: node_type
+    bundles:
+      perspectives_articles: perspectives_articles
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 16c7b8f0-639f-4b4a-8a45-3dfef1ce3a9b
+selection_logic: and
+weight: -7
+relationships: {  }

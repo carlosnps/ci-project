@@ -1,0 +1,20 @@
+uuid: 4517bbc5-297e-4133-a4f7-7744b3b0c0e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: competition_data.field_index_return_to_date
+field_name: field_index_return_to_date
+entity_type: competition_data
+type: decimal
+settings:
+  precision: 15
+  scale: 4
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

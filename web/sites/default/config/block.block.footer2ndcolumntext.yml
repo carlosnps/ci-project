@@ -1,0 +1,25 @@
+uuid: 4ae5a309-b22a-4227-9f7e-2370291d77e4
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:6f17c7fb-9785-4694-a308-c27d2b9a566d'
+  module:
+    - block_content
+  theme:
+    - ysm_global_network
+id: footer2ndcolumntext
+theme: ysm_global_network
+region: footer
+weight: -11
+provider: null
+plugin: 'block_content:6f17c7fb-9785-4694-a308-c27d2b9a566d'
+settings:
+  id: 'block_content:6f17c7fb-9785-4694-a308-c27d2b9a566d'
+  label: 'Footer 2nd column text'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

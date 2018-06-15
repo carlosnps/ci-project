@@ -1,0 +1,8 @@
+uuid: 2c7dfccb-c2e2-4573-ab8f-9eaaed77b150
+langcode: en
+status: true
+dependencies: {  }
+id: i
+label: 'ISO 8601 Date'
+locked: false
+pattern: c

@@ -1,0 +1,9 @@
+uuid: 45951142-5897-4d76-88d7-68b7b68ba1cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.competition_data
+name: Portfolio
+type: portfolio
+description: ''

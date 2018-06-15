@@ -1,0 +1,27 @@
+uuid: fc395ece-e44e-4da8-9fc1-0a629d97f403
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_team_display
+field_name: field_team_display
+entity_type: node
+type: list_float
+settings:
+  allowed_values:
+    -
+      value: !!float 0
+      label: Leaderboard
+    -
+      value: !!float 1
+      label: Performance
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

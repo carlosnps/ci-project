@@ -1,0 +1,19 @@
+uuid: 2c11584a-4cff-4cb3-9bfa-8d7357e52b2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fees
+    - node.type.certificate_of_excellence_course
+id: node.certificate_of_excellence_course.field_fees
+field_name: field_fees
+entity_type: node
+bundle: certificate_of_excellence_course
+label: Fees
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

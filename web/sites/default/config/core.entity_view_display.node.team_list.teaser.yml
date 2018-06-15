@@ -1,0 +1,30 @@
+uuid: 9502f946-aac1-49b3-8975-0fa2d4225d51
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.team_list.body
+    - field.field.node.team_list.field_team_display
+    - node.type.team_list
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: 7BFLT0pzdi6HiGMMNlBbmUSFeMXAukvVM6Ne1zL-tS8
+id: node.team_list.teaser
+targetEntityType: node
+bundle: team_list
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_team_display: true
+  links: true

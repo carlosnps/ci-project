@@ -1,0 +1,10 @@
+uuid: e3b107b8-58d7-409c-a846-fa3fd3ecd8e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.events_view_for_events_page
+label: 'Events view for Events Page'
+targetEntityType: node
+cache: true

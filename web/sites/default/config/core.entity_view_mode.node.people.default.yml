@@ -1,0 +1,10 @@
+uuid: 1802b180-4ebc-4048-95a6-0cfbdbcd22b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.people.default
+label: 'People Default View'
+targetEntityType: node
+cache: true

@@ -1,0 +1,38 @@
+uuid: fe0adfdf-d426-4b0c-8585-66ed57900594
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_override
+    - paragraphs.paragraphs_type.homepage_slides
+  module:
+    - image
+id: paragraph.homepage_slides.field_image_override
+field_name: field_image_override
+entity_type: paragraph
+bundle: homepage_slides
+label: 'Image Override'
+description: 'This image would override the default image for the "slide"'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'slide/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: 720x480
+  alt_field: true
+  alt_field_required: true
+  title_field: true
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

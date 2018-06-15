@@ -1,0 +1,50 @@
+uuid: e7636712-d342-4df3-a87c-a92b95441f8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.competition_indexes.field_country_code
+    - field.field.taxonomy_term.competition_indexes.field_currency
+    - field.field.taxonomy_term.competition_indexes.field_symbol
+    - taxonomy.vocabulary.competition_indexes
+  module:
+    - text
+_core:
+  default_config_hash: PSlbdHcqJYdoDChQwwsy7BzMdm6uKhoaWgXxAI-1loU
+id: taxonomy_term.competition_indexes.default
+targetEntityType: taxonomy_term
+bundle: competition_indexes
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_country_code:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_currency:
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_symbol:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

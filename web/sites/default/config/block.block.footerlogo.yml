@@ -1,0 +1,25 @@
+uuid: f1a67b5f-3d17-4152-831a-53727131fe57
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:84953027-5052-4403-8e09-c79868c0dbb8'
+  module:
+    - block_content
+  theme:
+    - ysm_global_network
+id: footerlogo
+theme: ysm_global_network
+region: hidden
+weight: -5
+provider: null
+plugin: 'block_content:84953027-5052-4403-8e09-c79868c0dbb8'
+settings:
+  id: 'block_content:84953027-5052-4403-8e09-c79868c0dbb8'
+  label: 'Footer Logo'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

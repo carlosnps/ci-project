@@ -1,0 +1,25 @@
+uuid: c40222ba-6e94-4800-a0e0-8549542c934b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year
+    - node.type.competition
+_core:
+  default_config_hash: Nwk5HCVar55jvEYwb6yY1ttM2ia1951fF4QW092x2G0
+id: node.competition.field_year
+field_name: field_year
+entity_type: node
+bundle: competition
+label: Year
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 2000
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal
